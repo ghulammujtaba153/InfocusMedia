@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const menuItems = [
   { name: "HOME", href: "/" },
-  { name: "OUR STORY", href: "/our-story" },
+  { name: "OUR STORY", href: "/story" },
   { name: "CLIENTS", href: "/clients" },
   { name: "WHAT WE DO", href: "/what-we-do" },
   { name: "CASE STUDIES", href: "/case-studies" },
