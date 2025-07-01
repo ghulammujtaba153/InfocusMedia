@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const data = [
@@ -37,16 +38,16 @@ const CaseStudies = () => {
                   className="w-full h-[430px] object-cover transition-all duration-300 group-hover:blur-sm"
                 />
                 {/* Hover Button */}
-                <button className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer">
+                <Link href="/case-studies/1" className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer">
                   <span className="bg-white text-black px-4 py-2 text-sm font-medium rounded shadow-md">
                     Read
                   </span>
-                </button>
+                </Link>
               </div>
 
               {/* Title and Description */}
-              <div className="mt-4 px-1">
-                <h3 className="text-xl font-semibold text-gray-900">
+              <div className="mt-2 px-1">
+                <h3 className="text-2xl font-semibold text-gray-900">
                   {item.title.toUpperCase()}
                 </h3>
                 <p className="text-gray-700 text-xs">{item.description}</p>

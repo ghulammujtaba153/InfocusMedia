@@ -12,32 +12,42 @@ const Footer = () => {
   return (
     <section className="bg-white py-10 flex flex-col items-center gap-2">
       {/* Top Section */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-between px-6 gap-6">
+      <div className="w-full flex flex-col md:flex-row md:items-center justify-between px-6 gap-6">
         {/* Logo */}
         <img
           src="/logo-black.png"
           alt="Infocus Media Logo"
-          className="w-[250px] h-auto object-contain"
+          className="md:w-[250px] w-full h-auto object-contain"
         />
 
         {/* Contact Info */}
-        <div className="text-center md:text-right">
+        <div className="text-left md:text-right">
           <p className="text-gray-800 text-sm">+970 000 000</p>
           <p className=" text-sm">contact@infocusmedia.ae</p>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-between px-6 gap-4">
+      <div className="w-full flex flex-col flex-col-reverse  lg:flex-row items-center justify-between px-6 gap-4">
         {/* Legal Links */}
-        <div className="flex flex-wrap items-center gap-6 text-sm text-gray-800">
-          <p>© InfocusMedia. All rights reserved</p>
-          <p className="cursor-pointer hover:underline">Terms & Conditions</p>
-          <p className="cursor-pointer hover:underline">Privacy Policy</p>
+        <div className="flex md:flex-row flex-col w-full justify-between items-center lg:items-center gap-6 text-sm text-gray-800">
+          
+          <div className="flex lg:flex-row flex-col gap-2 w-full">
+            <p>© InfocusMedia.</p>
+            <p>All rights reserved</p>
+
+          </div>
+          
+
+          <div className="flex w-full lg:flex-row md:text-right flex-col gap-2">
+            <p className="cursor-pointer hover:underline">Terms & Conditions</p>
+            <p className="cursor-pointer hover:underline">Privacy Policy</p>
+          </div>
+
         </div>
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4 text-gray-800">
+        <div className="flex w-full  sm:justify-between md:justify-between lg:justify-end text-right items-center gap-4 text-gray-800">
           <a href="#" aria-label="Facebook" className="hover:text-black">
             <FaFacebookF />
           </a>
