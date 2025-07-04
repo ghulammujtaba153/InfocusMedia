@@ -86,9 +86,9 @@ const Page = () => {
         
       </div>
       <div className="text-center mt-10 mb-20">
-          <button className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
+          <Link href="/case-studies" className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
             See All
-          </button>
+          </Link>
         </div>
 
 

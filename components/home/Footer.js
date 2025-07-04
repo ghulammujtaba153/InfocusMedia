@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
 
         {/* Social Icons */}
-        <div className="flex w-full  sm:justify-between md:justify-between lg:justify-end text-right items-center gap-4 text-gray-800">
+        <div className="flex w-full  justify-between md:justify-between lg:justify-end text-right items-center gap-4 text-gray-800">
           <a href="#" aria-label="Facebook" className="hover:text-black">
             <FaFacebookF />
           </a>

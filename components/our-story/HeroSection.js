@@ -1,4 +1,6 @@
+"use client"
 import React from "react";
+import CountUp from "react-countup";
 
 const HeroSection = () => {
   return (
@@ -31,25 +33,33 @@ const HeroSection = () => {
         />
 
         {/* Left Stats */}
-        <div className="absolute top-[80px] left-0 z-10 w-full md:w-1/3 px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="absolute top-[80px] left-0 z-10 w-full md:w-1/3 pl-10 sm:pl-[60px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex flex-col items-center justify-center gap-2">
-            <h1 className="text-3xl md:text-5xl font-bold">10+</h1>
+            <h1 className="text-3xl md:text-5xl font-bold">
+              <CountUp end={10} duration={3} />+
+            </h1>
             <h2 className="text-base md:text-xl font-bold text-center">Years of Experience</h2>
           </div>
           <div className="flex flex-col items-center justify-center gap-2">
-            <h1 className="text-3xl md:text-5xl font-bold">70+</h1>
+            <h1 className="text-3xl md:text-5xl font-bold">
+              <CountUp end={70} duration={3} />+
+            </h1>
             <h2 className="text-base md:text-xl font-bold text-center">Clients</h2>
           </div>
         </div>
 
         {/* Right Stats */}
-        <div className="absolute top-[80px] right-0 z-10 w-full md:w-1/3 px-4 flex flex-col md:flex-row items-end md:items-center justify-end gap-6">
+        <div className="absolute top-[80px] right-0 z-10 w-full md:w-1/3 pr-[60px] flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
           <div className="flex flex-col items-center justify-center gap-2">
-            <h1 className="text-3xl md:text-5xl font-bold">10+</h1>
+            <h1 className="text-3xl md:text-5xl font-bold">
+              <CountUp end={10} duration={3} />+
+            </h1>
             <h2 className="text-base md:text-xl font-bold text-center">Employees</h2>
           </div>
           <div className="flex flex-col items-center justify-center gap-2">
-            <h1 className="text-3xl md:text-5xl font-bold">100+</h1>
+            <h1 className="text-3xl md:text-5xl font-bold">
+              <CountUp end={100} duration={3} />+
+            </h1>
             <h2 className="text-base md:text-xl font-bold text-center">Projects</h2>
           </div>
         </div>

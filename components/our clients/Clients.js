@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 const Clients = () => {
@@ -90,9 +91,9 @@ const Clients = () => {
           );
         })}
         <div className="text-center mt-10">
-        <button className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
-          Join Them!
-        </button>
+        <Link href={"/contacts"} className="bg-black text-white px-2 py-3 text-xs md:px-6 md:py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md md:font-medium">
+          Join Them
+        </Link>
       </div>
       </div>
 

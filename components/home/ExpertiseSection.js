@@ -51,39 +51,31 @@ const ExpertiseSection = () => {
                     </h2>
                 </div>
 
-                <div className="flex md:flex-row flex-col items-center justify-center w-full bg-red-400 overflow-hidden">
-                    <div className="relative w-full">
-                        <img
-                            src="/assets/expertise/image1.png"
-                            alt="Expertise 1"
-                            className="h-[900px] w-full object-cover"
-                        />
-                        <img src="/assets/expertise/layer1.png"
-                            alt="l"
-                            className="top-0 left-0 absolute object-cover" />
-                    </div>
+                <div className="flex md:flex-row flex-col items-center justify-center w-full  overflow-hidden">
+                    
 
-                    <div className="relative w-full">
-                        <img
-                            src="/assets/expertise/image2.png"
-                            alt="Expertise 1"
-                            className="h-[900px] w-full object-cover"
-                        />
-                        <img src="/assets/expertise/layer2.png"
-                            alt="l"
-                            className="bottom-0 left-0 absolute w-full object-cover" />
-                    </div>
-                    <div className="relative w-full ">
-                        <img
-                            src="/assets/expertise/image3.png"
-                            alt="Expertise 1"
-                            className="h-[900px] w-full object-cover"
-                        />
-                        <img src="/assets/expertise/layer3.png"
-                            alt="l"
-                            className="top-0 left-0 absolute object-cover w-full" />
-                    </div>
-                </div>
+                    
+        
+          <video src="/expertise-animations/Visuals.mp4" className="w-full h-full object-cover" autoPlay loop muted playsInline />
+          <video
+            src="/expertise-animations/Animation2.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <video
+            src="/expertise-animations/Production.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        </div>
+      
+                
 
                 <div className="w-full flex flex-col lg:flex-row items-center gap-10 pt-[-100px] bg-white">
                     {/* Left Side - Image */}

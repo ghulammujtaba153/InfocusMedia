@@ -10,7 +10,6 @@ import SpotLightClients from "@/components/home/SpotLightClients";
 import Location from "@/components/home/team/Location";
 import TeamSection from "@/components/home/team/TeamSection";
 import TopSection from "@/components/home/TopSection";
-import TransformGlobe from "@/components/home/TransformGlobe";
 import WorkSection from "@/components/home/WorkSection";
 import { useEffect, useRef } from "react";
 
@@ -18,19 +17,19 @@ export default function Home() {
   
 
   return (
-    <>
-      <TopSection/>
+    <div className="overflow-x-hidden">
+      {/* <TopSection/> */}
       <HeroSection/>
       <WorkSection/>
       <SpotLightClients/>
       <ExpertiseSection/>
       <CaseStudies/>
-      <TransformGlobe/>
+      
       <InsightGlobe/>
       <TeamSection/>
       <Location/>
       <FooterGlobe/>
       <Footer/>
-    </>
+    </div>
   );
 }

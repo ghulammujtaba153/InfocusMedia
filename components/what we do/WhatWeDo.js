@@ -84,7 +84,7 @@ const WhatWeDo = () => {
               <div
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
-                className={`flex gap-2 p-6 justify-start items-start transition duration-300 bg-white
+                className={`flex lg:flex-row flex-col gap-2 p-6 justify-center lg:justify-start items-center lg:items-start transition duration-300 bg-white
                   ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
                   ${!isFirstRow ? "border-t" : ""}
                   ${!isFirstCol ? "border-l" : ""}
@@ -96,9 +96,9 @@ const WhatWeDo = () => {
                   alt={service.title}
                   className="w-[60px] h-[60px] hover:scale-110 transition-transform duration-300"
                 />
-                <div className="flex flex-col">
+                <div className="flex lg:flex-col">
                   <h3 className="font-bold mb-2 mt-1 text-sm px-1">{service.title}</h3>
-                  <p className="text-sm px-1">{service.description}</p>
+                  <p className="text-sm px-1 lg:block hidden">{service.description}</p>
                 </div>
               </div>
             );

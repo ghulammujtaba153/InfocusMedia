@@ -1,64 +1,29 @@
-import React from "react";
+"use client";
 
-const data = [
-  {
-    title: "7X x Sikka Collaboration",
-    image: [
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-    ],
-  },
-  {
-    title: "Marketing Campaign",
-    image: [
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-    ],
-  },
-  {
-    title: "EXPO Event Coverage",
-    image: [
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-    ],
-  },
-  {
-    title: "Brand Partnership",
-    image: [
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-      "/assets/Case studies/7X x Sikka.jpg",
-    ],
-  },
-];
+import React, { useState } from "react";
+import { animationData } from "@/utils/data";
 
 const Animation = () => {
+  const ITEMS_PER_PAGE = 2; // Show 2 items initially
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+
+  const handleSeeMore = () => {
+    setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+  };
+
+  const isAllDataVisible = visibleCount >= animationData.length;
+
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full gap-8">
-        {data.map((item, index) => (
+        {animationData.slice(0, visibleCount).map((item, index) => (
           <React.Fragment key={index}>
             <div className="w-full h-[1px] bg-gray-200 my-6"></div>
 
-            <div className="flex flex-col flex-col-reverse md:flex-row gap-6 w-full">
+            <div className="flex flex-col-reverse md:flex-row gap-6 w-full">
               {/* Text */}
               <div className="md:w-1/3 w-full flex md:justify-end">
-                <div className="flex gap-10 md:gap-0 md:flex-col  md:text-right text-left">
+                <div className="flex gap-10 md:gap-0 md:flex-col md:text-right text-left">
                   <p className="text-sm text-gray-500">Client</p>
                   <div className="flex flex-col">
                     <h1 className="text-xl font-semibold">{item.title}</h1>
@@ -68,12 +33,12 @@ const Animation = () => {
 
               {/* Image */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {item.image.map((image, index) => (
+                {item.image.map((image, i) => (
                   <img
-                    key={index}
+                    key={i}
                     src={image}
                     alt={item.title || "Case Study"}
-                    className="w-full h-[750px] object-cover "
+                    className="w-full h-[750px] object-cover"
                   />
                 ))}
               </div>
@@ -81,11 +46,17 @@ const Animation = () => {
           </React.Fragment>
         ))}
       </div>
-      <div className="flex justify-center items-center mt-10">
-        <button className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
-          See More!
-        </button>
-      </div>
+
+      {!isAllDataVisible && (
+        <div className="flex justify-center items-center mt-10">
+          <button
+            onClick={handleSeeMore}
+            className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
+          >
+            See More!
+          </button>
+        </div>
+      )}
     </div>
   );
 };
