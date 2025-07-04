@@ -52,40 +52,39 @@ const ExpertiseSection = () => {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center w-full overflow-hidden">
-  <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
-    <video
-      src="/expertise-animations/Visuals.mp4"
-      className="w-full h-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
-  </div>
-  <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
-    <video
-      src="/expertise-animations/Animation2.mp4"
-      className="w-full h-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
-  </div>
-  <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
-    <video
-      src="/expertise-animations/Production.mp4"
-      className="w-full h-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
-  </div>
-</div>
+          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+            <video
+              src="/expertise-animations/Visuals.mp4"
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+            <video
+              src="/expertise-animations/Animation2.mp4"
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+            <video
+              src="/expertise-animations/Production.mp4"
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+        </div>
 
-
-        <div className="w-full relative flex flex-col lg:flex-row items-center gap-10 pt-[-100px] bg-white">
+        <div className="w-full  relative flex flex-col lg:flex-row items-center gap-10 pt-[-100px] bg-white">
           {/* Left Side - Image */}
           <div className="sticky top-0 w-full lg:w-1/2 ">
             <img
