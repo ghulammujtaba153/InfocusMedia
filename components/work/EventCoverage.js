@@ -36,11 +36,11 @@ const EventCoverage = () => {
       <div className='flex flex-col w-full gap-8'>
         {data.slice(0, visibleCount).map((item, index) => (
           <React.Fragment key={index}>
-            <div className='w-full h-[1px] bg-gray-200 my-6'></div>
+            <div className='w-full h-[1px] bg-gray-100 my-6'></div>
 
             <div className='flex flex-col flex-col-reverse md:flex-row gap-6 w-full'>
               {/* Text */}
-              <div className='md:w-1/3 w-full flex md:justify-end'>
+              <div className='md:w-1/4 w-full flex md:justify-end'>
                 <div className='flex gap-10 md:gap-0 md:flex-col  md:text-right text-left'>
                   <p className='text-sm text-gray-500'>Client</p>
                   <div className='flex flex-col'>
@@ -50,7 +50,7 @@ const EventCoverage = () => {
               </div>
 
               {/* Image */}
-              <div className='w-full md:w-2/3'>
+              <div className='w-full md:w-3/4'>
                 <img
                   src={item.image}
                   alt={item.title || 'Case Study'}

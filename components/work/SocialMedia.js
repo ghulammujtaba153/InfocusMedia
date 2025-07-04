@@ -33,7 +33,7 @@ const SocialMedia = () => {
             <div className="w-full h-[1px] bg-gray-200 my-6"></div>
 
             <div className="flex flex-col-reverse md:flex-row gap-6 w-full">
-              <div className="md:w-1/3 w-full flex md:justify-end">
+              <div className="md:w-1/4 w-full flex md:justify-end">
                 <div className="flex gap-10 md:gap-0 md:flex-col md:text-right text-left">
                   <p className="text-sm text-gray-500">Client</p>
                   <div className="flex flex-col">
@@ -49,7 +49,7 @@ const SocialMedia = () => {
                     onClick={() => openModal(item.image, idx)}
                     src={image}
                     alt={item.title}
-                    className="w-full h-[300px] object-cover cursor-pointer"
+                    className="w-full h-[350px] object-cover cursor-pointer"
                   />
                 ))}
               </div>

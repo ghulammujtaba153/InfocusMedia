@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 const data = [
   {
@@ -25,14 +26,29 @@ const CaseStudies = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section className="relative bg-white py-20 z-20">
-      <div className="container mx-auto px-6">
+    <section className="relative bg-white z-20">
+      <div className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold font-bandeins-strange text-black text-center mb-12">Case Studies</h1>
+          <motion.h1 
+            className="text-5xl font-bold font-bandeins-strange text-black text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Case Studies
+          </motion.h1>
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6">
           {data.map((item, index) => (
-            <div key={index} className="flex flex-col">
+            <motion.div 
+              key={index} 
+              className="flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
               {/* Image Wrapper with Hover Group */}
               <div className="relative group overflow-hidden">
                 <img
@@ -58,14 +74,20 @@ const CaseStudies = () => {
                 </h3>
                 <p className="text-gray-700 text-xs">{item.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="text-center mt-10 font-bandeins-strange">
+        <motion.div 
+          className="text-center mt-10 font-bandeins-strange"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <Link href={"/case-studies"} className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
             See All
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

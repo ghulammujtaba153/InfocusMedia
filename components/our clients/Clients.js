@@ -76,7 +76,7 @@ const Clients = () => {
                 ${!isFirstColumn ? "border-l" : ""}
                 ${!isLastColumn ? "border-r" : ""}
                 ${!isLastRow ? "border-b" : ""}
-                border-gray-300
+                border-gray-100
               `}
             >
               <img

@@ -8,6 +8,7 @@ import HeroSection from "@/components/home/HeroSection";
 import InsightGlobe from "@/components/home/InsightGlobe";
 import SpotLightClients from "@/components/home/SpotLightClients";
 import Location from "@/components/home/team/Location";
+import SheikhCaseStudiesContainer from "@/components/home/team/PortraitSection";
 import TeamSection from "@/components/home/team/TeamSection";
 import TopSection from "@/components/home/TopSection";
 import WorkSection from "@/components/home/WorkSection";
@@ -24,6 +25,8 @@ export default function Home() {
       <SpotLightClients/>
       <ExpertiseSection/>
       <CaseStudies/>
+
+      {/* <SheikhCaseStudiesContainer/> */}
       
       <InsightGlobe/>
       <TeamSection/>

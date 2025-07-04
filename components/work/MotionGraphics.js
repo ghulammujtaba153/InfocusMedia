@@ -30,7 +30,7 @@ const MotionGraphics = () => {
           return (
             <div
               key={index}
-              className={`flex md:flex-row flex-col-reverse gap-4 p-4 border-gray-200 border-t border-b 
+              className={`flex md:flex-row flex-col-reverse gap-4 p-4 border-gray-100 border-t border-b 
                 ${isEven ? '' : 'md:border-l'} 
                 ${index < 2 ? 'border-t' : ''}`}
             >
