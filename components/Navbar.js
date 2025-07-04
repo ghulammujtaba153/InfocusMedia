@@ -18,30 +18,29 @@ const menuItems = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
-  const navRef = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isDarkBg, setIsDarkBg] = useState(false);
+
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const bgIsDark = entry.intersectionRatio < 1; // Navbar is over a dark section
-        setIsDarkBackground(bgIsDark);
+        setIsDarkBg(!entry.isIntersecting);
       },
-      { threshold: [1] }
+      { threshold: 1 }
     );
 
-    if (navRef.current) {
-      observer.observe(navRef.current);
+    if (navbarRef.current) {
+      observer.observe(navbarRef.current);
     }
 
     return () => {
-      if (navRef.current) {
-        observer.unobserve(navRef.current);
-      }
+      if (navbarRef.current) observer.unobserve(navbarRef.current);
     };
   }, []);
 
-  const iconColor = menuOpen || isDarkBackground ? "white" : "black";
+  const iconColor = menuOpen || isDarkBg ? "white" : "black";
   const bgColor = menuOpen ? "bg-black" : "bg-gray-100";
 
   return (
@@ -61,7 +60,13 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-white hover:text-gray-300`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`transition-colors duration-200 ${
+                  hoveredIndex !== null && hoveredIndex !== index
+                    ? "text-white/30"
+                    : "text-white hover:text-gray-300"
+                }`}
               >
                 {item.name}
               </Link>
@@ -72,19 +77,21 @@ const Navbar = () => {
 
       {/* Navbar */}
       <nav
-        ref={navRef}
+        ref={navbarRef}
         className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all"
       >
         <div className="w-[220px] transition-colors duration-300">
           <Link href={"/"}>
             <img
-              src={isDarkBackground ? "/logo.png" : "/logo-black.png"}
+              src={menuOpen || isDarkBg ? "/logo.png" : "/logo-black.png"}
+              onClick={() => setMenuOpen(false)}
               alt="Infocus Media Logo"
               className="sm:w-[250px] w-[180px] h-auto object-contain"
             />
           </Link>
         </div>
 
+        {/* Icons */}
         <div className="flex items-center justify-center gap-4">
           <button className={`p-2 rounded-sm transition cursor-pointer ${bgColor}`}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -100,13 +107,18 @@ const Navbar = () => {
             onClick={() => setMenuOpen((prev) => !prev)}
             className={`p-2 rounded-sm transition cursor-pointer ${bgColor}`}
           >
-            
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <line x1="3" y1="3" x2="21" y2="21" stroke={iconColor} strokeWidth="3" />
+                <line x1="3" y1="21" x2="21" y2="3" stroke={iconColor} strokeWidth="3" />
+              </svg>
+            ) : (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <line y1="4" x2="24" y2="4" stroke={iconColor} strokeWidth="3" />
                 <line y1="12" x2="24" y2="12" stroke={iconColor} strokeWidth="3" />
                 <line y1="20" x2="24" y2="20" stroke={iconColor} strokeWidth="3" />
               </svg>
-            
+            )}
           </button>
         </div>
       </nav>

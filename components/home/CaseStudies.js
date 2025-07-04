@@ -30,39 +30,33 @@ const CaseStudies = () => {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold font-bandeins-strange text-black text-center mb-12">Case Studies</h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-stretch gap-6">
+        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6">
           {data.map((item, index) => (
-            <div key={index} className="flex flex-col w-full">
+            <div key={index} className="flex flex-col">
               {/* Image Wrapper with Hover Group */}
-              <div
-                className="relative group overflow-hidden"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
+              <div className="relative group overflow-hidden">
                 <img
-                  src={item.image || "/placeholder.svg"}
+                  src={item.image}
                   alt={item.title}
-                  className={`w-full h-80 object-cover transition-all duration-500 ease-in-out ${
-                    hoveredIndex === null
-                      ? "scale-100 blur-0"
-                      : hoveredIndex === index
-                        ? "scale-110 blur-0"
-                        : "scale-95 blur-sm"
-                  }`}
+                  className="w-full h-[430px] object-cover transition-all duration-300 group-hover:blur-sm"
                 />
                 {/* Hover Button */}
-                <div className="absolute top-[50%] left-[40%]">
-                  <button className="flex bg-white px-4 py-2 rounded-md items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer">
+                <Link
+                  href="/case-studies/1"
+                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
+                >
+                  <span className="bg-white text-black px-4 py-2 text-sm font-medium rounded shadow-md">
                     Read
-                  </button>
-                </div>
+                  </span>
+                </Link>
               </div>
+
               {/* Title and Description */}
-              <div className="mt-4 px-1">
-                <h3 className="text-xl font-bandeins-strange font-semibold text-gray-900">
+              <div className="mt-2 px-1">
+                <h3 className="text-2xl font-semibold text-gray-900">
                   {item.title.toUpperCase()}
                 </h3>
-                <p className="text-gray-700 font-bandeins-strange text-xs">{item.description}</p>
+                <p className="text-gray-700 text-xs">{item.description}</p>
               </div>
             </div>
           ))}

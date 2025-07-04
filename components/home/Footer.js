@@ -22,8 +22,8 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="text-left md:text-right">
-          <p className="text-gray-800 text-sm">+970 000 000</p>
-          <p className=" text-sm">contact@infocusmedia.ae</p>
+          <p className="text-gray-800  text-sm">+970 000 000</p>
+          <p className=" text-sm uppercase">contact@infocusmedia.ae</p>
         </div>
       </div>
 
@@ -33,15 +33,15 @@ const Footer = () => {
         <div className="flex md:flex-row flex-col w-full justify-between items-center lg:items-center gap-6 text-sm text-gray-800">
           
           <div className="flex lg:flex-row flex-col gap-2 w-full">
-            <p>© InfocusMedia.</p>
-            <p>All rights reserved</p>
+            <p className="uppercase">© InfocusMedia.</p>
+            <p className="uppercase">All rights reserved</p>
 
           </div>
           
 
           <div className="flex w-full lg:flex-row md:text-right flex-col gap-2">
-            <p className="cursor-pointer hover:underline">Terms & Conditions</p>
-            <p className="cursor-pointer hover:underline">Privacy Policy</p>
+            <p className="cursor-pointer hover:underline uppercase">Terms & Conditions</p>
+            <p className="cursor-pointer hover:underline uppercase">Privacy Policy</p>
           </div>
 
         </div>

@@ -15,15 +15,15 @@ const TimeLine = () => {
     const container = containerRef.current;
     const timeline = timelineRef.current;
 
-    const totalWidth = timeline.scrollWidth;
+    const totalWidth = timeline.scrollWidth ;
 
     const tl = gsap.to(timeline, {
       x: -totalWidth,
       ease: "none",
       scrollTrigger: {
         trigger: container,
-        start: "top top",
-        end: () => `+=${totalWidth}`,
+        start: "center center", // Start when the container's center aligns with the viewport's center
+        end: () => `+=${totalWidth}`, // Animate across the timeline's full width
         scrub: true,
         pin: true,
         anticipatePin: 1,
@@ -38,16 +38,12 @@ const TimeLine = () => {
   const lastActiveIndex = timelineData.map((d) => d.active).lastIndexOf(true);
 
   return (
-    <div ref={containerRef} className="relative w-full bg-white overflow-hidden px-4 md:px-8">
-      <div
-        ref={timelineRef}
-        className="flex py-20 min-w-max px-4 md:px-8" // <- Padding added here for timeline items
-      >
+    <div ref={containerRef} className="relative w-full bg-white overflow-hidden px-4 md:px-8 py-20">
+      <div ref={timelineRef} className="flex min-w-max">
         {timelineData.map((item, index) => {
           const isLastActive = index === lastActiveIndex;
-
           return (
-            <div key={index} className="flex flex-col items-center min-w-[200px]">
+            <div key={index} className="flex flex-col items-center min-w-[250px]">
               <div className="text-center mb-6">
                 <div className={`text-4xl font-bold ${isLastActive ? "text-green-500" : "text-black"}`}>
                   {item.title}
@@ -56,12 +52,14 @@ const TimeLine = () => {
                 <div className="flex items-center my-6">
                   <div className={`w-4 h-4 rounded-full ${item.active ? "bg-green-500" : "bg-gray-300"} z-10`} />
                   {index !== timelineData.length - 1 && (
-                    <div className={`h-[1px] w-52 ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
+                    <div className={`h-[1px] w-[300px] ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
                   )}
                 </div>
 
                 <div className="text-sm font-medium">{item.subTitle}</div>
-                <div className="text-sm">{item.description}</div>
+                {item.description.map((desc, i) => (
+                  <p key={i} className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+                ))}
               </div>
             </div>
           );
