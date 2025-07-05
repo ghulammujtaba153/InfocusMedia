@@ -2,7 +2,7 @@ import React from "react";
 
 const TeamLocationSection = () => {
   return (
-    <div className="flex items-center gap-4 px-4 w-full h-screen">
+    <div className="flex items-center lg:flex-row flex-col gap-4 px-4 w-full h-screen">
       {/* left side */}
       <div className="flex flex-col justify-between p-10 bg-black text-white h-screen w-full md:w-1/2">
         <div className="flex flex-col gap-2">
@@ -16,7 +16,7 @@ const TeamLocationSection = () => {
           </p>
           <div className="flex mt-6">
             <button className="bg-white text-black px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
-              See More!
+              See More
             </button>
           </div>
         </div>

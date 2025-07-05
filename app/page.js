@@ -18,15 +18,18 @@ export default function Home() {
   
 
   return (
-    <div className="overflow-x-hidden">
-      {/* <TopSection/> */}
+    <div className="">
+      
       <HeroSection/>
+      <TopSection/> 
       <WorkSection/>
-      <SpotLightClients/>
+      <SpotLightClients/> 
       <ExpertiseSection/>
-      <CaseStudies/>
+      {/* <CaseStudies/> */}
 
-      {/* <SheikhCaseStudiesContainer/> */}
+      <div className="relative">
+        <SheikhCaseStudiesContainer />
+      </div>
       
       <InsightGlobe/>
       <TeamSection/>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { animationData } from "@/utils/data";
 
 const Animation = () => {
-  const ITEMS_PER_PAGE = 2; // Show 2 items initially
+  const ITEMS_PER_PAGE = 4; // Show 2 items initially
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   const handleSeeMore = () => {
@@ -53,7 +53,7 @@ const Animation = () => {
             onClick={handleSeeMore}
             className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
           >
-            See More!
+            See More
           </button>
         </div>
       )}

@@ -8,11 +8,11 @@ const data = [
 ];
 
 const VideoProduction = () => {
-  const [visibleCount, setVisibleCount] = useState(2); // Show 2 initially
+  const [visibleCount, setVisibleCount] = useState(4); // Show 2 initially
 
   const handleToggle = () => {
     if (visibleCount >= data.length) {
-      setVisibleCount(2); // Collapse to 2 items
+      setVisibleCount(4); // Collapse to 2 items
     } else {
       setVisibleCount(data.length); // Show all
     }

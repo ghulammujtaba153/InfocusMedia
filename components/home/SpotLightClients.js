@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const SpotLightClients = () => {
   const clients = [
@@ -54,7 +55,7 @@ const SpotLightClients = () => {
           {duplicated.map((client, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[200px] h-[120px] flex items-center justify-center p-4"
+              className="flex-shrink-0 w-[280px] h-[156px] flex items-center justify-center p-4"
             >
               <img
                 src={client.logo}
@@ -75,7 +76,7 @@ const SpotLightClients = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-black mb-4">
             Spotlighted Clients
           </h2>
         </div>
@@ -87,9 +88,9 @@ const SpotLightClients = () => {
         <ClientRow clients={row3} reverse={false} duration={8} />
 
         <div className="text-center mt-10">
-          <button className='bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium'>
+          <Link href="/clients" className='bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium'>
             See All
-          </button>
+          </Link>
         </div>
       </div>
     </section>

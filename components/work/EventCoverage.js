@@ -20,7 +20,7 @@ const data = [
 ]
 
 const EventCoverage = () => {
-  const INITIAL_COUNT = 2;
+  const INITIAL_COUNT = 4;
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
   const handleToggle = () => {

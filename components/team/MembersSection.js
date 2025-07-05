@@ -46,7 +46,7 @@ const MembersSection = () => {
       </div>
 
       {/* Other members */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-2 mt-10">
         {data.slice(1).map((item, index) => (
           <div
             key={index}

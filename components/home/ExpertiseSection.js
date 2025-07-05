@@ -43,16 +43,16 @@ const ExpertiseSection = () => {
   }, [displayText, isDeleting, currentWord, words]);
 
   return (
-    <section className="relative bg-white py-20">
-      <div className="container mx-auto ">
+    <section className="relative  bg-white py-20">
+      <div className=" w-full overflow-hidden">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             CORE EXPERTISE
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center w-full overflow-hidden">
-          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+        <div className="flex flex-col md:flex-row bg-red-500 w-full items-center justify-center w-full overflow-hidden">
+          <div className="w-full md:w-1/3 h-[700px]">
             <video
               src="/expertise-animations/Visuals.mp4"
               className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+          <div className="w-full md:w-1/3 h-[700px]">
             <video
               src="/expertise-animations/Animation2.mp4"
               className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-[300px] md:h-[500px]">
+          <div className="w-full md:w-1/3 h-[700px]">
             <video
               src="/expertise-animations/Production.mp4"
               className="w-full h-full object-cover"
@@ -84,8 +84,8 @@ const ExpertiseSection = () => {
           </div>
         </div>
 
-        <div className="w-full  relative flex flex-col lg:flex-row items-center gap-10 pt-[-100px] bg-white">
-          {/* Left Side - Image */}
+        {/* <div className="w-full  relative flex flex-col lg:flex-row items-center gap-10 pt-[-100px] bg-white">
+          
           <div className="sticky top-0 w-full lg:w-1/2 ">
             <img
               src="/assets/portrait.png"
@@ -94,7 +94,7 @@ const ExpertiseSection = () => {
             />
           </div>
 
-          {/* Right Side - Text */}
+          
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <p className="text-green-500 text-5xl">"</p>
 
@@ -119,7 +119,9 @@ const ExpertiseSection = () => {
               – H.H. Sheikh Mohammed bin Rashid Al Maktoum
             </p>
           </div>
-        </div>
+        </div> */}
+
+        
       </div>
     </section>
   );

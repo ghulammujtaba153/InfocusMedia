@@ -10,7 +10,7 @@ const data = [
 ];
 
 const MotionGraphics = () => {
-  const [visibleCount, setVisibleCount] = useState(2); // Show 2 by default
+  const [visibleCount, setVisibleCount] = useState(4); // Show 2 by default
 
   const handleToggle = () => {
     if (visibleCount >= data.length) {

@@ -15,9 +15,16 @@ html {
   font-family: 'Bandeins Strange Variable', sans-serif;
 }
 
+/* html, body {
+  height: 100%;
+  overflow-x: hidden;
+} */
+
 
 body {
   font-family: 'Bandeins Strange Variable', sans-serif;
+  padding: 0%;
+  margin: 0%;
 }
 
 

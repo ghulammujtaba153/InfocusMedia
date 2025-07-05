@@ -88,7 +88,7 @@ const TeamSection = () => {
                 {/* Previous Button */}
                 <button
                     onClick={prevSlide}
-                    className="absolute left-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+                    className="cursor-pointer absolute left-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
                     aria-label="Previous team member"
                 >
                     <FaChevronLeft className="text-white text-xl" />
@@ -122,12 +122,12 @@ const TeamSection = () => {
                                     className={`flex flex-col items-center justify-center text-center transition-all duration-500 ${isCenter ? 'z-10' : 'z-0'
                                         }`}
                                 >
-                                    <div className={`relative rounded-2xl p-6 ${isCenter ? 'w-[350px] h-[400px]' : Math.abs(item.position) === 1 ? 'w-[250px] h-[210px]' : 'w-[250px] h-[210px]'
+                                    <div className={`relative rounded-2xl p-6 ${isCenter ? 'max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
                                         }`}>
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className={`rounded-full object-cover mx-auto mb-4 ${isCenter ? 'w-[270px] h-[270px]' : Math.abs(item.position) === 1 ? 'w-[250px] h-[210px]' : 'w-[250px] h-[210px]'
+                                            className={`rounded-full object-cover mx-auto mb-4 ${isCenter ? 'max-w-[414px] max-h-[414px]' : Math.abs(item.position) === 1 ? 'max-w-[350px] max-h-[350px] ' : 'max-w-[350px] max-h-[350px]'
                                                 }`}
                                         />
                                         <p className="text-sm  uppercase tracking-wider font-semibold mb-2">
@@ -147,7 +147,7 @@ const TeamSection = () => {
                 {/* Next Button */}
                 <button
                     onClick={nextSlide}
-                    className="absolute right-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+                    className="cursor-pointer absolute right-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
                     aria-label="Next team member"
                 >
                     <FaChevronRight className="text-white text-xl" />

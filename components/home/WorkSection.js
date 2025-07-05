@@ -38,7 +38,7 @@ const WorkSection = () => {
 
   return (
     <section className="relative bg-white py-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             What We Do
@@ -47,7 +47,7 @@ const WorkSection = () => {
 
         <div
           className="grid grid-cols-2 lg:grid-cols-7 gap-8"
-          onMouseLeave={() => setHoveredIndex(null)} // Reset hover when leaving grid
+          onMouseLeave={() => setHoveredIndex(null)} 
         >
           {services.map((service, index) => (
             <div
@@ -57,7 +57,7 @@ const WorkSection = () => {
                 ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
               `}
             >
-              <img src={service.icon} alt={service.title} className="w-[80px] h-[80px] hover:scale-130 duration-300 transition-transform" />
+              <img src={service.icon} alt={service.title} className="w-[110px] h-[110px] hover:scale-130 duration-300 transition-transform" />
               <h3 className="font-bold text-center text-gray-900 mb-3 mt-2 text-sm px-2">
                 {service.title}
               </h3>

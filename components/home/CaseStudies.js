@@ -26,8 +26,8 @@ const CaseStudies = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section className="h-screen">
-      <div className="container mx-auto px-6 py-20">
+    <section className="min-h-screen">
+      <div className="container mx-auto px-4 lg:px-6 py-20">
         <div className="text-center mb-16">
           <motion.h1 
             className="text-5xl font-bold font-bandeins-strange text-black text-center mb-12"
