@@ -9,6 +9,10 @@
   font-display: swap;
 }
 
+:root {
+  overflow-x: hidden;
+}
+
 
 /* Set global font */
 html {
