@@ -19,7 +19,7 @@ const WorkSection = () => {
       icon: "/assets/Icons/digital marketing & web development.svg"
     },
     {
-      title: "COMERCIAL DIGITAL MARKETING",
+      title: "COMERCIAL Video MARKETING",
       icon: "/assets/Icons/commercial video production.svg"
     },
     {
