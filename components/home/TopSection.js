@@ -53,16 +53,22 @@ const TopSection = () => {
           <img src="/projects/8.png" alt="" className="w-full h-[80px] object-cover" />
           <img src="/projects/9.png" alt="" className="w-full h-[80px] object-cover" />
         </div>
-        <div className="flex items-center gap-4 w-full h-full">
-          <img src="/projects/14.png" alt="" className="w-[200px] h-screen object-cover" />
+        <div className="relative flex items-center gap-4 w-full ">
+          <img src="/projects/14.png" alt="" className="w-[40px] md:w-[100px] h-screen object-cover" />
           {/* Scalable Center Image */}
           <motion.img
             ref={imageRef}
             src="/main.png"
             alt=""
-            className="h-[100%] w-[95%] object-cover"
+            className="h-[100%] w-[100%] object-cover"
           />
-          <img src="/projects/10.png" alt="" className="w-[200px] h-screen object-cover" />
+          <img src="/projects/10.png" alt="" className="w-[40px] md:w-[100px] h-screen object-cover" />
+        </div>
+
+        <div className="flex w-full gap-4">
+          <img src="/projects/7.png" alt="" className="w-full h-[80px] object-cover" />
+          <img src="/projects/8.png" alt="" className="w-full h-[80px] object-cover" />
+          <img src="/projects/9.png" alt="" className="w-full h-[80px] object-cover" />
         </div>
       </div>
       {/* Overlay */}

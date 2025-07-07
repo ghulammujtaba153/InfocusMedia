@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import CaseStudies from "../CaseStudies"
+import ExpertiseSection from "../ExpertiseSection"
 
 const SheikhCaseStudiesContainer = () => {
   const [currentWord, setCurrentWord] = useState(0)
@@ -12,23 +13,7 @@ const SheikhCaseStudiesContainer = () => {
 
   const words = ["design", "imagine"]
 
-  const caseStudiesData = [
-    {
-      title: "EXPO",
-      description: "Expo 2020 Dubai with the Federal Youth Authority",
-      image: "/assets/EXPO.jpg",
-    },
-    {
-      title: "COVID-19",
-      description: "Educating the World about COVID-19 with the Ministry of Health and Prevention",
-      image: "/assets/COVID-19.jpg",
-    },
-    {
-      title: "MAESTRO 7x CAMPAIGN",
-      description: "The rebranding campaign for 7X.",
-      image: "/assets/MAESTRO.jpg",
-    },
-  ]
+  
 
   useEffect(() => {
     const currentWordText = words[currentWord]
@@ -60,17 +45,21 @@ const SheikhCaseStudiesContainer = () => {
 
   return (
     <section className=" z-50">
+
+      <ExpertiseSection/>
+
+      
       {/* Sheikh Section as Sticky Background */}
       <div className="sticky top-0 w-full h-screen bg-white z-10">
         <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 py-20 ">
           <div className="w-full lg:w-1/2">
-            <img src="/assets/portrait.png" alt="Portrait" className="max-w-xl w-full object-contain" />
+            <img src="/assets/portrait.png" alt="Portrait" className=" h-full w-full object-contain" />
           </div>
-          <div className="w-full lg:w-1/2 text-center text-black font-bandeins-strange lg:text-left">
-            <p className="text-green-500 text-5xl">"</p>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">The future</h1>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">belongs to those</h1>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+          <div className="w-full lg:w-1/2  text-black font-bandeins-strange lg:text-left">
+            <h1 className="text-green-500 font-bold leading-tight text-[100px]">"</h1>
+            <h1 className="text-[80px] font-bold leading-tight">The future</h1>
+            <h1 className="text-[80px] font-bold leading-tight ">belongs to those</h1>
+            <h1 className="text-[80px] font-bold leading-tight">
               who can <span className="text-green-500">{displayText}</span>
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
@@ -89,6 +78,10 @@ const SheikhCaseStudiesContainer = () => {
       <div className="relative bg-white  z-20 min-h-screen">
         <CaseStudies/>
       </div>
+
+
+      
+
     </section>
   )
 }

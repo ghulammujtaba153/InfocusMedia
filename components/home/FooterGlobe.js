@@ -31,6 +31,8 @@ const FooterGlobe = () => {
 
   return (
     <section className="relative h-screen bg-white py-20 overflow-hidden">
+
+      
       {/* Video background */}
       <video
         ref={videoRef}

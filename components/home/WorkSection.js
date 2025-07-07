@@ -38,7 +38,7 @@ const WorkSection = () => {
 
   return (
     <section className="relative bg-white py-20">
-      <div className="container mx-auto md:px-6">
+      <div className=" md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             What We Do

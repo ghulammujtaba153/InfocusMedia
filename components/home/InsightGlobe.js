@@ -40,7 +40,7 @@ const InsightGlobe = () => {
   }, []);
 
   return (
-    <section className="relative z-50 bg-white min-h-screen overflow-hidden">
+    <section className="relative z-10 bg-white min-h-screen overflow-hidden">
       {/* Video background */}
       <video
         ref={videoRef}

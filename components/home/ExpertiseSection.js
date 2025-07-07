@@ -51,8 +51,8 @@ const ExpertiseSection = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row bg-red-500 w-full items-center justify-center w-full overflow-hidden">
-          <div className="w-full md:w-1/3 h-[700px]">
+        <div className="flex flex-col md:flex-row bg-red-500  items-center justify-center w-full overflow-hidden">
+          <div className="w-full md:w-1/3 h-screen">
             <video
               src="/expertise-animations/Visuals.mp4"
               className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-[700px]">
+          <div className="w-full md:w-1/3 h-screen">
             <video
               src="/expertise-animations/Animation2.mp4"
               className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-[700px]">
+          <div className="w-full md:w-1/3 h-screen">
             <video
               src="/expertise-animations/Production.mp4"
               className="w-full h-full object-cover"

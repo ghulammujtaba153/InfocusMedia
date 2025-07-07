@@ -89,7 +89,7 @@ const WhatWeDo = () => {
                   ${!isFirstRow ? "border-t" : ""}
                   ${!isFirstCol ? "border-l" : ""}
                   ${!isLastCol ? "border-r" : ""}
-                  border-gray-300`}
+                  border-gray-100`}
               >
                 <img
                   src={service.icon}

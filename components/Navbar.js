@@ -93,11 +93,11 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="flex items-center justify-center gap-4">
-          <button className={`p-2 rounded-sm transition cursor-pointer ${bgColor}`}>
+          <button className={`p-2 rounded-sm transition cursor-pointer bg-black text-white`}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M21 3H3V16H6.6V21L12.45 16.7368H21V3Z"
-                stroke={iconColor}
+                stroke="white"
                 strokeWidth="2"
               />
             </svg>

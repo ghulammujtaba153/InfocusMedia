@@ -55,7 +55,7 @@ const SpotLightClients = () => {
           {duplicated.map((client, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[280px] h-[156px] flex items-center justify-center p-4"
+              className="flex-shrink-0  w-[154px] h-[84px] lg:w-[280px] lg:h-[156px] flex items-center justify-center p-4"
             >
               <img
                 src={client.logo}
@@ -74,7 +74,7 @@ const SpotLightClients = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+      <div className=" px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-black mb-4">
             Spotlighted Clients

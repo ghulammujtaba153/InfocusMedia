@@ -18,14 +18,14 @@ export default function Home() {
   
 
   return (
-    <div className="">
+    <div className="w-full">
       
       <HeroSection/>
       
       <TopSection/> 
       <WorkSection/>
       <SpotLightClients/> 
-      <ExpertiseSection/>
+      {/* <ExpertiseSection/> */}
       {/* <CaseStudies/> */}
 
       <div className="relative">
