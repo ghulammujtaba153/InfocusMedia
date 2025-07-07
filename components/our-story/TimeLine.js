@@ -51,7 +51,7 @@ const TimeLine = () => {
                   {item.title}
                 </div>
                 <div className="flex items-center my-6">
-                  <div className={`w-4 h-4 rounded-full ${item.active ? "bg-green-500" : "bg-gray-300"} z-10`} />
+                  <div className={`w-[24px] h-[24px] rounded-full ${item.active ? "bg-green-500" : "bg-gray-300"} z-10`} />
                   {index !== timelineData.length - 1 && (
                     <div className={`h-[1px] w-[300px] ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
                   )}
