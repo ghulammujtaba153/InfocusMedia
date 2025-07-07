@@ -11,6 +11,7 @@ import Location from "@/components/home/team/Location";
 import SheikhCaseStudiesContainer from "@/components/home/team/PortraitSection";
 import TeamSection from "@/components/home/team/TeamSection";
 import TopSection from "@/components/home/TopSection";
+import TransformGlobe from "@/components/home/TransformGlobe";
 import WorkSection from "@/components/home/WorkSection";
 import { useEffect, useRef } from "react";
 
@@ -33,6 +34,7 @@ export default function Home() {
       </div>
       
       <InsightGlobe/>
+      <TransformGlobe/>
       <TeamSection/>
       <Location/>
       <FooterGlobe/>

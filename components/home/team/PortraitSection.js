@@ -51,10 +51,11 @@ const SheikhCaseStudiesContainer = () => {
 
       {/* Sticky Portrait Section */}
       <div className="sticky top-0 min-h-screen w-full -z-10 ">
-        <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 py-20 bg-white">
-          <div className="w-full lg:w-1/2 h-screen">
+        <div className="w-full h-full flex flex-col lg:flex-row items-center pb-10 gap-10 bg-white">
+          <div className="w-full lg:w-1/2 min-h-screen">
             <img src="/assets/portrait.png" alt="Portrait" className="h-full w-full object-contain" />
           </div>
+
           <div className="w-full lg:w-1/2 text-black font-bandeins-strange lg:text-left text-[40px] md:text-[64px] lg:text-[100px] leading-[.95]">
             <h1 className="text-green-500 font-bold leading-[.99] ">“</h1>
             <h1 className="text-[90px] font-bold">The future</h1>

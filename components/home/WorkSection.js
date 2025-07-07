@@ -37,7 +37,7 @@ const WorkSection = () => {
   ];
 
   return (
-    <section className="relative bg-white py-20">
+    <section className="relative bg-white py-40">
       <div className=" md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-[40px] md:text-[64px] font-bold mb-6">
@@ -57,8 +57,8 @@ const WorkSection = () => {
                 ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
               `}
             >
-              <img src={service.icon} alt={service.title} className="w-[110px] h-[110px] hover:scale-130 duration-300 transition-transform" />
-              <h3 className="font-bold text-left text-black mb-3 mt-2 text-[16px] md:text-[18px] lg:text-[22px] px-2">
+              <img src={service.icon} alt={service.title} className="w-[110px] h-[110px] hover:scale-130 duration-300 transition-transform mb-4" />
+              <h3 className="font-bold text-left text-black mb-3 mt-2 text-[16px] md:text-[18px] lg:text-[22px] px-1">
                 {service.title}
               </h3>
             </div>

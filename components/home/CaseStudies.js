@@ -39,11 +39,12 @@ const CaseStudies = () => {
             Case Studies
           </motion.h1>
         </div>
+
         <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6">
           {data.map((item, index) => (
             <motion.div 
               key={index} 
-              className="flex flex-col"
+              className="flex flex-col w-full lg:w-[500px] " // Set fixed width
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,11 +73,14 @@ const CaseStudies = () => {
                 <h3 className="text-[44px] font-semibold text-black">
                   {item.title.toUpperCase()}
                 </h3>
-                <p className="text-black/50 text-[22px]">{item.description}</p>
+                <p className="text-black/50 text-[16px] md:text-[18px] lg:text-[22px] line-clamp-2">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
+
         <motion.div 
           className="text-center mt-10 font-bandeins-strange"
           initial={{ opacity: 0 }}

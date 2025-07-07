@@ -89,7 +89,7 @@ const TeamSection = () => {
                 {/* Previous Button */}
                 <button
                     onClick={prevSlide}
-                    className="cursor-pointer absolute left-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+                    className="cursor-pointer absolute left-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
                     aria-label="Previous team member"
                 >
                     <FaChevronLeft className="text-white text-xl" />
@@ -97,7 +97,7 @@ const TeamSection = () => {
 
 
                 {/* Carousel Container */}
-                <div className="flex gap-8 items-center justify-center max-w-6xl mx-auto">
+                <div className="flex gap-4 items-center justify-center max-w-6xl mx-auto">
                     <AnimatePresence mode="wait">
                         {visibleItems.map((item, idx) => {
                             const isCenter = item.position === 0;
@@ -107,9 +107,9 @@ const TeamSection = () => {
                                 <motion.div
                                     key={`${item.originalIndex}-${currentIndex}`}
                                     initial={{
-                                        opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : 1,
-                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : 1.1,
-                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 10 : 0
+                                        opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : .6,
+                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : .9,
+                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 10 :10
                                     }}
                                     animate={{
                                         opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : 1,
@@ -148,7 +148,7 @@ const TeamSection = () => {
                 {/* Next Button */}
                 <button
                     onClick={nextSlide}
-                    className="cursor-pointer absolute right-4 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+                    className="cursor-pointer absolute right-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
                     aria-label="Next team member"
                 >
                     <FaChevronRight className="text-white text-xl" />

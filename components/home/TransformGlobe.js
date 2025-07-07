@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const InsightGlobe = () => {
-  const [showStartText, setShowStartText] = useState(true);
-  const [showEndText, setShowEndText] = useState(false);
+const TransformGlobe = () => {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
+  const [showStartText, setShowStartText] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -17,19 +16,20 @@ const InsightGlobe = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Scroll progress: 0 when top of section hits viewport, 1 when bottom leaves viewport
+      // Scroll progress from 0 (section top at viewport top) to 1 (section bottom at viewport top)
       let scrollProgress = Math.min(Math.max(0, 1 - rect.top / windowHeight), 1);
 
-      const videoDuration = video.duration || 7; // Fallback duration
+      // Reverse progress for reverse playback
+      scrollProgress = 1 - scrollProgress;
+
+      const videoDuration = video.duration || 7;
       video.currentTime = scrollProgress * videoDuration;
 
-      // Show start text for the first 50% of scroll, end text after
-      if (scrollProgress < 0.5) {
-        setShowStartText(true);
-        setShowEndText(false);
-      } else {
+      // Example: toggle text visibility at 50% scroll
+      if (scrollProgress > 0.5) {
         setShowStartText(false);
-        setShowEndText(true);
+      } else {
+        setShowStartText(true);
       }
     };
 
@@ -40,7 +40,7 @@ const InsightGlobe = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 bg-white min-h-screen overflow-hidden"
+      className="relative h-screen bg-white py-20 overflow-hidden"
     >
       {/* Video background */}
       <video
@@ -54,7 +54,7 @@ const InsightGlobe = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Start Text Overlay */}
+      {/* Text Overlay */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center z-20 transition-opacity duration-300 ${
           showStartText ? "opacity-100" : "opacity-0"
@@ -77,28 +77,8 @@ const InsightGlobe = () => {
           Let's Get Started
         </button>
       </div>
-
-      {/* End Text Overlay */}
-      <div
-        className={`absolute inset-0 flex flex-col items-center justify-center z-20 transition-opacity duration-300 ${
-          showEndText ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase font-bandeins-strange text-black text-center mb-4">
-          We don't see brands, we see possibilities
-        </p>
-
-        <div className="flex flex-col leading-[.95]">
-          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold font-bandeins-strange text-black text-center mb-2">
-            We transform ideas
-          </h1>
-          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold font-bandeins-strange text-black text-center">
-            into visual stories
-          </h1>
-        </div>
-      </div>
     </section>
   );
 };
 
-export default InsightGlobe;
+export default TransformGlobe;

@@ -29,7 +29,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="w-full flex flex-col flex-col-reverse  lg:flex-row items-center justify-between px-6 gap-4">
+      <div className="w-full flex flex-col flex-col-reverse mt-4  lg:flex-row items-center justify-between px-6 gap-4">
         {/* Legal Links */}
         <div className="flex md:flex-row flex-col w-full  md:justify-center justify-between items-center lg:items-center gap-6 text-sm text-black">
           
