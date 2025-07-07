@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {
   FaFacebookF,
@@ -17,55 +18,60 @@ const Footer = () => {
         <img
           src="/logo-black.png"
           alt="Infocus Media Logo"
-          className="md:w-[250px] w-full h-auto object-contain"
+          className="md:w-[560px] w-full h-auto object-contain"
         />
 
         {/* Contact Info */}
         <div className="text-left md:text-right">
-          <p className="text-gray-800  text-sm">+970 000 000</p>
-          <p className=" text-sm uppercase">contact@infocusmedia.ae</p>
+          <p className="font-bold  text-[22px]">+970 00 000 0000</p>
+          <p className="font-bold uppercase text-[22px]">contact@infocusmedia.ae</p>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div className="w-full flex flex-col flex-col-reverse  lg:flex-row items-center justify-between px-6 gap-4">
         {/* Legal Links */}
-        <div className="flex md:flex-row flex-col w-full justify-between items-center lg:items-center gap-6 text-sm text-gray-800">
+        <div className="flex md:flex-row flex-col w-full  md:justify-center justify-between items-center lg:items-center gap-6 text-sm text-black">
           
           <div className="flex lg:flex-row flex-col gap-2 w-full">
-            <p className="uppercase">© InfocusMedia.</p>
-            <p className="uppercase">All rights reserved</p>
+            <p className="uppercase text-[16px]">© InfocusMedia.</p>
+            <p className="uppercase text-[16px]">All rights reserved</p>
 
           </div>
           
 
           <div className="flex w-full lg:flex-row md:text-right flex-col gap-2">
-            <p className="cursor-pointer hover:underline uppercase">Terms & Conditions</p>
-            <p className="cursor-pointer hover:underline uppercase">Privacy Policy</p>
+            <p className="cursor-pointer text-[16px] hover:underline uppercase">Terms & Conditions</p>
+            <p className="cursor-pointer text-[16px] hover:underline uppercase">Privacy Policy</p>
           </div>
 
         </div>
 
         {/* Social Icons */}
-        <div className="flex w-full  justify-between md:justify-between lg:justify-end text-right items-center gap-4 text-gray-800">
-          <a href="#" aria-label="Facebook" className="hover:text-black">
-            <FaFacebookF />
-          </a>
-          <a href="#" aria-label="Twitter" className="hover:text-black">
-            <FaTwitter />
-          </a>
-          <a href="#" aria-label="Instagram" className="hover:text-black">
-            <FaInstagram />
-          </a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-black">
-            <FaLinkedinIn />
-          </a>
-          <a href="#" aria-label="TikTok" className="hover:text-black">
-            <FaTiktok />
-          </a>
-          <a href="#" aria-label="YouTube" className="hover:text-black">
-            <FaYoutube />
-          </a>
+        <div className="flex w-full  justify-between md:justify-between lg:justify-end text-right items-center gap-8 text-gray-800">
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/facebook.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/X.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/linkedin.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/instagram.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/tt.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/vimo.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+          <Link href="#" aria-label="Facebook" className="hover:text-black">
+            <img src="/socialIcons/utube.png" alt="Facebook" className="w-[24px] h-[24px]" />
+          </Link>
+
+          
         </div>
       </div>
     </section>

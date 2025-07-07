@@ -7,17 +7,17 @@ const HeroSection = () => {
     <div className="relative w-full h-[900px] min-h-screen bg-black text-white overflow-hidden flex flex-col justify-between">
       {/* Center Content */}
       <div className="flex flex-col h-[400px] items-center justify-end text-center z-10">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">
+        <h1 className="text-[29px] md:text-[50px] lg:text-[86px] font-bold">
           At Infocus Media, we believe
         </h1>
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">
+        <h1 className="text-[18px] md:text-3xl lg:text-[86px] font-bold">
           that organizations flourish when
         </h1>
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">their teams are proactive and fueled</h1>
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">
+        <h1 className="text-[29px] md:text-[50px] lg:text-[86px] font-bold">their teams are proactive and fueled</h1>
+        <h1 className="text-[29px] md:text-[50px] lg:text-[86px] font-bold">
           by initiative.
         </h1>
-        <p className="mt-4 max-w-3xl text-sm md:text-base">
+        <p className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]">
           This commitment inspires us to unite with a vibrant, forward-thinking spirit,
           ensuring our meaningful contributions to sustainable development.
         </p>

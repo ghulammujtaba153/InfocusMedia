@@ -61,7 +61,7 @@ const CaseStudies = () => {
                   href="/case-studies/1"
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
                 >
-                  <span className="bg-white text-black px-4 py-2 text-sm font-medium rounded shadow-md">
+                  <span className="bg-white text-[22px] text-black px-4 py-2 text-sm font-medium rounded shadow-md">
                     Read
                   </span>
                 </Link>
@@ -69,10 +69,10 @@ const CaseStudies = () => {
 
               {/* Title and Description */}
               <div className="mt-2 px-1">
-                <h3 className="text-2xl font-semibold text-gray-900">
+                <h3 className="text-[44px] font-semibold text-black">
                   {item.title.toUpperCase()}
                 </h3>
-                <p className="text-gray-700 text-xs">{item.description}</p>
+                <p className="text-black/50 text-[22px]">{item.description}</p>
               </div>
             </motion.div>
           ))}

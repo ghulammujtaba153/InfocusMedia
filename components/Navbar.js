@@ -62,7 +62,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`transition-colors duration-200 ${
+                className={`transition-colors duration-200 md:text-[32px] text-[40x] lg:text-[74px] ${
                   hoveredIndex !== null && hoveredIndex !== index
                     ? "text-white/30"
                     : "text-white hover:text-gray-300"
@@ -80,7 +80,7 @@ const Navbar = () => {
         ref={navbarRef}
         className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all"
       >
-        <div className="w-[220px] transition-colors duration-300">
+        <div className="w-[240px] transition-colors duration-300">
           <Link href={"/"}>
             <img
               src={menuOpen || isDarkBg ? "/logo.png" : "/logo-black.png"}

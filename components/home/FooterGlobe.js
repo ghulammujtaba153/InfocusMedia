@@ -43,15 +43,17 @@ const FooterGlobe = () => {
 
       {/* Text on top of video */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
-        <p className="text-xs font-bold uppercase tracking-widest mb-1">
+        <p className="text-[22px] font-bold uppercase tracking-widest mb-1">
           HAVE PROJECT IN MIND?
         </p>
-        <h1 className="text-3xl md:text-6xl font-bold leading-tight">let's create</h1>
-        <h1 className="text-3xl md:text-6xl font-bold leading-tight">something great</h1>
-        <h1 className="text-3xl md:text-6xl font-bold mb-2 leading-tight">together!</h1>
+        <div className="flex flex-col  items-center justify-center">
+          <h1 className="text-3xl md:text-[100px] font-bold leading-tight">let's create</h1>
+        <h1 className="text-3xl md:text-[100px] font-bold leading-tight">something great</h1>
+        <h1 className="text-3xl md:text-[100px] font-bold mb-2 leading-tight">together!</h1>
+        </div>
 
         <div className="text-center">
-          <button className="bg-black text-white px-4 py-2 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
+          <button className="bg-black text-[22px] text-white px-4 py-2 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
             let's Go
           </button>
         </div>

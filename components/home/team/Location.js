@@ -4,18 +4,18 @@ const Location = () => {
   return (
     <section className="bg-black py-20 px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-6">
       {/* Text Section */}
-      <div className="flex-1 flex flex-col justify-between bg-white text-black p-8 w-full h-[300px] md:h-[500px]">
+      <div className="flex-1 flex flex-col justify-between bg-white text-black p-8 w-full h-screen">
         <div className="mb-6">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Join</h1>
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">OUR TEAM</h1>
+          <h1 className="text-3xl text-[100px] font-bold leading-tight">Join</h1>
+          <h1 className="text-3xl text-[100px] font-bold leading-tight">OUR TEAM</h1>
         </div>
 
-        <div className="text-sm md:text-base leading-relaxed mb-8">
+        <div className="text-[22px] leading-relaxed mb-8">
           <p>
             We’re always on the lookout for brilliant minds and bold ideas. Check out our vacancies and apply for the one that suits you best!
           </p>
           <div>
-            <button className="bg-black text-white px-6 py-3 hover:scale-105 transition-transform duration-300 rounded-md font-medium mt-4">
+            <button className="bg-black text-[22px] text-white px-6 py-3 hover:scale-105 transition-transform duration-300 rounded-md  font-medium mt-4">
               Join the Team
             </button>
           </div>
@@ -23,7 +23,7 @@ const Location = () => {
       </div>
 
       {/* Map or Illustration Section */}
-      <div className="flex-1 w-full h-[300px] md:h-[500px] relative overflow-hidden">
+      <div className="flex-1 w-full h-screen relative overflow-hidden">
         {/* If using Google Maps iframe, uncomment this and remove the image */}
         {/* <iframe
           src="https://www.google.com/maps/embed?... your URL ..."

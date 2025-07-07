@@ -43,7 +43,7 @@ const ExpertiseSection = () => {
   }, [displayText, isDeleting, currentWord, words]);
 
   return (
-    <section className="relative  bg-white py-20">
+    <section className="absolute top-0 bg-white pt-20">
       <div className=" w-full overflow-hidden">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
