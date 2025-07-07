@@ -76,7 +76,7 @@ const SpotLightClients = () => {
     <section className="py-20 bg-white">
       <div className=" px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-black mb-4">
+          <h2 className="text-[40px] md:text-[64px] font-bold text-black mb-4">
             Spotlighted Clients
           </h2>
         </div>
@@ -88,7 +88,7 @@ const SpotLightClients = () => {
         <ClientRow clients={row3} reverse={false} duration={8} />
 
         <div className="text-center mt-10">
-          <Link href="/clients" className='bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium'>
+          <Link href="/clients" className='bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]'>
             See All
           </Link>
         </div>

@@ -2,12 +2,12 @@ import React from "react";
 
 const Location = () => {
   return (
-    <section className="bg-black py-20 px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-6">
+    <section className="bg-black py-4 px-6 lg:px-16 flex flex-col lg:flex-row  items-center justify-between gap-6">
       {/* Text Section */}
-      <div className="flex-1 flex flex-col justify-between bg-white text-black p-8 w-full h-screen">
+      <div className="flex-1 flex flex-col justify-between bg-white text-black px-8 w-full  h-[492px] md:h-[616px] lg:max-h-[900px]">
         <div className="mb-6">
-          <h1 className="text-3xl text-[100px] font-bold leading-tight">Join</h1>
-          <h1 className="text-3xl text-[100px] font-bold leading-tight">OUR TEAM</h1>
+          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold leading-tight">Join</h1>
+          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold leading-tight">OUR TEAM</h1>
         </div>
 
         <div className="text-[22px] leading-relaxed mb-8">
@@ -23,7 +23,7 @@ const Location = () => {
       </div>
 
       {/* Map or Illustration Section */}
-      <div className="flex-1 w-full h-screen relative overflow-hidden">
+      <div className="flex-1 w-full  relative overflow-hidden h-[492px] md:h-[616px] lg:max-h-[900px]">
         {/* If using Google Maps iframe, uncomment this and remove the image */}
         {/* <iframe
           src="https://www.google.com/maps/embed?... your URL ..."

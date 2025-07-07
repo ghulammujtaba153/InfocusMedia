@@ -17,11 +17,11 @@ const LocationSection = () => {
         <img src="/map-img.png" className="w-full h-full object-cover" alt="map" />
 
         {/* Address Overlay */}
-        <div className="absolute top-0 left-0 m-4 p-4 bg-white bg-opacity-90 text-black rounded-md shadow-md">
-          <p className="text-gray-600 text-xs uppercase mb-1">Address</p>
-          <p className="font-semibold">OFFICE 221, AL HANNAN CENTER</p>
-          <p className="text-sm">Dubai, UAE</p>
-          <p className="text-sm">(04 3300409)</p>
+        <div className="absolute top-0 left-0 m-4 p-4 bg-white bg-opacity-90 text-[16px] md:text-[18px] lg:[text-22px]font-bold text-black rounded-md shadow-md">
+          <p className=" uppercase mb-1">Address</p>
+          <p className="font-bold">OFFICE 221, AL HANNAN CENTER</p>
+          <p className="">Dubai, UAE</p>
+          <p className="">(04 3300409)</p>
         </div>
       </div>
   )

@@ -67,7 +67,7 @@ const WhatWeDo = () => {
     <section className="relative bg-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">What We Do</h2>
+          <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-6">What We Do</h2>
         </div>
 
         <div
@@ -97,8 +97,8 @@ const WhatWeDo = () => {
                   className="w-[60px] h-[60px] hover:scale-110 transition-transform duration-300"
                 />
                 <div className="flex lg:flex-col">
-                  <h3 className="font-bold mb-2 mt-1 text-sm px-1">{service.title}</h3>
-                  <p className="text-sm px-1 lg:block hidden">{service.description}</p>
+                  <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">{service.title}</h3>
+                  <p className="text-[16px] md:text-[18px] lg:text-[22px] px-1 lg:block hidden">{service.description}</p>
                 </div>
               </div>
             );

@@ -6,14 +6,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Location from "./Location";
 
 const data = [
-    { image: "/assets/Team/image-1.png", occupation: "CEO", name: "Abass" },
-    { image: "/assets/Team/image-2.png", occupation: "CTO", name: "Layla" },
-    { image: "/assets/Team/image-3.png", occupation: "Designer", name: "Zayd" },
-    { image: "/assets/Team/image-4.png", occupation: "Engineer", name: "Aisha" },
-    { image: "/assets/Team/image-5.png", occupation: "Product", name: "Omar" },
-    { image: "/assets/Team/image-6.png", occupation: "Developer", name: "Noor" },
-    { image: "/assets/Team/image-7.png", occupation: "COO", name: "Yusuf" },
-    { image: "/assets/Team/image-8.png", occupation: "HR", name: "Fatima" },
+  { image: "/assets/Team/image-4.png", occupation: "Founder & CEO", name: "Hassan Mohammad Al Najjar" },
+  { image: "/assets/Team/image-1.png", occupation: "Accountant", name: "Sami Ayyoub" },
+  { image: "/assets/Team/image-5.png", occupation: "Art Director", name: "Harry Hussin" },
+  { image: "/assets/Team/image-2.png", occupation: "Project Manager", name: "Reem Ramzi" },
+  { image: "/assets/Team/image-6.png", occupation: "Human Resources Manager", name: "Omnia Hassan" },
+  { image: "/assets/Team/image-9.png", occupation: "Content Manager", name: "Aysar Nourdine" },
+  { image: "/assets/Team/image-7.png", occupation: "Animation Team Lead", name: "Sohib Hesham" },
+  { image: "/assets/Team/image-8.png", occupation: "Social Media Manager", name: "Ahmed AlNajjar" },
+  { image: "/assets/Team/image-10.png", occupation: "Social Media Manager", name: "Haroorn Waheed" },
 ];
 
 const TeamSection = () => {
@@ -76,7 +77,7 @@ const TeamSection = () => {
     return (
         <section className="relative bg-black text-white py-20 overflow-hidden">
             <div className="container mx-auto px-6 text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet The Team</h2>
+                <h2 className="text-[40px] md:text-[64px] lg:text-[100px] font-bold mb-4">Meet The Team</h2>
                 
             </div>
 

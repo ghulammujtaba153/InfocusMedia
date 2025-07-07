@@ -53,12 +53,12 @@ const TimeLine = () => {
                 <div className="flex items-center my-6">
                   <div className={`w-[24px] h-[24px] rounded-full ${item.active ? "bg-green-500" : "bg-gray-300"} z-10`} />
                   {index !== timelineData.length - 1 && (
-                    <div className={`h-[1px] w-[300px] ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
+                    <div className={`h-[1px] w-[400px] ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
                   )}
                 </div>
-                <div className="text-sm font-medium">{item.subTitle}</div>
+                <div className="text-[22px] font-medium">{item.subTitle}</div>
                 {item.description.map((desc, i) => (
-                  <p key={i} className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+                  <p key={i} className="text-[18px] text-gray-500 leading-relaxed">{desc}</p>
                 ))}
               </div>
             </div>

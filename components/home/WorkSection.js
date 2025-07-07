@@ -40,7 +40,7 @@ const WorkSection = () => {
     <section className="relative bg-white py-20">
       <div className=" md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-[40px] md:text-[64px] font-bold mb-6">
             What We Do
           </h2>
         </div>
@@ -58,7 +58,7 @@ const WorkSection = () => {
               `}
             >
               <img src={service.icon} alt={service.title} className="w-[110px] h-[110px] hover:scale-130 duration-300 transition-transform" />
-              <h3 className="font-bold text-center text-gray-900 mb-3 mt-2 text-sm px-2">
+              <h3 className="font-bold text-left text-black mb-3 mt-2 text-[16px] md:text-[18px] lg:text-[22px] px-2">
                 {service.title}
               </h3>
             </div>

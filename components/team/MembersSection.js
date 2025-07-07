@@ -1,14 +1,15 @@
 import React from "react";
 
 const data = [
-  { image: "/assets/Team/image-1.png", occupation: "CEO", name: "Abass" },
-  { image: "/assets/Team/image-2.png", occupation: "CTO", name: "Layla" },
-  { image: "/assets/Team/image-3.png", occupation: "Designer", name: "Zayd" },
-  { image: "/assets/Team/image-4.png", occupation: "Engineer", name: "Aisha" },
-  { image: "/assets/Team/image-5.png", occupation: "Product", name: "Omar" },
-  { image: "/assets/Team/image-6.png", occupation: "Developer", name: "Noor" },
-  { image: "/assets/Team/image-7.png", occupation: "COO", name: "Yusuf" },
-  { image: "/assets/Team/image-8.png", occupation: "HR", name: "Fatima" },
+  { image: "/assets/Team/image-4.png", occupation: "Founder & CEO", name: "Hassan Mohammad Al Najjar" },
+  { image: "/assets/Team/image-1.png", occupation: "Accountant", name: "Sami Ayyoub" },
+  { image: "/assets/Team/image-5.png", occupation: "Art Director", name: "Harry Hussin" },
+  { image: "/assets/Team/image-2.png", occupation: "Project Manager", name: "Reem Ramzi" },
+  { image: "/assets/Team/image-6.png", occupation: "Human Resources Manager", name: "Omnia Hassan" },
+  { image: "/assets/Team/image-9.png", occupation: "Content Manager", name: "Aysar Nourdine" },
+  { image: "/assets/Team/image-7.png", occupation: "Animation Team Lead", name: "Sohib Hesham" },
+  { image: "/assets/Team/image-8.png", occupation: "Social Media Manager", name: "Ahmed AlNajjar" },
+  { image: "/assets/Team/image-10.png", occupation: "Social Media Manager", name: "Haroorn Waheed" },
 ];
 
 const MembersSection = () => {
@@ -38,10 +39,10 @@ const MembersSection = () => {
 
         {/* Text */}
         <div className="flex flex-col items-center justify-center w-full mt-2 z-10">
-          <p className="text-gray-500 text-sm font-semibold">
+          <p className="text-[16px] md:text-[28px] lg:text-[22px] text-black/50 font-semibold">
             {data[0].occupation}
           </p>
-          <h1 className="font-bold text-xl">{data[0].name}</h1>
+          <h1 className="font-bold text-[29px] md:text-[64px] ">{data[0].name}</h1>
         </div>
       </div>
 
@@ -57,10 +58,10 @@ const MembersSection = () => {
               alt="/"
               className="w-[300px] h-[300px] rounded-full"
             />
-            <p className="text-gray-500 text-sm font-semibold">
+            <p className="text-[16px] md:text-[28px] lg:text-[22px] text-black/50 font-semibold">
               {item.occupation}
             </p>
-            <h1 className="font-bold text-xl">{item.name}</h1>
+            <h1 className="font-bold text-[29px] md:text-[39px]">{item.name}</h1>
           </div>
         ))}
       </div>

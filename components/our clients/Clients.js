@@ -55,7 +55,7 @@ const Clients = () => {
 
   return (
     <section className="w-full px-[5%] py-20 flex flex-col items-center justify-center">
-      <h2 className="text-2xl md:text-3xl font-bold mb-10">Our Clients</h2>
+      <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-10">Our Clients</h2>
 
       <div
         ref={gridRef}
@@ -91,7 +91,7 @@ const Clients = () => {
           );
         })}
         <div className="text-center mt-10">
-        <Link href={"/contacts"} className="bg-black text-white px-2 py-3 text-xs md:px-6 md:py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md md:font-medium">
+        <Link href={"/contacts"} className="bg-black text-white px-2 py-3 text-xs md:px-6 md:py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md md:font-medium text-[16px] md:text-[18px] lg:text-[22px]">
           Join Them
         </Link>
       </div>

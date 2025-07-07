@@ -42,9 +42,9 @@ const EventCoverage = () => {
               {/* Text */}
               <div className='md:w-1/4 w-full flex md:justify-end'>
                 <div className='flex gap-10 md:gap-0 md:flex-col  md:text-right text-left'>
-                  <p className='text-sm text-gray-500'>Client</p>
+                  <p className='text-sm text-gray-500 text-[16px] md:text-[18px] lg:text-[22px] uppercase'>CLIENT</p>
                   <div className='flex flex-col'>
-                    <h1 className='text-xl font-semibold'>{item.title}</h1>
+                    <h1 className='text-xl font-semibold text-[40px] md:text-[40px] lg:text-[64px]'>{item.title}</h1>
                   </div>
                 </div>
               </div>

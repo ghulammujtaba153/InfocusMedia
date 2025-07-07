@@ -16,7 +16,7 @@ const data = [
     image: "/assets/Case studies/COVID-19.jpg",
   },
   {
-    title: "MAESTRO 7x CAMPAIGN",
+    title: "MAESTRO 7x",
     description: "The rebranding campaign for 7X.",
     image: "/assets/Case studies/MAESTRO.jpg",
   },
@@ -84,7 +84,7 @@ const CaseStudies = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Link href={"/case-studies"} className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
+          <Link href={"/case-studies"} className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]">
             See All
           </Link>
         </motion.div>

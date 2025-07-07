@@ -35,9 +35,9 @@ const SocialMedia = () => {
             <div className="flex flex-col-reverse md:flex-row gap-6 w-full">
               <div className="md:w-1/4 w-full flex md:justify-end">
                 <div className="flex gap-10 md:gap-0 md:flex-col md:text-right text-left">
-                  <p className="text-sm text-gray-500">Client</p>
+                  <p className="text-sm text-gray-500 text-[16px] md:text-[18px] lg:text-[22px]">CLIENT</p>
                   <div className="flex flex-col">
-                    <h1 className="text-2xl font-semibold">{item.title}</h1>
+                    <h1 className="text-2xl font-semibold text-[32px] md:text-[40px] lg:text-[64px]">{item.title}</h1>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const SocialMedia = () => {
       <div className="flex justify-center items-center mt-10">
         <button
           onClick={handleToggle}
-          className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
+          className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]"
         >
           {visibleCount >= socialMediaData.length ? "See Less" : "See More!"}
         </button>

@@ -54,7 +54,7 @@ const CaseStudies = () => {
     <section className="relative bg-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Case Studies</h2>
+          <h2 className="text-[40px] md:text-[64px] lg:text-[64px]  font-bold mb-6">Case Studies</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,7 +72,7 @@ const CaseStudies = () => {
                   href="/case-studies/1"
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
                 >
-                  <span className="bg-white text-black px-4 py-2 text-sm font-medium rounded shadow-md">
+                  <span className="bg-white text-black px-4 py-2 text-[16px] md:text-[18px] lg:text-[22px] font-medium rounded shadow-md">
                     Read
                   </span>
                 </Link>
@@ -80,10 +80,10 @@ const CaseStudies = () => {
 
               {/* Title and Description */}
               <div className="mt-2 px-1">
-                <h3 className="text-2xl font-semibold text-gray-900">
+                <h3 className="text-[16px] md:text-[32px] lg:text-[40px] font-semibold text-black">
                   {item.title.toUpperCase()}
                 </h3>
-                <p className="text-gray-700 text-xs">{item.description}</p>
+                <p className="text-black text-[16px] md:text-[18px] lg:text-[22px]">{item.description}</p>
               </div>
             </div>
           ))}

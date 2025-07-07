@@ -73,9 +73,9 @@ const TopSection = () => {
       </div>
       {/* Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
-        <img src="/logo.png" alt="Logo" className="w-3/4 max-w-[360px] mb-6 object-contain" />
-        <p className="uppercase text-white">Born from Emirati soil, our roots run deep</p>
-        <p className="uppercase text-white">and our vision soars high</p>
+        <img src="/logo.png" alt="Logo" className="w-3/4 max-w-[580px] max-h-[68px] mb-6 object-contain" />
+        <p className="uppercase text-white text-[16px] md:text-[18px] lg:text-[22px]">Born from Emirati soil, our roots run deep</p>
+        <p className="uppercase text-white text-[16px] md:text-[18px] lg:text-[22px]">and our vision soars high</p>
       </div>
     </div>
   );

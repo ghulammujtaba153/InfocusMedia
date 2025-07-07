@@ -40,6 +40,9 @@ const Navbar = () => {
     };
   }, []);
 
+
+  
+
   const iconColor = menuOpen || isDarkBg ? "white" : "black";
   const bgColor = menuOpen ? "bg-black" : "bg-gray-100";
 

@@ -51,23 +51,23 @@ const VacanciesSection = () => {
       <div className="container mx-auto px-6">
         {vacancies.length === 0 ? (
           <div className="text-center flex flex-col justify-center items-center mb-16 h-screen">
-            <h1 className="text-2xl md:text-5xl font-bold mb-2">
+            <h1 className="text-[54px] lg:text-[100px] font-bold mb-2">
               No Open Vacancies
             </h1>
-            <p>
+            <p className="text-[16px] md:text-[18px] lg:text-[22px] font-medium mb-4">
               We’re not hiring right now, but we’re always happy to hear from
               talented people.
             </p>
-            <p>
+            <p className="text-[16px] md:text-[18px] lg:text-[22px] font-medium mb-4">
               Feel free to send your resume to{" "}
               <strong>contact@infocusmedia.ae</strong>
             </p>
-            <p>We’ll be in touch if something opens up!</p>
+            <p className="text-[16px] md:text-[18px] lg:text-[22px] font-medium">We’ll be in touch if something opens up!</p>
           </div>
         ) : (
           <>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[54px] lg:text-[100px]">
                 Our Vacancies
               </h2>
             </div>
@@ -95,7 +95,7 @@ const VacanciesSection = () => {
 
                   {openId === job.id && (
                     <div className="p-4 border-t border-gray-200 bg-white text-sm space-y-2">
-                      <div className="w-full flex flex-col md:flex-row justify-between gap-4">
+                      <div className="w-full flex flex-col md:flex-row text-[16px] md:text-[18px] lg:[text-22px] justify-between gap-4">
                         <div className="w-full">
                           <p className="font-semibold text-gray-400">
                             LOCATION
@@ -112,18 +112,18 @@ const VacanciesSection = () => {
                       </div>
 
                       <div>
-                        <p className="font-semibold text-gray-400">ABOUT ROLE</p>
-                        <p>{job.rote}</p>
+                        <p className="font-semibold text-gray-400 text-[16px] md:text-[18px] lg:[text-22px]">ABOUT ROLE</p>
+                        <p className="text-[16px] md:text-[18px] lg:[text-22px]">{job.rote}</p>
                       </div>
 
                       <div className="flex flex-wrap gap-4 mt-4">
                         <button
                           onClick={() => setSelectedJob(job)}
-                          className="font-semibold bg-black text-white px-4 py-2 rounded-md hover:opacity-90"
+                          className="font-semibold bg-black text-white px-4 py-2 rounded-md hover:opacity-90 text-[16px] md:text-[18px] lg:[text-22px]"
                         >
                           Apply Now
                         </button>
-                        <button className="font-semibold text-black bg-gray-200 px-4 py-2 rounded-md hover:opacity-90">
+                        <button className="font-semibold text-black bg-gray-200 px-4 py-2 rounded-md hover:opacity-90 text-[16px] md:text-[18px] lg:[text-22px]">
                           Read More
                         </button>
                       </div>

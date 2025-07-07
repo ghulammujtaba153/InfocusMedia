@@ -29,10 +29,10 @@ const VideoProduction = () => {
               {/* Text */}
               <div className='md:w-1/3 w-full flex md:justify-end'>
                 <div className='flex gap-10 md:gap-0 md:flex-col md:text-right text-left'>
-                  <p className='text-sm text-gray-500'>Client</p>
+                  <p className='text-[16px] md:text-[18px] lg:text-[22px] uppercase text-gray-500'>Client</p>
                   <div className='flex flex-col'>
-                    <h1 className='text-xl font-semibold'>{item.title}</h1>
-                    <p className='text-xl font-bold text-gray-400'>UAE</p>
+                    <h1 className='text-[40px] lg:text-[64px] font-semibold'>{item.title}</h1>
+                    <p className=' md:text-[40px] lg:text-[64px] font-bold text-gray-400'>UAE</p>
                   </div>
                 </div>
               </div>
@@ -53,7 +53,7 @@ const VideoProduction = () => {
       <div className='flex justify-center items-center mt-10'>
         <button
           onClick={handleToggle}
-          className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
+          className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]"
         >
           {visibleCount >= data.length ? 'See Less' : 'See More!'}
         </button>

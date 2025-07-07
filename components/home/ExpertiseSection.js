@@ -46,7 +46,7 @@ const ExpertiseSection = () => {
     <section className="absolute top-0 bg-white pt-20">
       <div className=" w-full overflow-hidden">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-[40px] md:text-[64px] font-bold mb-6">
             CORE EXPERTISE
           </h2>
         </div>

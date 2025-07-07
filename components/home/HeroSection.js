@@ -41,7 +41,7 @@ export default function HeroSection() {
         })
         .to(text, {
           attr: { x: endX },
-          ease: "none",
+          ease: "power1.out"
         });
     });
 
