@@ -122,12 +122,12 @@ const TeamSection = () => {
                                     className={`flex flex-col items-center justify-center text-center transition-all duration-500 ${isCenter ? 'z-10' : 'z-0'
                                         }`}
                                 >
-                                    <div className={`relative rounded-2xl p-6 ${isCenter ? 'max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
+                                    <div className={`relative rounded-2xl p-6 ${isCenter ? 'md:max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
                                         }`}>
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className={`rounded-full object-cover mx-auto mb-4 ${isCenter ? 'max-w-[414px] max-h-[414px]' : Math.abs(item.position) === 1 ? 'max-w-[350px] max-h-[350px] ' : 'max-w-[350px] max-h-[350px]'
+                                            className={`rounded-full object-cover mx-auto mb-4 ${isCenter ? 'max-w-[250px] max-h-[250px] md:max-w-[414px] md:max-h-[414px]' : Math.abs(item.position) === 1 ? 'max-w-[230px] max-h-[230px] md:max-w-[350px] md:max-h-[350px] ' : 'max-w-[230px] max-h-[230px] md:max-w-[350px] md:max-h-[350px]'
                                                 }`}
                                         />
                                         <p className="text-sm  uppercase tracking-wider font-semibold mb-2">
