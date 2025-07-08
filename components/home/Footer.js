@@ -24,23 +24,23 @@ const Footer = () => {
         {/* Contact Info */}
         <div className="text-left md:text-right">
           <p className="font-bold  text-[16px] md:text-[18px] lg:text-[22px]">+970 00 000 0000</p>
-          <p className="font-bold uppercase text-[16px] md:text-[18px] lg:text-[22px]">contact@infocusmedia.ae</p>
+          <p className="font-bold uppercase text-[16px] md:text-[18px] lg:text-[22px] sub-heading">contact@infocusmedia.ae</p>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div className="w-full flex flex-col flex-col-reverse mt-4  lg:flex-row items-center justify-between px-6 gap-4">
         {/* Legal Links */}
-        <div className="flex md:flex-row flex-col w-full  md:justify-center justify-between items-center lg:items-center gap-6 text-sm text-black">
+        <div className="flex md:flex-row flex-col w-full  md:justify-center  items-center lg:items-center gap-6 text-sm text-black">
           
-          <div className="flex lg:flex-row flex-col gap-2 w-full">
-            <p className="uppercase text-[14px] md:text-[14px] lg:text-[16px]">©2025 InfocusMedia.</p>
-            <p className="uppercase text-[14px] md:text-[14px] lg:text-[16px]">All rights reserved</p>
+          <div className="flex lg:flex-row flex-col gap-2 w-full sub-heading">
+            <p className="uppercase text-[14px] md:text-[14px] lg:text-[16px] ">©2025 InfocusMedia.</p>
+            <p className="uppercase text-[14px] md:text-[14px] lg:text-[16px] ">All rights reserved</p>
 
           </div>
           
 
-          <div className="flex w-full lg:flex-row md:text-right flex-col gap-2">
+          <div className="flex w-full lg:flex-row md:text-right flex-col gap-2 sub-heading">
             <p className="cursor-pointer text-[14px] md:text-[14px] lg:text-[16px] hover:underline uppercase">Terms & Conditions</p>
             <p className="cursor-pointer text-[14px] md:text-[14px] lg:text-[16px] hover:underline uppercase">Privacy Policy</p>
           </div>
