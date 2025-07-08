@@ -21,7 +21,7 @@ export async function POST(request) {
   const matchPassword = await bcrypt.compare(password, user.password);
 
 
-  const token = jwt.sign({ id: user._id }, "secert", {
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
 
