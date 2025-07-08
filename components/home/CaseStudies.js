@@ -55,7 +55,7 @@ const CaseStudies = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-[430px] object-cover transition-all duration-300 group-hover:blur-sm"
+                  className="w-full h-[242px] md:h-[487px] lg:h-[402px] object-cover transition-all duration-300 group-hover:blur-sm"
                 />
                 {/* Hover Button */}
                 <Link

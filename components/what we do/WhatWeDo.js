@@ -10,38 +10,39 @@ const WhatWeDo = () => {
   const services = [
     {
       title: "SOCIAL MEDIA MANAGEMENT",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/social media management.svg",
-    },
-    {
-      title: "EVENT MEDIA COVERAGE",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/event media coverage.svg",
+      description: "We build communities, not just content",
+      icon: "/what-we-do/social.png",
     },
     {
       title: "DIGITAL MARKETING & WEB DEVELOPMENT",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/digital marketing & web development.svg",
+      description: "We build campaigns and drive results",
+      icon: "/what-we-do/digital.png",
     },
     {
-      title: "COMERCIAL DIGITAL MARKETING",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/commercial video production.svg",
+      title: "EVENT MEDIA COVERAGE",
+      description: "We bring your event to life",
+      icon: "/what-we-do/event.png",
+    },
+    {
+      title: "COMERCIAL VIDEO MARKETING",
+      description: "We tell your story with cinematic impact",
+      icon: "/what-we-do/commercial.png",
     },
     {
       title: "MARKETING STRATEGY",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/marketing strategy.svg",
+      description: "We plan your growth with clear with clear data-driven strategies",
+      icon: "/what-we-do/marketing.png",
+    },
+    
+    {
+      title: "BRANDING",
+      description: "We build plans with purpose, personality, and power",
+      icon: "/what-we-do/branding.png",
     },
     {
       title: "ANIMATION & MOTION GRAPHICS",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/animation & motion graphics.svg",
-    },
-    {
-      title: "BRANDING",
-      description: "We help you create and manage your social media",
-      icon: "/assets/Icons/branding.svg",
+      description: "We turn ideas into powerfull motion content ",
+      icon: "/what-we-do/animation.png",
     },
   ];
 
@@ -64,7 +65,7 @@ const WhatWeDo = () => {
   }, []);
 
   return (
-    <section className="relative bg-white py-20">
+    <section className="relative bg-black text-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-6">What We Do</h2>
@@ -76,33 +77,43 @@ const WhatWeDo = () => {
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {services.map((service, index) => {
-            const isFirstRow = index < columns;
-            const isFirstCol = index % columns === 0;
-            const isLastCol = (index + 1) % columns === 0;
+  const isFirstRow = index < columns;
+  const isFirstCol = index % columns === 0;
+  const isLastCol = (index + 1) % columns === 0;
+  const isLastItem = index === services.length - 1;
+  const isAloneInRow = services.length % columns !== 0 && isLastItem;
 
-            return (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                className={`flex lg:flex-row flex-col gap-2 p-6 justify-center lg:justify-start items-center lg:items-start transition duration-300 bg-white
-                  ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
-                  ${!isFirstRow ? "border-t" : ""}
-                  ${!isFirstCol ? "border-l" : ""}
-                  ${!isLastCol ? "border-r" : ""}
-                  border-gray-100`}
-              >
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="w-[60px] h-[60px] hover:scale-110 transition-transform duration-300"
-                />
-                <div className="flex lg:flex-col">
-                  <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">{service.title}</h3>
-                  <p className="text-[16px] md:text-[18px] lg:text-[22px] px-1 lg:block hidden">{service.description}</p>
-                </div>
-              </div>
-            );
-          })}
+  return (
+    <div
+      key={index}
+      onMouseEnter={() => setHoveredIndex(index)}
+      className={`
+        flex lg:flex-row flex-col gap-8 p-6 justify-center items-center lg:items-start transition duration-300 sub-heading
+        ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
+        ${!isFirstRow ? "border-t" : ""}
+        ${!isFirstCol ? "border-l" : ""}
+        ${!isLastCol ? "border-r" : ""}
+        ${isAloneInRow ? "justify-self-center" : ""}
+        border-gray-50/20
+      `}
+    >
+      <div className="flex lg:flex-col justify-between h-full w-1/3">
+        <img
+          src={service.icon}
+          alt={service.title}
+          className="w-full h-full hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+      <div className="flex lg:flex-col justify-between h-full">
+        <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">{service.title}</h3>
+        <p className="text-[18px] md:text-[20px] lg:text-[22px] px-1 lg:block hidden leading-[1.2] text-white/50">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  );
+})}
+
         </div>
       </div>
     </section>

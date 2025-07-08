@@ -12,7 +12,7 @@ const BuilderSection = () => {
         </h1>
       </div>
 
-      <div className="md:w-1/2 h-full flex flex-col justify-between p-4">
+      <div className="md:w-1/2 h-full flex flex-col justify-between p-4 sub-heading">
         <p className="text-black text-[16px] md:text-[18px] lg:text-[22px] leading-tight">
           Our stories are distinctive, and our content captures the essence of
           our community with clarity and depth. We champion an open-door policy
