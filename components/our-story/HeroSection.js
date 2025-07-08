@@ -4,33 +4,70 @@ import CountUp from "react-countup";
 
 const HeroSection = () => {
   return (
-    <div data-bg="dark"  className="relative w-full h-[900px] min-h-screen bg-black text-white overflow-hidden flex flex-col justify-between">
+    <div
+      data-bg="dark"
+      className="relative w-full h-[900px] min-h-screen bg-black text-white overflow-hidden flex flex-col justify-between"
+    >
       {/* Center Content */}
-      <div data-bg="dark" className="flex flex-col h-[400px] items-center justify-end text-center z-10">
-        <div data-bg="dark" className="flex flex-col items-center justify-center leading-[0.95] mt-4">
-          <h1 data-bg="dark" className="text-[29px] md:text-[50px] lg:text-[60px] font-bold">
+      <div
+        data-bg="dark"
+        className="flex flex-col h-[400px] items-center justify-end text-center z-10"
+      >
+        <div
+          data-bg="dark"
+          className="flex flex-col items-center justify-center leading-[0.95] mt-4"
+        >
+          <h1
+            data-bg="dark"
+            className="text-[29px] md:text-[50px] lg:text-[60px] font-bold"
+          >
             At Infocus Media, we believe
           </h1>
-          <h1 data-bg="dark" className="text-[29px] md:text-[50px] lg:text-[60px] font-bold">
+          <h1
+            data-bg="dark"
+            className="text-[29px] md:text-[50px] lg:text-[60px] font-bold"
+          >
             that organizations flourish when
           </h1>
-          <h1 data-bg="dark" className="text-[29px] md:text-[50px] lg:text-[60px] font-bold">
-            their teams are proactive and fueled
+          <h1
+            data-bg="dark"
+            className="text-[29px] md:text-[50px] lg:text-[60px] font-bold"
+          >
+            their teams are proactive and
           </h1>
-          <h1 data-bg="dark" className="text-[29px] md:text-[50px] lg:text-[60px] font-bold">
-            by initiative.
+          <h1
+            data-bg="dark"
+            className="text-[29px] md:text-[50px] lg:text-[60px] font-bold"
+          >
+            fueled by initiative.
           </h1>
         </div>
 
-        <p data-bg="dark" className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]">
-          This commitment inspires us to unite with a vibrant, forward-thinking
-          spirit, ensuring our meaningful contributions to sustainable
-          development.
-        </p>
+        <div className="flex flex-col items-center leading-[10px] sub-heading">
+          <p
+            data-bg="dark"
+            className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]"
+          >
+            This commitment inspires us to unite with a vibrant,
+            
+          </p>
+          <p
+            data-bg="dark"
+            className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]"
+          >
+            forward-thinking spirit, ensuring our meaningful
+          </p>
+          <p
+            data-bg="dark"
+            className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]"
+          >
+            contributions to sustainable development.
+          </p>
+        </div>
       </div>
 
       {/* Bottom Section with Stats + Image */}
-      <div className="relative w-full flex-grow">
+      <div className="relative w-full flex-grow px-4">
         {/* Background Image */}
         <img
           src="/story-img1.png"
@@ -40,39 +77,60 @@ const HeroSection = () => {
 
         {/* Left Stats */}
         <div className="absolute top-[80px] left-0 z-10 w-full md:w-1/3 pl-10 sm:pl-[60px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div  className="flex flex-col items-center justify-center gap-2">
-            <h1 data-bg="dark" className="text-5xl md:text-[100px] font-bold">
+          <div className="flex flex-col">
+            <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
               <CountUp end={10} duration={3} />+
             </h1>
-            <h2 data-bg="dark" className="text-base md:text-xl font-bold text-center uppercase">
+            <h2
+              data-bg="dark"
+              className="text-[16px] md:text-[18px] lg:text-[22px] text-center uppercase sub-heading"
+            >
               Years of Experience
             </h2>
           </div>
-          <div data-bg="dark" className="flex flex-col items-center justify-center gap-2">
-            <h1 data-bg="dark" className="text-5xl md:text-[100px] font-bold">
+          <div
+            data-bg="dark"
+            className="flex flex-col"
+          >
+            <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
               <CountUp end={75} duration={3} />+
             </h1>
-            <h2 data-bg="dark" className="text-base md:text-xl font-bold text-center">
+            <h2
+              data-bg="dark"
+              className="text-[16px] md:text-[18px] lg:text-[22px] text-left sub-heading"
+            >
               Clients
             </h2>
           </div>
         </div>
 
         {/* Right Stats */}
-        <div className="absolute top-[80px] right-0 z-10 w-full md:w-1/3 pr-[60px] flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
-          <div data-bg="dark" className="flex flex-col items-center justify-center gap-2">
-            <h1 data-bg="dark" className="text-5xl md:text-[100px] font-bold">
+        <div className="absolute top-[80px] right-6 z-10 w-full md:w-1/3 pr-[60px] flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
+          <div
+            data-bg="dark"
+            className="flex flex-col items-right"
+          >
+            <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
               <CountUp end={80} duration={3} />+
             </h1>
-            <h2 data-bg="dark" className="text-base md:text-xl font-bold text-center uppercase">
+            <h2
+              data-bg="dark"
+              className="text-[16px] md:text-[18px] lg:text-[22px] text-right uppercase sub-heading"
+            >
               Employees
             </h2>
           </div>
-          <div data-bg="dark" className="flex flex-col items-center justify-center gap-2">
-            <h1 data-bg="dark" className="text-5xl md:text-[100px] font-bold">
-              <CountUp end={300} duration={3} />+
+          <div
+            data-bg="dark"
+            className="flex flex-col items-right "
+          >
+            <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
+              <CountUp end={3000} duration={3} />+
             </h1>
-            <h2 data-bg="dark" className="text-base md:text-xl font-bold text-center">
+            <h2
+              data-bg="dark"
+              className="text-[16px] md:text-[18px] lg:text-[22px]  text-right sub-heading"
+            >
               Projects
             </h2>
           </div>

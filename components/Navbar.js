@@ -3,6 +3,8 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+
 
 const menuItems = [
   { name: "HOME", href: "/" },
@@ -20,6 +22,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isDarkBg, setIsDarkBg] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   const navbarRef = useRef(null);
 
@@ -39,6 +43,20 @@ const Navbar = () => {
       if (navbarRef.current) observer.unobserve(navbarRef.current);
     };
   }, []);
+
+
+
+  useEffect(() => {
+    // List of paths where the navbar should be hidden
+    const hiddenPaths = ["/portal", "/users", "/profile", "/cms"];
+
+    // Check if the current pathname matches any of the hidden paths
+    const shouldHide = hiddenPaths.some((path) => pathname.startsWith(path));
+
+    setIsVisible(!shouldHide);
+  }, [pathname]);
+
+  if (!isVisible) return null;
 
 
   

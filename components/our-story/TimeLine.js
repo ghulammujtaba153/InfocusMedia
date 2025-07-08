@@ -40,7 +40,7 @@ const TimeLine = () => {
   const lastActiveIndex = timelineData.map((d) => d.active).lastIndexOf(true);
 
   return (
-    <div ref={containerRef} className="relative w-full bg-white overflow-hidden px-4 md:px-8 py-20">
+    <div ref={containerRef} className="relative w-full bg-white overflow-hidden px-4 md:px-8 py-20 ">
       <div ref={timelineRef} className="flex min-w-max">
         {timelineData.map((item, index) => {
           const isLastActive = index === lastActiveIndex;
@@ -56,9 +56,9 @@ const TimeLine = () => {
                     <div className={`h-[1px] w-[400px] ${item.active ? "bg-green-500" : "bg-gray-300"}`} />
                   )}
                 </div>
-                <div className="text-[22px] font-medium">{item.subTitle}</div>
+                <div className="text-[22px] font-medium sub-heading">{item.subTitle}</div>
                 {item.description.map((desc, i) => (
-                  <p key={i} className="text-[18px] text-gray-500 leading-relaxed">{desc}</p>
+                  <p key={i} className="text-[18px] text-gray-500 leading-relaxed sub-heading">{desc}</p>
                 ))}
               </div>
             </div>

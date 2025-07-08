@@ -19,7 +19,7 @@ const WorkSection = () => {
       icon: "/assets/Icons/digital marketing & web development.svg"
     },
     {
-      title: "COMERCIAL Video MARKETING",
+      title: "COMERCIAL VIDEO MARKETING",
       icon: "/assets/Icons/commercial video production.svg"
     },
     {
@@ -46,19 +46,19 @@ const WorkSection = () => {
         </div>
 
         <div
-          className="grid grid-cols-2 lg:grid-cols-7 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-7 w-full items-center justify-center gap-8"
           onMouseLeave={() => setHoveredIndex(null)} 
         >
           {services.map((service, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
-              className={`flex flex-col gap-2 items-center justify-center cursor-pointer transition duration-300 
+              className={`flex flex-col w-[161px] h-[140px] mb-5 md:w-[245px] lg:w-[173px]  gap-2  cursor-pointer transition duration-300 
                 ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
               `}
             >
-              <img src={service.icon} alt={service.title} className="w-[110px] h-[110px] hover:scale-130 duration-300 transition-transform mb-4" />
-              <h3 className="font-bold text-left text-black mb-3 mt-2 text-[16px] md:text-[18px] lg:text-[22px] px-1">
+              <img src={service.icon} alt={service.title} className="w-[80px] h-[80px] md:w-[96px] md:h-[96px] lg:w-[110px] lg:h-[110px] hover:scale-130 duration-300 transition-transform mb-4" />
+              <h3 className="font-bold text-left  text-black mb-3 mt-2 text-[16px] md:text-[18px] lg:text-[22px] pr-8 leading-[.95]">
                 {service.title}
               </h3>
             </div>
