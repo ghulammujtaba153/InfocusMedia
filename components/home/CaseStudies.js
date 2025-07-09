@@ -1,29 +1,51 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import axios from "axios"
+import Loader from "../Loader"
 
-const data = [
-  {
-    title: "EXPO",
-    description: "Expo 2020 Dubai with the Federal Youth Authority",
-    image: "/assets/Case studies/EXPO.jpg",
-  },
-  {
-    title: "COVID-19",
-    description: "Educating the World about COVID-19 with the Ministry of Health and Prevention",
-    image: "/assets/Case studies/COVID-19.jpg",
-  },
-  {
-    title: "MAESTRO 7x",
-    description: "The rebranding campaign for 7X.",
-    image: "/assets/Case studies/MAESTRO.jpg",
-  },
-]
+// const data = [
+//   {
+//     title: "EXPO",
+//     description: "Expo 2020 Dubai with the Federal Youth Authority",
+//     image: "/assets/Case studies/EXPO.jpg",
+//   },
+//   {
+//     title: "COVID-19",
+//     description: "Educating the World about COVID-19 with the Ministry of Health and Prevention",
+//     image: "/assets/Case studies/COVID-19.jpg",
+//   },
+//   {
+//     title: "MAESTRO 7x",
+//     description: "The rebranding campaign for 7X.",
+//     image: "/assets/Case studies/MAESTRO.jpg",
+//   },
+// ]
 
 const CaseStudies = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("/api/get-cases");
+      setData(res.data.caseStudies || []);
+    } catch (error) {
+      console.error("Error fetching case studies:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if(loading) return <div className='flex flex-col h-screen justify-center items-center'><Loader /></div>
 
   return (
     <section className="min-h-screen">
