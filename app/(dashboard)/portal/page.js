@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-col min-h-screen w-full p-6">
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex  md:flex-row flex-col justify-between items-center mb-4">
         <div className="flex flex-col gap-2">
           <p className="text-2xl font-bold">Case Studies</p>
           <p className=" text-black/50">Manage your portfolio case studies</p>
