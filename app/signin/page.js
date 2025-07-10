@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 
 const SignInPage = () => {
-  const { login } = useAuth(); // ✅ Use AuthContext login
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ const SignInPage = () => {
     setLoading(true);
 
     try {
-      await login(data); // ✅ call context login
+      await login(data);
       router.push("/portal");
     } catch (err) {
       console.error(err);
@@ -35,42 +36,57 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
+    <div className="min-h-screen flex flex-col lg:flex-row bg-white text-black">
+      {/* Left side illustration */}
+      <div className="hidden lg:flex flex-1 justify-center items-center bg-black">
+        <div className="relative w-80 h-80">
+          <div className="absolute top-0 left-0 w-32 h-32 bg-white rotate-45"></div>
+          <div className="absolute top-20 right-0 w-24 h-24 border-2 border-white"></div>
+          <div className="absolute bottom-0 left-20 w-40 h-40 bg-white rounded-full"></div>
+          <div className="absolute bottom-20 right-20 w-16 h-16 bg-white rotate-12"></div>
+        </div>
+      </div>
 
-        <form className="space-y-5" onSubmit={handleSubmit}>
+      {/* Right side form */}
+      <div className="flex flex-1 flex-col justify-center items-center px-6 py-12">
+        <h2 className="text-3xl font-bold mb-6">Sign In</h2>
+
+        <form className="w-full max-w-sm space-y-5" onSubmit={handleSubmit}>
           <div>
-            <label className="block mb-1 text-gray-600 font-medium">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={data.email}
-              onChange={handleInputChange}
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
-              required
-            />
+            <label className="block mb-1 text-gray-700 font-medium">Email</label>
+            <div className="relative">
+              <FiMail className="absolute left-3 top-3 text-gray-500" />
+              <input
+                type="email"
+                name="email"
+                value={data.email}
+                onChange={handleInputChange}
+                placeholder="Enter your email"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2"
+                required
+              />
+            </div>
           </div>
 
           <div>
-            <label className="block mb-1 text-gray-600 font-medium">Password</label>
+            <label className="block mb-1 text-gray-700 font-medium">Password</label>
             <div className="relative">
+              <FiLock className="absolute left-3 top-3 text-gray-500" />
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 value={data.password}
                 onChange={handleInputChange}
                 placeholder="Enter your password"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2"
+                className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                 required
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute right-3 top-2 text-gray-600 text-sm"
+                className="absolute right-3 top-2 text-gray-600 text-lg"
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? <FiEyeOff /> : <FiEye />}
               </button>
             </div>
           </div>
@@ -79,7 +95,7 @@ const SignInPage = () => {
 
           <button
             type="submit"
-            className="w-full cursor-pointer bg-black text-white py-2 rounded-md hover:bg-white hover:text-black outline transition duration-300"
+            className="w-full bg-black text-white py-2 rounded-md hover:bg-white hover:text-black border border-black transition"
           >
             {loading ? "Signing In..." : "Sign In"}
           </button>

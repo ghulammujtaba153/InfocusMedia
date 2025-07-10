@@ -37,10 +37,16 @@ const Page = () => {
   const { id } = useParams(); // Correct usage
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [others, setOthers] = useState([]);
 
   const fetch = async () => {
     try {
-      const res = await axios.get(`/api/${id}`);
+      const [res, res2] = await Promise.all([
+        axios.get(`/api/${id}`),
+        axios.get("/api/get-cases"),
+      ])
+      setData(res.data.caseStudies || []);
+      setOthers(res2.data.caseStudies || []);
       const caseStudy = res.data.caseStudy;
       console.log("Fetched case study:", caseStudy);
       setData(caseStudy);
@@ -95,7 +101,7 @@ const Page = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        {others.map((item, index) => (
+        {others.filter((item) => item._id !== id).slice(0, 3).map((item, index) => (
           <div key={index} className="flex flex-col">
             {/* Image Wrapper with Hover Group */}
             <div className="relative group overflow-hidden">

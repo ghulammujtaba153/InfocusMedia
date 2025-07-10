@@ -8,25 +8,38 @@ import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
 import Loader from "@/components/Loader";
+import {
+  FaBold,
+  FaItalic,
+  FaListUl,
+  FaQuoteRight,
+  FaAlignLeft,
+  FaAlignCenter,
+  FaAlignRight,
+  FaLink,
+  FaImage,
+  FaArrowLeft,
+} from "react-icons/fa";
 
-// Toolbar Button
-const ToolbarButton = ({ onClick, isActive, label }) => (
+// Toolbar Button with Icon
+const ToolbarButton = ({ onClick, isActive, icon: Icon, label }) => (
   <button
     type="button"
     onClick={onClick}
-    className={`p-1 px-2 rounded border ${isActive ? "bg-black text-white" : "bg-white text-black"}`}
+    className={`p-2 rounded ${isActive ? "bg-black text-white" : "bg-white text-black"} hover:bg-gray-200 transition`}
+    title={label}
   >
-    {label}
+    <Icon size={16} />
   </button>
 );
 
 const Page = () => {
   const { id } = useParams();
+  const router = useRouter();
   const [data, setData] = useState({ title: "", description: "", content: "", image: "" });
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
-  const router = useRouter();
 
   const editor = useEditor({
     extensions: [StarterKit, Link, TextAlign.configure({ types: ["heading", "paragraph"] })],
@@ -35,24 +48,20 @@ const Page = () => {
       try {
         const res = await axios.get(`/api/${id}`);
         const caseStudy = res.data.caseStudy;
-        console.log("Fetched case study:", caseStudy);
         setData(caseStudy);
         editor.commands.setContent(caseStudy.content || "");
-      } catch (error) {
-        console.error(error);
+      } catch {
         setError("Failed to load data");
       } finally {
         setLoading(false);
       }
     },
-    onUpdate({ editor }) {
+    onUpdate: ({ editor }) => {
       setData((prev) => ({ ...prev, content: editor.getHTML() }));
     },
   });
 
-  const handleInputChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+  const handleInputChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -61,12 +70,11 @@ const Page = () => {
     const formData = new FormData();
     formData.append("file", file);
 
-    setUploading(true);
     try {
+      setUploading(true);
       const res = await axios.post("/api/upload", formData);
       setData((prev) => ({ ...prev, image: res.data.url }));
-    } catch (err) {
-      console.error(err);
+    } catch {
       setError("Image upload failed");
     } finally {
       setUploading(false);
@@ -76,24 +84,26 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
-
     try {
       await axios.patch(`/api/update-case`, { ...data, id });
       router.push("/portal");
       alert("Case study updated successfully!");
-    } catch (err) {
-      console.error(err);
+    } catch {
       setError("Failed to update case study");
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading) return <div className="flex flex-col h-screen justify-center items-center"><Loader /></div>
+  if (loading) return <div className="flex h-screen justify-center items-center"><Loader /></div>;
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
+      <div className="flex items-center gap-2 mb-6 cursor-pointer text-black hover:text-gray-700" onClick={() => window.history.back()}>
+              <FaArrowLeft size={20} />
+              <span className="font-medium">Back</span>
+            </div>
+
       <h2 className="text-3xl font-bold mb-6">Update Case Study</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -104,7 +114,7 @@ const Page = () => {
             name="title"
             value={data.title}
             onChange={handleInputChange}
-            className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full p-3 border rounded focus:ring-2 focus:ring-black"
             placeholder="Enter case study title"
             required
           />
@@ -116,29 +126,30 @@ const Page = () => {
             name="description"
             value={data.description}
             onChange={handleInputChange}
-            className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full p-3 border rounded focus:ring-2 focus:ring-black"
             placeholder="Enter a short description"
-            rows="3"
+            rows={3}
           />
         </div>
 
         <div>
           <label className="block mb-2 font-medium">Content</label>
           <div className="flex gap-2 mb-3 flex-wrap">
-            <ToolbarButton onClick={() => editor?.chain().focus().toggleBold().run()} isActive={editor?.isActive("bold")} label="Bold" />
-            <ToolbarButton onClick={() => editor?.chain().focus().toggleItalic().run()} isActive={editor?.isActive("italic")} label="Italic" />
-            <ToolbarButton onClick={() => editor?.chain().focus().toggleBulletList().run()} isActive={editor?.isActive("bulletList")} label="Bullets" />
-            <ToolbarButton onClick={() => editor?.chain().focus().toggleBlockquote().run()} isActive={editor?.isActive("blockquote")} label="Quote" />
-            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("left").run()} isActive={editor?.isActive({ textAlign: "left" })} label="Left" />
-            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("center").run()} isActive={editor?.isActive({ textAlign: "center" })} label="Center" />
-            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("right").run()} isActive={editor?.isActive({ textAlign: "right" })} label="Right" />
+            <ToolbarButton onClick={() => editor?.chain().focus().toggleBold().run()} isActive={editor?.isActive("bold")} icon={FaBold} label="Bold" />
+            <ToolbarButton onClick={() => editor?.chain().focus().toggleItalic().run()} isActive={editor?.isActive("italic")} icon={FaItalic} label="Italic" />
+            <ToolbarButton onClick={() => editor?.chain().focus().toggleBulletList().run()} isActive={editor?.isActive("bulletList")} icon={FaListUl} label="Bulleted List" />
+            <ToolbarButton onClick={() => editor?.chain().focus().toggleBlockquote().run()} isActive={editor?.isActive("blockquote")} icon={FaQuoteRight} label="Quote" />
+            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("left").run()} isActive={editor?.isActive({ textAlign: "left" })} icon={FaAlignLeft} label="Align Left" />
+            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("center").run()} isActive={editor?.isActive({ textAlign: "center" })} icon={FaAlignCenter} label="Align Center" />
+            <ToolbarButton onClick={() => editor?.chain().focus().setTextAlign("right").run()} isActive={editor?.isActive({ textAlign: "right" })} icon={FaAlignRight} label="Align Right" />
             <ToolbarButton
               onClick={() => {
                 const url = prompt("Enter URL");
                 if (url) editor?.chain().focus().toggleLink({ href: url }).run();
               }}
               isActive={editor?.isActive("link")}
-              label="Link"
+              icon={FaLink}
+              label="Insert Link"
             />
           </div>
           <div className="border rounded bg-white p-3 min-h-[200px]">
@@ -148,11 +159,17 @@ const Page = () => {
 
         <div>
           <label className="block mb-2 font-medium">Upload Image</label>
-          <input type="file" onChange={handleFileUpload} className="block" />
-          {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2 cursor-pointer bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition">
+              <FaImage />
+              <span>Choose Image</span>
+              <input type="file" onChange={handleFileUpload} className="hidden" />
+            </label>
+            {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
+          </div>
           {data.image && (
-            <div className="mt-2">
-              <img src={data.image} alt="Uploaded preview" className="h-32 rounded" />
+            <div className="mt-3">
+              <img src={data.image} alt="Uploaded preview" className="h-32 rounded shadow" />
             </div>
           )}
         </div>
