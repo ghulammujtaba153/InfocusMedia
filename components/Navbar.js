@@ -48,7 +48,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // List of paths where the navbar should be hidden
-    const hiddenPaths = ["/portal", "/users", "/profile", "/cms"];
+    const hiddenPaths = ["/portal", "/users", "/profile", "/cms", "/case-study", "/case-study/[id]"];
 
     // Check if the current pathname matches any of the hidden paths
     const shouldHide = hiddenPaths.some((path) => pathname.startsWith(path));

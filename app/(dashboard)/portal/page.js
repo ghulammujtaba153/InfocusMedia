@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import Loader from "@/components/Loader";
 
 const Page = () => {
@@ -38,16 +38,39 @@ const Page = () => {
   if (loading) return <div className="flex flex-col h-screen justify-center items-center"><Loader /></div>
 
   return (
-    <div className="flex flex-col min-h-screen w-full items-center justify-center p-6">
-      <Link href="/case-study" className="bg-black text-white px-4 py-2 mb-6 rounded hover:bg-gray-800">
-        Create Case Study
-      </Link>
+    <div className="flex flex-col min-h-screen w-full p-6">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col gap-2">
+          <p className="text-2xl font-bold">Case Studies</p>
+          <p className=" text-black/50">Manage your portfolio case studies</p>
+        </div>
 
-      <p className="text-2xl font-bold mb-4">Case Studies</p>
+        <Link href="/case-study" className="bg-black flex items-center gap-2 text-white px-4 py-2 mb-6 rounded hover:bg-gray-800">
+        <FaPlus className="w-4 h-4 mr-2" /> Create Case Study
+      </Link>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
         {data.slice(0, visibleItems).map((item) => (
           <div key={item._id} className="flex flex-col  overflow-hidden shadow  max-h-[330px]">
+            <div className="flex items-center justify-between p-2">
+              <p className="bg-green-400 text-green-900 px-4 py-1 rounded-full text-sm">Published</p>
+              <div className="flex gap-4 mt-2">
+                <Link
+                  href={`/case-study/${item._id}`}
+                  className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                >
+                  <FaEdit /> Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(item._id)}
+                  className="text-red-600 hover:text-red-800 flex items-center gap-1"
+                >
+                  <FaTrash /> Delete
+                </button>
+              </div>
+            </div>
+
             <div className="relative group">
               <img
                 src={item.image}
@@ -68,20 +91,7 @@ const Page = () => {
               <h3 className="text-xl font-semibold">{item.title?.toUpperCase()}</h3>
               <p className="text-gray-700">{item.description}</p>
 
-              <div className="flex gap-4 mt-2">
-                <Link
-                  href={`/case-study/${item._id}`}
-                  className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
-                >
-                  <FaEdit /> Edit
-                </Link>
-                <button
-                  onClick={() => handleDelete(item._id)}
-                  className="text-red-600 hover:text-red-800 flex items-center gap-1"
-                >
-                  <FaTrash /> Delete
-                </button>
-              </div>
+              
             </div>
           </div>
         ))}

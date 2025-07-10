@@ -63,7 +63,7 @@ const CaseStudies = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-center items-stretch gap-6">
-          {data.map((item, index) => (
+          {data.slice(0, 3).map((item, index) => (
             <motion.div 
               key={index} 
               className="flex flex-col w-full lg:w-[500px] " // Set fixed width
@@ -81,7 +81,7 @@ const CaseStudies = () => {
                 />
                 {/* Hover Button */}
                 <Link
-                  href="/case-studies/1"
+                  href={`/case-studies/${item._id}`}
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
                 >
                   <span className="bg-white text-[22px] text-black px-4 py-2 text-sm font-medium rounded shadow-md">
