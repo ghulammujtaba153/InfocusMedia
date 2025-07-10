@@ -15,7 +15,7 @@ export default function CMSLayout({ children }) {
             <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
             <main
               className={`transition-all duration-300 p-6 overflow-y-auto ${
-                isCollapsed ? "ml-20" : "ml-64"
+                isCollapsed ? "ml-20" : "ml-4"
               } w-full`}
             >
               {children}

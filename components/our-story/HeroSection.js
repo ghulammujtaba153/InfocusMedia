@@ -97,7 +97,7 @@ const HeroSection = () => {
             </h1>
             <h2
               data-bg="dark"
-              className="text-[16px] md:text-[18px] lg:text-[22px] text-left sub-heading"
+              className="text-[16px] md:text-[18px] lg:text-[22px] text-left uppercase sub-heading"
             >
               Clients
             </h2>
@@ -129,7 +129,7 @@ const HeroSection = () => {
             </h1>
             <h2
               data-bg="dark"
-              className="text-[16px] md:text-[18px] lg:text-[22px]  text-right sub-heading"
+              className="text-[16px] md:text-[18px] lg:text-[22px] uppercase text-right sub-heading"
             >
               Projects
             </h2>

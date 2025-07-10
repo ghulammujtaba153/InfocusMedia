@@ -69,7 +69,7 @@ const Page = () => {
 
   return (
     <div className="min-h-screen p-6 ">
-      <div className="flex justify-between items-center max-w-6xl mx-auto mb-6">
+      <div className="flex  md:flex-row flex-col  justify-between items-center max-w-6xl mx-auto mb-6">
         <div>
           <h1 className="text-3xl font-bold">Users</h1>
           <p className="text-gray-500">Manage your users</p>
