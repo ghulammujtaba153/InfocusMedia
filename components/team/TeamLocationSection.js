@@ -2,9 +2,9 @@ import React from "react";
 
 const TeamLocationSection = () => {
   return (
-    <div className="flex items-center lg:flex-row flex-col gap-4 px-4 w-full h-screen">
+    <div className="flex items-center lg:flex-row flex-col gap-4 px-4 w-full min-h-screen">
       {/* left side */}
-      <div className="flex flex-col justify-between p-10 bg-black text-white h-screen w-full md:w-1/2">
+      <div className="flex flex-col justify-between p-10 bg-black text-white h-screen w-full lg:w-1/2">
         <div className="flex flex-col gap-2">
           <h1 className="font-bold md:text-[80px] text-[54px]">Join</h1>
           <h1 className="font-bold md:text-[80px] text-[54px]">Our Team</h1>
@@ -22,7 +22,7 @@ const TeamLocationSection = () => {
         </div>
       </div>
 
-      <div className="flex-1 w-full  relative overflow-hidden h-[492px] h-full">
+      <div className=" w-full  relative overflow-hidden h-screen ">
 
         <img src="/image.png" className="w-full h-full object-cover" alt="map" />
 
