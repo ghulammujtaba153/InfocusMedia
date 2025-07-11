@@ -49,7 +49,7 @@ const SocialMedia = () => {
                     onClick={() => openModal(item.image, idx)}
                     src={image}
                     alt={item.title}
-                    className="w-full h-[350px] object-cover cursor-pointer"
+                    className=" w-full h-[161px] md:h-[216px] md:w-[216px] lg:h-[414px] lg:w-[414px] object-cover cursor-pointer"
                   />
                 ))}
               </div>

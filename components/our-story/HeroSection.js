@@ -6,16 +6,16 @@ const HeroSection = () => {
   return (
     <div
       data-bg="dark"
-      className="relative w-full h-[900px] min-h-screen bg-black text-white overflow-hidden flex flex-col justify-between"
+      className="relative w-full h-[1400px] min-h-screen bg-black text-white overflow-hidden flex flex-col justify-between"
     >
       {/* Center Content */}
       <div
         data-bg="dark"
-        className="flex flex-col h-[400px] items-center justify-end text-center z-10"
+        className="flex flex-col h-[700px] items-center justify-center text-center z-10"
       >
         <div
           data-bg="dark"
-          className="flex flex-col items-center justify-center leading-[0.95] mt-4"
+          className="flex flex-col items-center justify-center leading-[1] mt-4"
         >
           <h1
             data-bg="dark"
@@ -43,7 +43,7 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col items-center leading-[10px] sub-heading">
+        <div className="flex flex-col items-center leading-[14px] sub-heading mt-2">
           <p
             data-bg="dark"
             className="mt-4 max-w-3xl text-[18px] md:text-[20px] lg:text-[22px]"
@@ -76,8 +76,8 @@ const HeroSection = () => {
         />
 
         {/* Left Stats */}
-        <div className="absolute top-[80px] left-0 z-10 w-full md:w-1/3 pl-10 sm:pl-[60px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex flex-col">
+        <div className="absolute top-[-10px] left-0 z-10 w-full md:w-1/3 pl-10 sm:pl-[60px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="flex flex-col ">
             <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
               <CountUp end={10} duration={3} />+
             </h1>
@@ -105,7 +105,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right Stats */}
-        <div className="absolute top-[80px] right-6 z-10 w-full md:w-1/3 pr-[60px] flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
+        <div className="absolute top-[-10px] md:right-6 z-10 w-full md:w-1/3 pr-[60px] flex flex-col md:flex-row items-end md:items-center justify-between gap-6">
           <div
             data-bg="dark"
             className="flex flex-col items-right"
@@ -125,7 +125,7 @@ const HeroSection = () => {
             className="flex flex-col items-right "
           >
             <h1 data-bg="dark" className="text-[54px] md:text-[84px] lg:text-[100px] font-bold">
-              <CountUp end={3000} duration={3} />+
+              <CountUp end={3000} duration={3} separator="" />+
             </h1>
             <h2
               data-bg="dark"

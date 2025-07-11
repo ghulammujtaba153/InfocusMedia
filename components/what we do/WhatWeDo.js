@@ -30,10 +30,11 @@ const WhatWeDo = () => {
     },
     {
       title: "MARKETING STRATEGY",
-      description: "We plan your growth with clear with clear data-driven strategies",
+      description:
+        "We plan your growth with clear with clear data-driven strategies",
       icon: "/what-we-do/marketing.png",
     },
-    
+
     {
       title: "BRANDING",
       description: "We build plans with purpose, personality, and power",
@@ -68,7 +69,9 @@ const WhatWeDo = () => {
     <section className="relative bg-black text-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-6">What We Do</h2>
+          <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-6">
+            What We Do
+          </h2>
         </div>
 
         <div
@@ -77,43 +80,48 @@ const WhatWeDo = () => {
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {services.map((service, index) => {
-  const isFirstRow = index < columns;
-  const isFirstCol = index % columns === 0;
-  const isLastCol = (index + 1) % columns === 0;
-  const isLastItem = index === services.length - 1;
-  const isAloneInRow = services.length % columns !== 0 && isLastItem;
+            const isFirstRow = index < columns;
+            const isFirstCol = index % columns === 0;
+            const isLastCol = (index + 1) % columns === 0;
+            const isLastItem = index === services.length - 1;
+            const isAloneInRow = services.length % columns !== 0 && isLastItem;
 
-  return (
-    <div
-      key={index}
-      onMouseEnter={() => setHoveredIndex(index)}
-      className={`
+            return (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                className={`
         flex lg:flex-row flex-col gap-8 p-6 justify-center items-center lg:items-start transition duration-300 sub-heading
-        ${hoveredIndex !== null && hoveredIndex !== index ? "opacity-30" : "opacity-100"}
+        ${
+          hoveredIndex !== null && hoveredIndex !== index
+            ? "opacity-30"
+            : "opacity-100"
+        }
         ${!isFirstRow ? "border-t" : ""}
         ${!isFirstCol ? "border-l" : ""}
         ${!isLastCol ? "border-r" : ""}
         ${isAloneInRow ? "justify-self-center" : ""}
         border-gray-50/20
       `}
-    >
-      <div className="flex lg:flex-col justify-between h-full w-1/3">
-        <img
-          src={service.icon}
-          alt={service.title}
-          className="w-full h-full hover:scale-110 transition-transform duration-300"
-        />
-      </div>
-      <div className="flex lg:flex-col justify-between h-full">
-        <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">{service.title}</h3>
-        <p className="text-[18px] md:text-[20px] lg:text-[22px] px-1 lg:block hidden leading-[1.2] text-white/50">
-          {service.description}
-        </p>
-      </div>
-    </div>
-  );
-})}
-
+              >
+                <div className="flex lg:flex-col justify-between h-full ">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className="w-[80px] h-[80px] md:w-[96px] md:h-[96px] lg:w-[116px] lg:h-[116px] hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex lg:flex-col  h-full">
+                  <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-[18px] md:text-[20px] lg:text-[22px] px-1 lg:block hidden leading-[1.2] text-white/50">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

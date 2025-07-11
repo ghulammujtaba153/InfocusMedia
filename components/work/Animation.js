@@ -38,7 +38,7 @@ const Animation = () => {
                     key={i}
                     src={image}
                     alt={item.title || "Case Study"}
-                    className="w-full h-[750px] object-cover"
+                    className="w-full md:w-[42px] lg:w-[414px] lg:h-[750px] object-cover"
                   />
                 ))}
               </div>

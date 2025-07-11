@@ -14,15 +14,9 @@ const LocationSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
 
-        <img src="/map-img.png" className="w-full h-full object-cover" alt="map" />
+        <img src="/image-contact.png" className="w-full h-full object-contain" alt="map" />
 
-        {/* Address Overlay */}
-        <div className="absolute top-0 left-0 m-4 p-4 bg-white bg-opacity-90 text-[16px] md:text-[18px] lg:[text-22px]font-bold text-black rounded-md shadow-md">
-          <p className=" uppercase mb-1">Address</p>
-          <p className="font-bold">OFFICE 221, AL HANNAN CENTER</p>
-          <p className="">Dubai, UAE</p>
-          <p className="">(04 3300409)</p>
-        </div>
+        =
       </div>
   )
 }

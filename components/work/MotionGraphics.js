@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 const data = [
-  { title: "7X x Sikka Collaboration", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "Marketing Campaign", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "EXPO Event Coverage", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "Brand Partnership", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "Brand Partnership 2", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "Brand Partnership 3", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "dc children day", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "salik eid greeting ", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "salik animation post", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "dc zayed humanitarian day", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "mohisruae", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "infocus media eid greetings", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "salik earth day", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "mohisruae", image: "/assets/Case studies/7X x Sikka.jpg" },
 ];
 
 const MotionGraphics = () => {
@@ -38,7 +40,7 @@ const MotionGraphics = () => {
               <div className="md:w-1/2 w-full flex md:justify-end">
                 <div className="flex gap-10 md:gap-0 md:flex-col md:text-right text-left">
                   <p className="text-sm text-gray-500 text-[16px] md:text-[18px] lg:text-[22px] uppercase">PROJECT</p>
-                  <h1 className="text-[40px] lg:text-[64px] font-semibold">{item.title}</h1>
+                  <h1 className="text-[40px] lg:text-[64px] font-semibold leading-[.99] capitalize">{item.title}</h1>
                 </div>
               </div>
 
@@ -46,7 +48,7 @@ const MotionGraphics = () => {
               <img
                 src={item.image}
                 alt={item.title || "Case Study"}
-                className="w-full h-[500px] object-cover"
+                className="w-full md:w-[370px] h-[620px] md:h-[750px] object-cover"
               />
             </div>
           );

@@ -83,7 +83,7 @@ const Page = () => {
       <img
         src={data.image}
         alt={data.title}
-        className="w-full h-[500px] object-cover mt-4"
+        className="w-full h-[242px] md:h-[486px] lg:h-[840px] object-cover mt-4"
       />
 
       <div className="flex md:flex-row flex-col justify-between gap-10 mt-6">
@@ -108,7 +108,7 @@ const Page = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-[400px] object-cover transition-all duration-300 group-hover:blur-sm"
+                className="w-full h-[242px] md:h-[487px] lg:h-[402px]  object-cover transition-all duration-300 group-hover:blur-sm"
               />
               {/* Hover Button */}
               <Link
