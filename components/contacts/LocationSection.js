@@ -14,7 +14,7 @@ const LocationSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
 
-        <img src="/image-contact.png" className="w-full h-full object-contain" alt="map" />
+        <img src="/image-contact.png" className="w-full h-screen object-cover" alt="map" />
 
         =
       </div>
