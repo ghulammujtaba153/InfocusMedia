@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
 const data = [
-  { title: "dc children day", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "salik eid greeting ", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "salik animation post", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "dc zayed humanitarian day", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "mohisruae", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "infocus media eid greetings", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "salik earth day", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "mohisruae", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "dc children day", image: "/assets/motion3.png" },
+  { title: "salik eid greeting ", image: "/assets/motion1.png" },
+  { title: "salik animation post", image: "/assets/motion2.png" },
+  { title: "dc zayed humanitarian day", image: "/assets/motion7.png" },
+  { title: "mohisruae", image: "/assets/motion5.png" },
+  { title: "infocus media eid greetings", image: "/assets/motion6.png" },
+  { title: "salik earth day", image: "/assets/motion4.png" },
+  { title: "mohisruae", image: "/assets/motion4.png" },
 ];
 
 const MotionGraphics = () => {
-  const [visibleCount, setVisibleCount] = useState(4); // Show 2 by default
+  const [visibleCount, setVisibleCount] = useState(6); 
 
   const handleToggle = () => {
     if (visibleCount >= data.length) {

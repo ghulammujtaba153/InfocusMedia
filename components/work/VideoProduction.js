@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const data = [
-  { title: "7X x Sikka Collaboration", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "Marketing Campaign", image: "/assets/Case studies/7X x Sikka.jpg" },
-  { title: "EXPO Event Coverage", image: "/assets/Case studies/EXPO.jpg" },
-  { title: "Brand Partnership", image: "/assets/Case studies/7X x Sikka.jpg" },
+  { title: "MOHaP", image: "/assets/production1.png" },
+  { title: "7x", image: "/assets/production2.png" },
+  { title: "Ministry of education", image: "/assets/production3.png" },
+  { title: "Ministry of education", image: "/assets/production3.png" },
 ];
 
 const VideoProduction = () => {
@@ -31,7 +31,7 @@ const VideoProduction = () => {
                 <div className='flex gap-10 md:gap-0 md:flex-col md:text-right text-left'>
                   <p className='text-[16px] md:text-[18px] lg:text-[22px] uppercase text-gray-500 md:mb-2'>Client</p>
                   <div className='flex flex-col leading-[1]'>
-                    <h1 className='text-[40px] lg:text-[64px] font-semibold'>{item.title}</h1>
+                    <h1 className='text-[40px] lg:text-[64px] font-semibold uppercase'>{item.title}</h1>
                     <p className=' md:text-[40px] lg:text-[64px] font-bold text-gray-400'>UAE</p>
                   </div>
                 </div>
