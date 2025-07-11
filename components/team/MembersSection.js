@@ -1,15 +1,51 @@
 import React from "react";
 
 const data = [
-  { image: "/assets/Team/image-4.png", occupation: "Founder & CEO", name: "Hassan Mohammad Al Najjar" },
-  { image: "/assets/Team/image-1.png", occupation: "Accountant", name: "Sami Ayyoub" },
-  { image: "/assets/Team/image-5.png", occupation: "Art Director", name: "Harry Hussin" },
-  { image: "/assets/Team/image-2.png", occupation: "Project Manager", name: "Reem Ramzi" },
-  { image: "/assets/Team/image-6.png", occupation: "Human Resources Manager", name: "Omnia Hassan" },
-  { image: "/assets/Team/image-9.png", occupation: "Content Manager", name: "Aysar Nourdine" },
-  { image: "/assets/Team/image-7.png", occupation: "Animation Team Lead", name: "Sohib Hesham" },
-  { image: "/assets/Team/image-8.png", occupation: "Social Media Manager", name: "Ahmed AlNajjar" },
-  { image: "/assets/Team/image-10.png", occupation: "Social Media Manager", name: "Haroorn Waheed" },
+  {
+    image: "/assets/Team/image-4.png",
+    occupation: "Founder & CEO",
+    name: "Hassan Mohammad Al Najjar",
+  },
+  {
+    image: "/assets/Team/image-1.png",
+    occupation: "Accountant",
+    name: "Sami Ayyoub",
+  },
+  {
+    image: "/assets/Team/image-5.png",
+    occupation: "Art Director",
+    name: "Harry Hussin",
+  },
+  {
+    image: "/assets/Team/image-2.png",
+    occupation: "Project Manager",
+    name: "Reem Ramzi",
+  },
+  {
+    image: "/assets/Team/image-6.png",
+    occupation: "Human Resources Manager",
+    name: "Omnia Hassan",
+  },
+  {
+    image: "/assets/Team/image-9.png",
+    occupation: "Content Manager",
+    name: "Aysar Nourdine",
+  },
+  {
+    image: "/assets/Team/image-7.png",
+    occupation: "Animation Team Lead",
+    name: "Sohib Hesham",
+  },
+  {
+    image: "/assets/Team/image-8.png",
+    occupation: "Social Media Manager",
+    name: "Ahmed AlNajjar",
+  },
+  {
+    image: "/assets/Team/image-10.png",
+    occupation: "Social Media Manager",
+    name: "Haroorn Waheed",
+  },
 ];
 
 const MembersSection = () => {
@@ -38,16 +74,18 @@ const MembersSection = () => {
         </div>
 
         {/* Text */}
-        <div className="flex flex-col items-center justify-center w-full mt-2 z-10">
+        <div className="flex flex-col items-center justify-center w-full mt-4 z-10 leading-[.95]">
           <p className="text-[16px] md:text-[28px] lg:text-[22px] text-black/50 font-semibold">
             {data[0].occupation}
           </p>
-          <h1 className="font-bold text-[29px] md:text-[64px] ">{data[0].name}</h1>
+          <h1 className="font-bold text-[29px] md:text-[64px] max-w-[620px] items-center text-center break-words whitespace-normal leading-tight">
+            {data[0].name}
+          </h1>
         </div>
       </div>
 
       {/* Other members */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-2 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-2 mt-20">
         {data.slice(1).map((item, index) => (
           <div
             key={index}
@@ -58,10 +96,12 @@ const MembersSection = () => {
               alt="/"
               className="w-[300px] h-[300px] rounded-full"
             />
-            <p className="text-[16px] md:text-[28px] lg:text-[22px] text-black/50 font-semibold">
+            <p className="text-[16px] md:text-[28px] lg:text-[22px] text-black/50 font-semibold mt-4">
               {item.occupation}
             </p>
-            <h1 className="font-bold text-[29px] md:text-[39px]">{item.name}</h1>
+            <h1 className="font-bold text-[29px] md:text-[39px]">
+              {item.name}
+            </h1>
           </div>
         ))}
       </div>

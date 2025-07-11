@@ -11,23 +11,36 @@ const FooterGlobe = () => {
     const section = sectionRef.current;
     if (!video || !section) return;
 
+    video.pause();
+
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Progress from top of viewport (0) to center of viewport (1)
-      const distanceFromTop = rect.top;
-      const centerPoint = windowHeight / 2;
+      // Calculate progress as section enters viewport
+      const sectionVisible =
+        rect.top <= windowHeight && rect.bottom >= 0;
 
-      let scrollProgress = 1 - distanceFromTop / centerPoint;
-      scrollProgress = Math.min(Math.max(0, scrollProgress), 1); // clamp between 0 and 1
+      if (!sectionVisible) {
+        // If section is completely out of view
+        video.currentTime = 0;
+        return;
+      }
 
-      const minTime = 3;
-      const maxTime = 6;
-      video.currentTime = minTime + scrollProgress * (maxTime - minTime);
+      const sectionHeight = rect.height;
+      const scrollProgress = 1 - (rect.top / windowHeight); // progress from 0 to 1 as it scrolls into view
+      const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+
+      const minTime = 0;
+      const maxTime = 4;
+      video.currentTime = minTime + clampedProgress * (maxTime - minTime);
     };
 
+    console.log("Video time :", video.currentTime, "Video duration:", video.duration);
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger once on mount
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

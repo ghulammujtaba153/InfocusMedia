@@ -44,7 +44,7 @@ const EventCoverage = () => {
                 <div className='flex gap-10 md:gap-0 md:flex-col  md:text-right text-left'>
                   <p className='text-sm text-gray-500 text-[16px] md:text-[18px] lg:text-[22px] uppercase'>CLIENT</p>
                   <div className='flex flex-col'>
-                    <h1 className='text-xl font-semibold text-[40px] md:text-[40px] lg:text-[64px]'>{item.title}</h1>
+                    <h1 className='text-xl font-semibold text-[40px] md:text-[40px] lg:text-[64px] leading-[1]'>{item.title}</h1>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const EventCoverage = () => {
                 <img
                   src={item.image}
                   alt={item.title || 'Case Study'}
-                  className='w-full h-[400px] object-cover rounded-md'
+                  className='w-full  h-[191px] md:h-[383px] lg:h-[750px]'
                 />
               </div>
             </div>
@@ -62,14 +62,15 @@ const EventCoverage = () => {
         ))}
       </div>
 
-      <div className='flex justify-center items-center mt-10'>
+      { data.length> visibleCount &&
+        <div className='flex justify-center items-center mt-10'>
         <button
           onClick={handleToggle}
           className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
         >
           {visibleCount >= data.length ? "See Less" : "See More!"}
         </button>
-      </div>
+      </div>}
     </div>
   )
 }

@@ -20,7 +20,7 @@ const OpportunitySection = () => {
           <div className="flex flex-wrap gap-4 justify-center w-full">
             {/* Card 1 */}
             <div className="flex flex-col items-start gap-3 p-4 bg-white text-[18px] md:text-[20px] lg:text-[22px] w-full sm:w-[300px]">
-              <img src="/our-story/i-1.png" alt="logo" className="w-[80px] h-[80px] mb-4  object-contain" />
+<img src="/our-story/i-1.png" alt="logo" className="w-[90px] h-[90px] mb-4  object-cover" />
               <div>
                 <p className="font-bold ">DUBAI SME</p>
                 <p className="leading-[1.2]">Empowering Emirati entrepreneurs to transform ideas into successful businesses since 2002.</p>

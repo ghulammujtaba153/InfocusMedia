@@ -1,39 +1,40 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const TransformGlobe = () => {
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
-  const [showStartText, setShowStartText] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
     const section = sectionRef.current;
     if (!video || !section) return;
 
+    video.pause();
+
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Scroll progress from 0 (section top at viewport top) to 1 (section bottom at viewport top)
-      let scrollProgress = Math.min(Math.max(0, 1 - rect.top / windowHeight), 1);
+      const isVisible = rect.top <= windowHeight && rect.bottom >= 0;
 
-      // Reverse progress for reverse playback
-      scrollProgress = 1 - scrollProgress;
-
-      const videoDuration = video.duration || 7;
-      video.currentTime = scrollProgress * videoDuration;
-
-      // Example: toggle text visibility at 50% scroll
-      if (scrollProgress > 0.5) {
-        setShowStartText(false);
-      } else {
-        setShowStartText(true);
+      if (!isVisible) {
+        video.currentTime = 0;
+        return;
       }
+
+      const scrollProgress = 1 - rect.top / windowHeight;
+      const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+
+      const minTime = 0;
+      const maxTime = 4;
+      video.currentTime = minTime + clampedProgress * (maxTime - minTime);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run once on mount
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -55,27 +56,24 @@ const TransformGlobe = () => {
       </video>
 
       {/* Text Overlay */}
-      <div
-        className={`absolute inset-0 flex flex-col items-center justify-center z-20 transition-opacity duration-300 ${
-          showStartText ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase font-bandeins-strange text-black text-center mb-4">
-          WE MAKE YOUR AUDIENCE FEEL, THINK, AND ACT
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-20 transition-opacity duration-300 opacity-100">
+        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase text-black text-center mb-4 uppercase">
+          WE donot see brands, we see possiblities
         </p>
 
         <div className="flex flex-col leading-[.95]">
-          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold font-bandeins-strange text-black text-center mb-2">
-            We turn insights
+          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold text-black text-center mb-2">
+            We transform ideas
           </h1>
-          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold font-bandeins-strange text-black text-center">
-            into impact
+          <h1 className="text-[40px] md:text-[65px] lg:text-[100px] font-bold text-black text-center">
+            into visual stories
           </h1>
         </div>
 
-        <button className="mt-5 bg-black rounded-md text-white px-8 py-4 font-bold font-bandeins-strange tracking-wide transition-colors duration-300 transform hover:scale-105">
-          Let's Get Started
-        </button>
+
+        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase text-black text-center mt-4">
+          and we know what your brand needs
+        </p>
       </div>
     </section>
   );

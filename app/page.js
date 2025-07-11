@@ -32,9 +32,11 @@ export default function Home() {
       <div className="relative">
         <SheikhCaseStudiesContainer />
       </div>
+
+      <TransformGlobe/>
       
       <InsightGlobe/>
-      <TransformGlobe/>
+      
       <TeamSection/>
       <Location/>
       <FooterGlobe/>

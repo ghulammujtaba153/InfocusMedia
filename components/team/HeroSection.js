@@ -11,7 +11,7 @@ const HeroSection = () => {
         <h1 className='text-[29px] md:text-[50px] lg:text-[84px]  font-bold'>and fired up by initiative.</h1>
 
         <h1 className='text-[29px] md:text-[50px] lg:text-[84px]  font-bold'> No corner offices, just open</h1>
-        <h1 className='text-[29px] md:text-[50px] lg:text-[84px]  font-bold'> just open doors and <span className='text-green-400'>open minds.</span> </h1>
+        <h1 className='text-[29px] md:text-[50px] lg:text-[84px]  font-bold'>doors and <span className='text-green-400'>open minds</span>.</h1>
 
     </div>
   )

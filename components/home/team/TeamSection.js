@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Location from "./Location";
-
 const data = [
   { image: "/assets/Team/image-4.png", occupation: "Founder & CEO", name: "Hassan Mohammad Al Najjar" },
   { image: "/assets/Team/image-1.png", occupation: "Accountant", name: "Sami Ayyoub" },
@@ -16,49 +14,40 @@ const data = [
   { image: "/assets/Team/image-8.png", occupation: "Social Media Manager", name: "Ahmed AlNajjar" },
   { image: "/assets/Team/image-10.png", occupation: "Social Media Manager", name: "Haroorn Waheed" },
 ];
-
 const TeamSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const intervalRef = useRef(null);
-
     const nextSlide = () => {
         setCurrentIndex((prev) => (prev + 1) % data.length);
     };
-
     const prevSlide = () => {
         setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
     };
-
     // Auto-play functionality
     useEffect(() => {
         intervalRef.current = setInterval(() => {
             nextSlide();
         }, 4000);
-
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
             }
         };
     }, []);
-
     // Pause auto-play on hover
     const handleMouseEnter = () => {
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
         }
     };
-
     const handleMouseLeave = () => {
         intervalRef.current = setInterval(() => {
             nextSlide();
         }, 4000);
     };
-
     const getVisibleItems = () => {
         const items = [];
         const totalItems = data.length;
-
         // Get 5 items centered around current index
         for (let i = -2; i <= 2; i++) {
             const index = (currentIndex + i + totalItems) % totalItems;
@@ -68,21 +57,17 @@ const TeamSection = () => {
                 position: i,
             });
         }
-
         return items;
     };
-
     const visibleItems = getVisibleItems();
-
     return (
         <section className="relative bg-black text-white py-20 overflow-hidden">
             <div className="container mx-auto px-6 text-center mb-16">
                 <h2 className="text-[40px] md:text-[64px] lg:text-[100px] font-bold mb-4">Meet The Team</h2>
                 
             </div>
-
             <div
-                className="relative flex items-center justify-center px-20"
+                className="relative flex items-center justify-center px-2"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -94,27 +79,24 @@ const TeamSection = () => {
                 >
                     <FaChevronLeft className="text-white text-xl" />
                 </button>
-
-
                 {/* Carousel Container */}
-                <div className="flex gap-4 items-center justify-center max-w-6xl mx-auto">
+                <div className="flex gap-[5px] items-center justify-center w-full ">
                     <AnimatePresence mode="wait">
                         {visibleItems.map((item, idx) => {
                             const isCenter = item.position === 0;
-                            const isFar = Math.abs(item.position) === 2;
-
+                            const isFar = Math.abs(item.position) === 2 || Math.abs(item.position) === 3;
                             return (
                                 <motion.div
                                     key={`${item.originalIndex}-${currentIndex}`}
                                     initial={{
                                         opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : .6,
-                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : .9,
-                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 10 :10
+                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : 0.9,
+                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 5 : 5
                                     }}
                                     animate={{
                                         opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : 1,
                                         scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : 1.1,
-                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 10 : 0
+                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 5 : 5
                                     }}
                                     transition={{
                                         duration: 0.5,
@@ -123,7 +105,7 @@ const TeamSection = () => {
                                     className={`flex flex-col items-center justify-center text-center transition-all duration-500 ${isCenter ? 'z-10' : 'z-0'
                                         }`}
                                 >
-                                    <div className={`relative rounded-2xl p-6 ${isCenter ? 'md:max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
+                                    <div className={`relative rounded-2xl py-6 px-3 ${isCenter ? 'md:max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
                                         }`}>
                                         <img
                                             src={item.image}
@@ -144,7 +126,6 @@ const TeamSection = () => {
                         })}
                     </AnimatePresence>
                 </div>
-
                 {/* Next Button */}
                 <button
                     onClick={nextSlide}
@@ -154,10 +135,7 @@ const TeamSection = () => {
                     <FaChevronRight className="text-white text-xl" />
                 </button>
             </div>
-
-
         </section>
     );
 };
-
 export default TeamSection;
