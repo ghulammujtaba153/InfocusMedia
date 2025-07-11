@@ -7,15 +7,15 @@ const data = [
   },
   {
     title: "Marketing Campaign",
-    image: "/projects/35.png",
+    image: "/assets/event2.png",
   },
   {
     title: "EXPO Event Coverage",
-    image: "/projects/35.png",
+    image: "/assets/event3.png",
   },
   {
     title: "Brand Partnership",
-    image: "/projects/35.png",
+    image: "/assets/event4.png",
   },
 ]
 

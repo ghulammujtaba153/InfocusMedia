@@ -39,7 +39,7 @@ import axios from "axios";
 // ];
 
 const CaseStudies = () => {
-  const [visibleItems, setVisibleItems] = useState(3);
+  const [visibleItems, setVisibleItems] = useState(6);
   const [showAll, setShowAll] = useState(false);
 
   const [data, setData] = useState([])
