@@ -72,7 +72,7 @@ const TopSection = () => {
       <div className="flex flex-col items-center h-screen overflow-hidden gap-4">
         <video
           ref={videoRef}
-          src="/final.mp4"
+          src="/Final.mp4"
           className="w-full h-full object-cover"
           muted
           playsInline
