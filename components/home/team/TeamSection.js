@@ -1,141 +1,159 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Location from "./Location";
+
 const data = [
-  { image: "/assets/Team/image-4.png", occupation: "Founder & CEO", name: "Hassan Mohammad Al Najjar" },
-  { image: "/assets/Team/image-1.png", occupation: "Accountant", name: "Sami Ayyoub" },
-  { image: "/assets/Team/image-5.png", occupation: "Art Director", name: "Harry Hussin" },
-  { image: "/assets/Team/image-2.png", occupation: "Project Manager", name: "Reem Ramzi" },
-  { image: "/assets/Team/image-6.png", occupation: "Human Resources Manager", name: "Omnia Hassan" },
-  { image: "/assets/Team/image-9.png", occupation: "Content Manager", name: "Aysar Nourdine" },
-  { image: "/assets/Team/image-7.png", occupation: "Animation Team Lead", name: "Sohib Hesham" },
-  { image: "/assets/Team/image-8.png", occupation: "Social Media Manager", name: "Ahmed AlNajjar" },
-  { image: "/assets/Team/image-10.png", occupation: "Social Media Manager", name: "Haroorn Waheed" },
+  {
+    image: "/assets/Team/image-4.png",
+    occupation: "Founder & CEO",
+    name: "Hassan Mohammad Al Najjar",
+  },
+  {
+    image: "/assets/Team/image-1.png",
+    occupation: "Accountant",
+    name: "Sami Ayyoub",
+  },
+  {
+    image: "/assets/Team/image-5.png",
+    occupation: "Art Director",
+    name: "Harry Hussin",
+  },
+  {
+    image: "/assets/Team/image-2.png",
+    occupation: "Project Manager",
+    name: "Reem Ramzi",
+  },
+  {
+    image: "/assets/Team/image-6.png",
+    occupation: "Human Resources Manager",
+    name: "Omnia Hassan",
+  },
+  {
+    image: "/assets/Team/image-9.png",
+    occupation: "Content Manager",
+    name: "Aysar Nourdine",
+  },
+  {
+    image: "/assets/Team/image-7.png",
+    occupation: "Animation Team Lead",
+    name: "Sohib Hesham",
+  },
+  {
+    image: "/assets/Team/image-8.png",
+    occupation: "Social Media Manager",
+    name: "Ahmed AlNajjar",
+  },
+  {
+    image: "/assets/Team/image-10.png",
+    occupation: "Social Media Manager",
+    name: "Haroorn Waheed",
+  },
 ];
+
 const TeamSection = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const intervalRef = useRef(null);
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % data.length);
-    };
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
-    };
-    // Auto-play functionality
-    useEffect(() => {
-        intervalRef.current = setInterval(() => {
-            nextSlide();
-        }, 4000);
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-    }, []);
-    // Pause auto-play on hover
-    const handleMouseEnter = () => {
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-        }
-    };
-    const handleMouseLeave = () => {
-        intervalRef.current = setInterval(() => {
-            nextSlide();
-        }, 4000);
-    };
-    const getVisibleItems = () => {
-        const items = [];
-        const totalItems = data.length;
-        // Get 5 items centered around current index
-        for (let i = -2; i <= 2; i++) {
-            const index = (currentIndex + i + totalItems) % totalItems;
-            items.push({
-                ...data[index],
-                originalIndex: index,
-                position: i,
-            });
-        }
-        return items;
-    };
-    const visibleItems = getVisibleItems();
-    return (
-        <section className="relative bg-black text-white py-20 overflow-hidden">
-            <div className="container mx-auto px-6 text-center mb-16">
-                <h2 className="text-[40px] md:text-[64px] lg:text-[100px] font-bold mb-4">Meet The Team</h2>
-                
-            </div>
-            <div
-                className="relative flex items-center justify-center px-2"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                {/* Previous Button */}
-                <button
-                    onClick={prevSlide}
-                    className="cursor-pointer absolute left-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
-                    aria-label="Previous team member"
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % data.length);
+  const prevSlide = () =>
+    setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(nextSlide, 4000);
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  const handleMouseEnter = () => clearInterval(intervalRef.current);
+  const handleMouseLeave = () => {
+    intervalRef.current = setInterval(nextSlide, 4000);
+  };
+
+  const getVisibleItems = () => {
+    const totalItems = data.length;
+    return [-2, -1, 0, 1, 2].map((offset) => {
+      const index = (currentIndex + offset + totalItems) % totalItems;
+      return { ...data[index], position: offset, originalIndex: index };
+    });
+  };
+
+  const visibleItems = getVisibleItems();
+
+  return (
+    <section className="relative bg-black text-white py-20 overflow-hidden">
+      <div className="container mx-auto px-6 text-center mb-16">
+        <h2 className="text-[40px] md:text-[64px] lg:text-[100px] font-bold mb-4">
+          Meet The Team
+        </h2>
+      </div>
+
+      <div
+        className="relative flex items-center justify-center px-2"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className="cursor-pointer absolute left-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+          aria-label="Previous team member"
+        >
+          <FaChevronLeft className="text-white text-xl" />
+        </button>
+
+        {/* Carousel Container */}
+        <div className="flex gap-6 items-center justify-center w-full">
+          <AnimatePresence mode="wait">
+            {visibleItems.map((item) => {
+              const isCenter = item.position === 0;
+
+              return (
+                <motion.div
+                  key={`${item.originalIndex}-${currentIndex}`}
+                  initial={{ opacity: 0.6, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="flex flex-col items-center justify-center text-center"
                 >
-                    <FaChevronLeft className="text-white text-xl" />
-                </button>
-                {/* Carousel Container */}
-                <div className="flex gap-[5px] items-center justify-center w-full ">
-                    <AnimatePresence mode="wait">
-                        {visibleItems.map((item, idx) => {
-                            const isCenter = item.position === 0;
-                            const isFar = Math.abs(item.position) === 2 || Math.abs(item.position) === 3;
-                            return (
-                                <motion.div
-                                    key={`${item.originalIndex}-${currentIndex}`}
-                                    initial={{
-                                        opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : .6,
-                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : 0.9,
-                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 5 : 5
-                                    }}
-                                    animate={{
-                                        opacity: isFar ? 0.3 : Math.abs(item.position) === 1 ? 0.6 : 1,
-                                        scale: isFar ? 0.8 : Math.abs(item.position) === 1 ? 0.9 : 1.1,
-                                        y: isFar ? 20 : Math.abs(item.position) === 1 ? 5 : 5
-                                    }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: "easeInOut"
-                                    }}
-                                    className={`flex flex-col items-center justify-center text-center transition-all duration-500 ${isCenter ? 'z-10' : 'z-0'
-                                        }`}
-                                >
-                                    <div className={`relative rounded-2xl py-6 px-3 ${isCenter ? 'md:max-w-[500px] max-h-[500px] mt-[0px]' : Math.abs(item.position) === 1 ? 'max-w-[500px] max-h-[500px]' : 'max-w-[500px] max-h-[500px]'
-                                        }`}>
-                                        <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className={`rounded-full object-cover mx-auto mb-4 ${isCenter ? 'max-w-[250px] max-h-[250px] md:max-w-[414px] md:max-h-[414px]' : Math.abs(item.position) === 1 ? 'max-w-[230px] max-h-[230px] md:max-w-[350px] md:max-h-[350px] ' : 'max-w-[230px] max-h-[230px] md:max-w-[350px] md:max-h-[350px]'
-                                                }`}
-                                        />
-                                        <p className="text-sm  uppercase tracking-wider font-semibold mb-2">
-                                            {item.occupation}
-                                        </p>
-                                        <h3 className={`font-bold text-white ${isCenter ? 'text-2xl' : Math.abs(item.position) === 1 ? 'text-xl' : 'text-lg'
-                                            }`}>
-                                            {item.name}
-                                        </h3>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
-                </div>
-                {/* Next Button */}
-                <button
-                    onClick={nextSlide}
-                    className="cursor-pointer absolute right-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
-                    aria-label="Next team member"
-                >
-                    <FaChevronRight className="text-white text-xl" />
-                </button>
-            </div>
-        </section>
-    );
+                  <div className="relative rounded-2xl py-6 px-1 max-w-[500px]">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className={`rounded-full object-cover mx-auto mb-4 transition-all duration-500 ${
+                        isCenter
+                          ? "max-w-[300px] max-h-[300px] md:max-w-[450px] md:max-h-[450px]"
+                          : "max-w-[200px] max-h-[200px] md:max-w-[300px] md:max-h-[300px]"
+                      }`}
+                    />
+                    <p className="text-sm uppercase tracking-wider font-semibold mb-2">
+                      {item.occupation}
+                    </p>
+                    <h3
+                      className={`font-bold text-white ${
+                        isCenter ? "text-2xl" : "text-xl"
+                      }`}
+                    >
+                      {item.name}
+                    </h3>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="cursor-pointer absolute right-12 z-20 bg-white/10 backdrop-blur-md p-4 rounded-md hover:bg-white/20 transition-all duration-300"
+          aria-label="Next team member"
+        >
+          <FaChevronRight className="text-white text-xl" />
+        </button>
+      </div>
+    </section>
+  );
 };
+
 export default TeamSection;
