@@ -45,13 +45,13 @@ const SheikhCaseStudiesContainer = () => {
     <section className="relative">
 
       {/* Expertise section covers portrait first */}
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen w-full bg-white">
           <ExpertiseSection />
         </div>
 
       {/* Sticky Portrait Section */}
       <div className="sticky top-0 min-h-[130vh] w-full -z-10 ">
-        <div className="w-full h-full flex flex-col lg:flex-row items-center gap-10 bg-white">
+        <div className="w-full h-full flex flex-col-reverse lg:flex-row items-center gap-10 bg-white">
           <div className="w-full lg:w-1/2 min-h-screen">
             <img src="/assets/portrait.png" alt="Portrait" className="h-full w-full object-contain" />
           </div>

@@ -37,7 +37,7 @@ const WorkSection = () => {
   ];
 
   return (
-    <section className="relative bg-white py-40">
+    <section className="relative bg-white py-40 px-4">
       <div className=" md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-[40px] md:text-[64px] font-bold mb-6">
@@ -46,7 +46,7 @@ const WorkSection = () => {
         </div>
 
         <div
-          className="grid grid-cols-2 lg:grid-cols-7 w-full items-center justify-center gap-8"
+          className="grid grid-cols-2 lg:grid-cols-7 w-full items-center justify-items-center gap-8"
           onMouseLeave={() => setHoveredIndex(null)} 
         >
           {services.map((service, index) => (

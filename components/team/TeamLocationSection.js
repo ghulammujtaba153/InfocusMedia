@@ -5,12 +5,12 @@ const TeamLocationSection = () => {
     <div className="flex items-center lg:flex-row flex-col gap-4 px-4 w-full min-h-screen">
       {/* left side */}
       <div className="flex flex-col justify-between p-10 bg-black text-white h-screen w-full lg:w-1/2">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 leading-[.97]">
           <h1 className="font-bold md:text-[80px] text-[54px]">Join</h1>
           <h1 className="font-bold md:text-[80px] text-[54px]">Our Team</h1>
         </div>
         <div className="flex flex-col gap-4">
-          <p className="text-[16px] md:text-[18px] lg:text-[22px] font-semibold uppercase">
+          <p className="text-[16px] md:text-[18px] lg:text-[22px] font-semibold uppercase leading-[1.2]">
             we’re always on the lookout for brilliant minds and bold ideas.
             check out our vacancies and apply for the one that suits you best!
           </p>
@@ -22,7 +22,7 @@ const TeamLocationSection = () => {
         </div>
       </div>
 
-      <div className=" w-full  relative overflow-hidden h-screen ">
+      <div className=" w-full lg:w-1/2 relative overflow-hidden h-screen ">
 
         <img src="/image.png" className="w-full h-full object-cover" alt="map" />
 

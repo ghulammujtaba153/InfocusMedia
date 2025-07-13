@@ -69,7 +69,7 @@ const CaseStudies = () => {
       setVisibleItems(data.length);
       setShowAll(true);
     } else {
-      setVisibleItems(3);
+      setVisibleItems(6);
       setShowAll(false);
     }
   };
@@ -116,14 +116,15 @@ const CaseStudies = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        {data.length > visibleItems && 
+          <div className="text-center mt-10">
           <button
             onClick={handleSeeMore}
             className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
           >
             {showAll ? "Show Less" : "See More"}
           </button>
-        </div>
+        </div>}
       </div>
     </section>
   );

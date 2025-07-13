@@ -14,9 +14,9 @@ const LocationSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
 
-        <img src="/image-contact.png" className="w-full h-screen object-cover" alt="map" />
+        <img src="/assets/contact-image.png" className="w-full h-screen object-cover" alt="map" />
 
-        =
+        
       </div>
   )
 }
