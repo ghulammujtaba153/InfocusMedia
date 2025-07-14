@@ -19,12 +19,13 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="relative">
+        {/* 👇 Fixed background layer for mix-blend-difference to work */}
+        {/* <div className="fixed inset-0 z-0 bg-red" /> */}
+
         <AuthProvider>
-          <ParallaxWrapper>
             <Navbar />
             {children}
-          </ParallaxWrapper>
         </AuthProvider>
       </body>
     </html>

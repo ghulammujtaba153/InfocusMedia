@@ -8,30 +8,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// const data = {
-//   title: "Title 1",
-//   subTitle: "Educating the World About COVID-19 with the Ministry of Health and Prevention",
-//   description: "At the onset of the unprecedented COVID-19 pandemic, relevant organizations, especially healthcare institutions, faced a significant challenge: to save as many lives as possible with their limited resources in the aftermath of this crisis, in addition to educating the public about this unfamiliar virus.",
-//   image: "/assets/expertise/image1.png",
-// }
 
-const others = [
-  {
-    title: "Title 1",
-    description: "This is the first case study description.",
-    image: "/assets/expertise/image1.png",
-  },
-  {
-    title: "Title 2",
-    description: "This is the second case study description.",
-    image: "/assets/expertise/image2.png",
-  },
-  {
-    title: "Title 3",
-    description: "This is the third case study description.",
-    image: "/assets/expertise/image3.png",
-  },
-];
 
 const Page = () => {
   const { id } = useParams(); // Correct usage
@@ -80,11 +57,20 @@ const Page = () => {
         {data.title}
       </h2>
 
-      <img
+      <video
+  controls
+  className="w-full h-[242px] md:h-[486px] lg:h-[840px] object-cover transition-all duration-300 group-hover:blur-sm"
+>
+  <source src={data.video} type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+      {/* <img
         src={data.image}
         alt={data.title}
         className="w-full h-[242px] md:h-[486px] lg:h-[840px] object-cover mt-4"
-      />
+      /> */}
 
       <div className="flex md:flex-row flex-col justify-between gap-10 mt-6">
         <p className="font-bold text-[32px] md:text-[40px] w-1/2">
@@ -105,6 +91,7 @@ const Page = () => {
           <div key={index} className="flex flex-col">
             {/* Image Wrapper with Hover Group */}
             <div className="relative group overflow-hidden">
+              
               <img
                 src={item.image}
                 alt={item.title}

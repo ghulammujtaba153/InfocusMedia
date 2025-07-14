@@ -2,7 +2,7 @@ import React from "react";
 
 const BuilderSection = () => {
   return (
-    <div data-bg="light"  className="bg-white w-full h-screen px-8 py-20 flex md:flex-row flex-col justify-between gap-8">
+    <div data-bg="light"  className="bg-white w-full h-screen px-8 py-20 flex md:flex-row flex-col items-left justify-between gap-8">
       <div className="md:w-1/2 md:sticky md:top-20 flex flex-col self-start">
         <h1 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-black leading-tight">
           WE ARE
@@ -12,7 +12,7 @@ const BuilderSection = () => {
         </h1>
       </div>
 
-      <div className="md:w-1/2 h-full flex flex-col justify-between p-4 sub-heading">
+      <div className="md:w-1/2 h-full flex flex-col justify-between md:p-4 sub-heading">
         <p className="text-black text-[16px] md:text-[18px] lg:text-[22px] leading-tight">
           Our stories are distinctive, and our content captures the essence of
           our community with clarity and depth. We champion an open-door policy
@@ -22,7 +22,7 @@ const BuilderSection = () => {
           collective growth.
         </p>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mt-[80px] md:mt-1">
           <h2 className=" font-bold text-[16px] md:text-[18px] lg:text-[22px] text-black leading-tight uppercase">
             Our approach to planning is proactive and reflective, as we
             continuously assess ourselves and cultivate a cohesive team that

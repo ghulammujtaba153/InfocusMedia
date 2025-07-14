@@ -53,16 +53,22 @@ const MembersSection = () => {
     <div className="flex flex-col w-full px-6 py-20">
       <div className="flex flex-col items-center justify-center w-full relative">
         {/* Shadow wrapper */}
-        <div
-          className="absolute w-[400px] h-[400px] rounded-full z-0 pointer-events-none"
-          style={{
-            top: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            boxShadow:
-              "0 -20px 30px -10px rgba(255, 255, 0, 0.6), 0 20px 30px -10px rgba(0, 128, 0, 0.5)",
-          }}
-        />
+       <div
+  className="absolute w-[400px] h-[400px] rounded-full z-0 pointer-events-none"
+  style={{
+    top: 0,
+    left: "50%",
+    transform: "translateX(-50%)",
+    boxShadow: `
+      20px 0 40px -5px rgba(0, 128, 0, 0.6),     /* Green shadow on right */
+      25px 0 40px -10px rgba(255, 255, 0, 0.5),  /* Yellow shadow on right */
+      0 -15px 25px -10px rgba(255, 255, 0, 0.4), /* Top yellow glow */
+      0 15px 25px -10px rgba(0, 128, 0, 0.4)     /* Bottom green glow */
+    `,
+  }}
+/>
+
+
 
         {/* Image */}
         <div className="relative w-[400px] h-[400px] rounded-full overflow-hidden z-10">

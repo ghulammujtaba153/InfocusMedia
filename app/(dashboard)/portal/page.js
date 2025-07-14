@@ -6,6 +6,10 @@ import axios from "axios";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import Loader from "@/components/Loader";
 
+
+
+
+
 const Page = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,7 +58,7 @@ const Page = () => {
         {data.slice(0, visibleItems).map((item) => (
           <div key={item._id} className="flex flex-col  overflow-hidden shadow  max-h-[330px]">
             <div className="flex items-center justify-between p-2">
-              <p className="bg-green-400 text-green-900 px-4 py-1 rounded-full text-sm">Published</p>
+              
               <div className="flex gap-4 mt-2">
                 <Link
                   href={`/case-study/${item._id}`}
@@ -72,6 +76,7 @@ const Page = () => {
             </div>
 
             <div className="relative group">
+              
               <img
                 src={item.image}
                 alt={item.title}

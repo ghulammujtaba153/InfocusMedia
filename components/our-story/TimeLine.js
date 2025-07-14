@@ -57,7 +57,7 @@ const TimeLine = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full bg-white overflow-hidden px-4 md:px-8 py-20"
+      className="hidden lg:block relative w-full bg-white overflow-hidden px-4 md:px-8 py-20"
     >
       <div ref={timelineRef} className="flex min-w-max">
         {timelineData.map((item, index) => {
@@ -116,6 +116,10 @@ const TimeLine = () => {
         })}
       </div>
     </div>
+
+
+    
+  
   );
 };
 

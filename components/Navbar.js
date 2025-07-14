@@ -101,6 +101,7 @@ const Navbar = () => {
         ref={navbarRef}
         className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all"
       >
+        
         <div className="w-[240px] transition-colors duration-300">
           <Link href={"/"}>
             <img
@@ -114,6 +115,18 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="flex items-center justify-center gap-4">
+
+          
+          {/* <div className="relative isolate z-10">
+          <h2 className="text-white font-bold text-2xl mix-blend-difference">
+            Test
+          </h2> 
+        </div>
+        */}
+
+
+
+
           <button className={`p-2 rounded-sm transition cursor-pointer bg-black text-white`}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path

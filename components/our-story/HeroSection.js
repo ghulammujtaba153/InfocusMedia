@@ -72,7 +72,7 @@ const HeroSection = () => {
         <img
           src="/story-img1.png"
           alt="Green Blob"
-          className="absolute bottom-0 left-0 w-full h-full md:object-cover z-0"
+          className="absolute bottom-0 left-0 w-full h-1/2 md:h-full object-cover z-0"
         />
 
         {/* Left Stats */}

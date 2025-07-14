@@ -16,20 +16,20 @@ const TransformGlobe = () => {
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const sectionHeight = rect.height;
 
-      const isVisible = rect.top <= windowHeight && rect.bottom >= 0;
+      const sectionBottom = rect.bottom - sectionHeight / 2;
 
-      if (!isVisible) {
-        video.currentTime = 0;
-        return;
-      }
+      // Animation progress: 0 when section just enters, 1 when it reaches center
+      const scrollProgress = 1 - sectionBottom / windowHeight;
 
-      const scrollProgress = 1 - rect.top / windowHeight;
+      console.log("scrollProgress", scrollProgress);
       const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+      const easedProgress = Math.pow(clampedProgress, 0.6);
 
       const minTime = 0;
-      const maxTime = 4;
-      video.currentTime = minTime + clampedProgress * (maxTime - minTime);
+      const maxTime = 5;
+      video.currentTime = minTime + easedProgress * (maxTime - minTime);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +57,7 @@ const TransformGlobe = () => {
 
       {/* Text Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20 transition-opacity duration-300 opacity-100">
-        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase text-black text-center mb-4 uppercase">
+        <p className="md:text-[18px] text-[16px] lg:text-[22px] font-bold uppercase text-black text-center mb-4">
           WE donot see brands, we see possiblities
         </p>
 

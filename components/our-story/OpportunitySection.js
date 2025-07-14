@@ -4,9 +4,9 @@ const OpportunitySection = () => {
   return (
     <div className="bg-[#FAFAFA] w-full min-h-[850px] px-[5%] py-20 flex flex-col gap-16">
       {/* Title */}
-      <div className="text-center leading-[0.95]">
-        <h1 className="text-2xl md:text-[64px] font-bold">Unlocking opportunities</h1>
-        <h1 className="text-xl md:text-[64px] font-semibold mt-2">
+      <div className="text-center leading-[.99]">
+        <h1 className="text-[40px] md:text-[64px] font-bold">Unlocking opportunities</h1>
+        <h1 className="text-[40px] md:text-[64px] font-bold ">
           through strategic partnership
         </h1>
       </div>

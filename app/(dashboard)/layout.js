@@ -2,21 +2,36 @@
 
 import { useState } from "react";
 import Sidebar from "@/components/(dashboard)/Sidebar";
-import { AuthProvider } from "@/context/AuthContext"; // ✅ wrap CMS pages with auth
+import { AuthProvider } from "@/context/AuthContext";
 
 export default function CMSLayout({ children }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  const collapsedWidth = 80; // 20 (Tailwind spacing unit) * 4px = 80px
+  const expandedWidth = 336; // 84 (Tailwind spacing unit) * 4px = 336px
+
   return (
     <html lang="en">
-      <body>
+      <body className="h-screen overflow-hidden">
         <AuthProvider>
-          <div className="flex min-h-screen ">
-            <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+          <div className="flex h-screen w-full">
+            {/* Fixed Sidebar */}
+            <div
+              className={`fixed top-0 left-0 h-full z-50 transition-all duration-300 ${
+                isCollapsed ? "w-20" : "w-84"
+              }`}
+            >
+              <Sidebar
+                isCollapsed={isCollapsed}
+                setIsCollapsed={setIsCollapsed}
+              />
+            </div>
+
+            {/* Main Content */}
             <main
-              className={`transition-all duration-300 p-6 overflow-y-auto ${
-                isCollapsed ? "ml-20" : "ml-4"
-              } w-full`}
+              className={`ml-20 transition-all duration-300 overflow-y-auto w-full px-6 py-4 ${
+                isCollapsed ? `ml-[80px]` : `ml-[336px]`
+              }`}
             >
               {children}
             </main>

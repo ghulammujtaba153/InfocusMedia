@@ -38,7 +38,7 @@ const EventCoverage = () => {
           <React.Fragment key={index}>
             <div className='w-full h-[1px] bg-gray-100 my-6'></div>
 
-            <div className='flex flex-col flex-col-reverse md:flex-row gap-6 w-full'>
+            <div className='flex flex-col-reverse md:flex-row gap-6 w-full'>
               {/* Text */}
               <div className='md:w-1/4 w-full flex md:justify-end'>
                 <div className='flex gap-10 md:gap-0 md:flex-col  md:text-right text-left'>

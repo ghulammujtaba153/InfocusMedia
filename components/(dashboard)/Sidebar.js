@@ -42,45 +42,51 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0  h-screen bg-white border-r border-gray-200 shadow-md flex flex-col p-4 z-40 transition-all duration-300
-        ${isCollapsed ? "w-20" : "w-84"}
-        ${isMobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
-        md:static md:block`}
+        className={`fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-md z-40 transition-all duration-300
+        flex flex-col justify-between
+        ${isCollapsed ? "w-20" : "w-64"}
+        ${isMobileOpen ? "translate-x-0" : "-translate-x-full"} 
+        md:translate-x-0 md:static md:block`}
       >
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          {!isCollapsed && <span className="font-bold text-xl">CMS</span>}
-          <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-2 rounded hover:bg-gray-100 transition hidden md:block"
-          >
-            {isCollapsed ? <FiMenu size={22} /> : <FiX size={22} />}
-          </button>
-        </div>
-
-        {/* Navigation */}
-        <div className="flex flex-col gap-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="flex items-center gap-3 text-black text-base hover:font-semibold hover:translate-x-1 transition-transform"
-              onClick={() => setIsMobileOpen(false)} // Close on mobile nav click
+        {/* Sidebar Content */}
+        <div className="p-4 overflow-y-auto flex-grow">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-8">
+            {!isCollapsed && <span className="font-bold text-xl">CMS</span>}
+            <button
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="p-2 rounded hover:bg-gray-100 transition hidden md:block"
             >
-              {item.icon}
-              {!isCollapsed && <span>{item.label}</span>}
-            </Link>
-          ))}
+              {isCollapsed ? <FiMenu size={22} /> : <FiX size={22} />}
+            </button>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex flex-col gap-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center gap-3 text-black text-base hover:font-semibold hover:translate-x-1 transition-transform"
+                onClick={() => setIsMobileOpen(false)} // Close sidebar on mobile
+              >
+                {item.icon}
+                {!isCollapsed && <span>{item.label}</span>}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Logout */}
-        <button
-          onClick={handleLogout}
-          className="mt-auto absolute bottom-2  flex items-center gap-2 bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition"
-        >
-          <FiLogOut size={18} />
-          {!isCollapsed && <span>Logout</span>}
-        </button>
+        <div className="p-4 border-t border-gray-100">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition w-full justify-center"
+          >
+            <FiLogOut size={18} />
+            {!isCollapsed && <span>Logout</span>}
+          </button>
+        </div>
       </div>
     </>
   );

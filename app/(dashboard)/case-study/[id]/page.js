@@ -8,6 +8,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
 import Loader from "@/components/Loader";
+import Notification from "@/components/Notification";
 import {
   FaBold,
   FaItalic,
@@ -20,8 +21,8 @@ import {
   FaImage,
   FaArrowLeft,
 } from "react-icons/fa";
+import { MdVideoLibrary } from "react-icons/md";
 
-// Toolbar Button with Icon
 const ToolbarButton = ({ onClick, isActive, icon: Icon, label }) => (
   <button
     type="button"
@@ -36,10 +37,24 @@ const ToolbarButton = ({ onClick, isActive, icon: Icon, label }) => (
 const Page = () => {
   const { id } = useParams();
   const router = useRouter();
-  const [data, setData] = useState({ title: "", description: "", content: "", image: "" });
+
+  const [data, setData] = useState({
+    title: "",
+    description: "",
+    content: "",
+    image: "",
+    video: "",
+  });
+
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const [notification, setNotification] = useState({ message: "", type: "" });
+
+  const showNotification = (message, type = "success") => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification({ message: "", type: "" }), 3000);
+  };
 
   const editor = useEditor({
     extensions: [StarterKit, Link, TextAlign.configure({ types: ["heading", "paragraph"] })],
@@ -61,9 +76,11 @@ const Page = () => {
     },
   });
 
-  const handleInputChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
+  const handleInputChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
-  const handleFileUpload = async (e) => {
+  const handleFileUpload = async (e, type = "image") => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -73,9 +90,11 @@ const Page = () => {
     try {
       setUploading(true);
       const res = await axios.post("/api/upload", formData);
-      setData((prev) => ({ ...prev, image: res.data.url }));
+      setData((prev) => ({ ...prev, [type]: res.data.url }));
+      showNotification(`${type === "image" ? "Image" : "Video"} uploaded successfully`);
     } catch {
-      setError("Image upload failed");
+      setError(`${type === "image" ? "Image" : "Video"} upload failed`);
+      showNotification(`${type === "image" ? "Image" : "Video"} upload failed`, "error");
     } finally {
       setUploading(false);
     }
@@ -86,10 +105,11 @@ const Page = () => {
     setLoading(true);
     try {
       await axios.patch(`/api/update-case`, { ...data, id });
+      showNotification("Case study updated successfully");
       router.push("/portal");
-      alert("Case study updated successfully!");
     } catch {
       setError("Failed to update case study");
+      showNotification("Failed to update case study", "error");
     } finally {
       setLoading(false);
     }
@@ -99,14 +119,19 @@ const Page = () => {
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
+      {notification.message && (
+        <Notification message={notification.message} type={notification.type} />
+      )}
+
       <div className="flex items-center gap-2 mb-6 cursor-pointer text-black hover:text-gray-700" onClick={() => window.history.back()}>
-              <FaArrowLeft size={20} />
-              <span className="font-medium">Back</span>
-            </div>
+        <FaArrowLeft size={20} />
+        <span className="font-medium">Back</span>
+      </div>
 
       <h2 className="text-3xl font-bold mb-6">Update Case Study</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Title */}
         <div>
           <label className="block mb-2 font-medium">Title</label>
           <input
@@ -115,11 +140,11 @@ const Page = () => {
             value={data.title}
             onChange={handleInputChange}
             className="w-full p-3 border rounded focus:ring-2 focus:ring-black"
-            placeholder="Enter case study title"
             required
           />
         </div>
 
+        {/* Description */}
         <div>
           <label className="block mb-2 font-medium">Description</label>
           <textarea
@@ -127,11 +152,11 @@ const Page = () => {
             value={data.description}
             onChange={handleInputChange}
             className="w-full p-3 border rounded focus:ring-2 focus:ring-black"
-            placeholder="Enter a short description"
             rows={3}
           />
         </div>
 
+        {/* Content */}
         <div>
           <label className="block mb-2 font-medium">Content</label>
           <div className="flex gap-2 mb-3 flex-wrap">
@@ -157,19 +182,40 @@ const Page = () => {
           </div>
         </div>
 
+        {/* Image Upload */}
         <div>
           <label className="block mb-2 font-medium">Upload Image</label>
           <div className="flex items-center gap-3">
             <label className="flex items-center gap-2 cursor-pointer bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition">
               <FaImage />
               <span>Choose Image</span>
-              <input type="file" onChange={handleFileUpload} className="hidden" />
+              <input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, "image")} className="hidden" />
             </label>
             {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
           </div>
           {data.image && (
             <div className="mt-3">
-              <img src={data.image} alt="Uploaded preview" className="h-32 rounded shadow" />
+              <img src={data.image} alt="Uploaded" className="h-32 rounded shadow" />
+            </div>
+          )}
+        </div>
+
+        {/* Video Upload */}
+        <div>
+          <label className="block mb-2 font-medium">Upload Video</label>
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2 cursor-pointer bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition">
+              <MdVideoLibrary />
+              <span>Choose Video</span>
+              <input type="file" accept="video/*" onChange={(e) => handleFileUpload(e, "video")} className="hidden" />
+            </label>
+            {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
+          </div>
+          {data.video && (
+            <div className="mt-3">
+              <video controls className="w-full max-w-md rounded shadow">
+                <source src={data.video} type="video/mp4" />
+              </video>
             </div>
           )}
         </div>

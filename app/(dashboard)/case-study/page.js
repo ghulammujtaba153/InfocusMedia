@@ -18,8 +18,9 @@ import {
   FaArrowLeft,
   FaImage,
 } from "react-icons/fa";
+import { MdVideoLibrary } from "react-icons/md";
+import Notification from "@/components/Notification";
 
-// Toolbar Button Component with Icon
 const ToolbarButton = ({ onClick, isActive, icon: Icon, label }) => (
   <button
     type="button"
@@ -39,10 +40,17 @@ const CaseStudyPage = () => {
     description: "",
     content: "",
     image: "",
+    video: "",
   });
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const [notification, setNotification] = useState({ message: "", type: "" });
+
+  const showNotification = (message, type = "success") => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification({ message: "", type: "" }), 3000);
+  };
 
   const editor = useEditor({
     extensions: [
@@ -60,7 +68,7 @@ const CaseStudyPage = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleFileUpload = async (e) => {
+  const handleFileUpload = async (e, type = "image") => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -70,10 +78,12 @@ const CaseStudyPage = () => {
     try {
       setUploading(true);
       const res = await axios.post("/api/upload", formData);
-      setData((prev) => ({ ...prev, image: res.data.url }));
+      setData((prev) => ({ ...prev, [type]: res.data.url }));
+      showNotification(`${type === "image" ? "Image" : "Video"} uploaded successfully!`);
       setError("");
     } catch {
-      setError("Image upload failed");
+      setError(`${type === "image" ? "Image" : "Video"} upload failed`);
+      showNotification(`${type === "image" ? "Image" : "Video"} upload failed`, "error");
     } finally {
       setUploading(false);
     }
@@ -84,9 +94,11 @@ const CaseStudyPage = () => {
     setLoading(true);
     try {
       await axios.post("/api/create", data);
+      showNotification("Case study submitted successfully!");
       setError("");
     } catch {
       setError("Submission failed");
+      showNotification("Submission failed", "error");
     } finally {
       setLoading(false);
     }
@@ -94,7 +106,14 @@ const CaseStudyPage = () => {
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
-      <div className="flex items-center gap-2 mb-6 cursor-pointer text-black hover:text-gray-700" onClick={() => window.history.back()}>
+      {notification.message && (
+        <Notification message={notification.message} type={notification.type} />
+      )}
+
+      <div
+        className="flex items-center gap-2 mb-6 cursor-pointer text-black hover:text-gray-700"
+        onClick={() => window.history.back()}
+      >
         <FaArrowLeft size={20} />
         <span className="font-medium">Back</span>
       </div>
@@ -102,6 +121,7 @@ const CaseStudyPage = () => {
       <h2 className="text-3xl font-bold mb-6">Create Case Study</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Title */}
         <div>
           <label className="block mb-2 font-medium">Title</label>
           <input
@@ -115,6 +135,7 @@ const CaseStudyPage = () => {
           />
         </div>
 
+        {/* Description */}
         <div>
           <label className="block mb-2 font-medium">Description</label>
           <textarea
@@ -127,6 +148,7 @@ const CaseStudyPage = () => {
           />
         </div>
 
+        {/* Content */}
         <div>
           <label className="block mb-2 font-medium">Content</label>
           <div className="flex gap-2 mb-3 flex-wrap">
@@ -152,13 +174,14 @@ const CaseStudyPage = () => {
           </div>
         </div>
 
+        {/* Image Upload */}
         <div>
           <label className="block mb-2 font-medium">Upload Image</label>
           <div className="flex items-center gap-3">
             <label className="flex items-center gap-2 cursor-pointer bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition">
               <FaImage />
               <span>Choose Image</span>
-              <input type="file" onChange={handleFileUpload} className="hidden" />
+              <input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, "image")} className="hidden" />
             </label>
             {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
           </div>
@@ -169,8 +192,31 @@ const CaseStudyPage = () => {
           )}
         </div>
 
+        {/* Video Upload */}
+        <div>
+          <label className="block mb-2 font-medium">Upload Video</label>
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2 cursor-pointer bg-gray-100 px-3 py-2 rounded hover:bg-gray-200 transition">
+              <MdVideoLibrary />
+              <span>Choose Video</span>
+              <input type="file" accept="video/*" onChange={(e) => handleFileUpload(e, "video")} className="hidden" />
+            </label>
+            {uploading && <p className="text-sm text-gray-500">Uploading...</p>}
+          </div>
+          {data.video && (
+            <div className="mt-3">
+              <video controls className="w-full max-w-md rounded shadow">
+                <source src={data.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+        </div>
+
+        {/* Error */}
         {error && <p className="text-red-500">{error}</p>}
 
+        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}

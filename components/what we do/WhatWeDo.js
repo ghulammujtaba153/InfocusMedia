@@ -41,6 +41,11 @@ const WhatWeDo = () => {
       icon: "/what-we-do/branding.png",
     },
     {
+      title: "",
+      description: "",
+      icon: "",
+    },
+    {
       title: "ANIMATION & MOTION GRAPHICS",
       description: "We turn ideas into powerfull motion content ",
       icon: "/what-we-do/animation.png",
@@ -67,7 +72,7 @@ const WhatWeDo = () => {
 
   return (
     <section className="relative bg-black text-white py-20">
-      <div className="container mx-auto px-6">
+      <div className="w-full px-6">
         <div className="text-center mb-16">
           <h2 className="text-[40px] md:text-[64px] lg:text-[64px] font-bold mb-6">
             What We Do
@@ -85,13 +90,14 @@ const WhatWeDo = () => {
             const isLastCol = (index + 1) % columns === 0;
             const isLastItem = index === services.length - 1;
             const isAloneInRow = services.length % columns !== 0 && isLastItem;
+            const isSecondLastItem = index === services.length - 2;
 
             return (
               <div
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={`
-        flex lg:flex-row flex-col gap-8 p-6 justify-center items-center lg:items-start transition duration-300 sub-heading
+        flex lg:flex-row flex-col gap-8 p-6 items-center lg:items-start transition duration-300 sub-heading
         ${
           hoveredIndex !== null && hoveredIndex !== index
             ? "opacity-30"
@@ -100,16 +106,16 @@ const WhatWeDo = () => {
         ${!isFirstRow ? "border-t" : ""}
         ${!isFirstCol ? "border-l" : ""}
         ${!isLastCol ? "border-r" : ""}
-        ${isAloneInRow ? "justify-self-center" : ""}
+        ${isAloneInRow ? "" : ""}
         border-gray-50/20
       `}
               >
                 <div className="flex lg:flex-col justify-between h-full ">
-                  <img
+                  {service.icon && <img
                     src={service.icon}
                     alt={service.title}
                     className="w-[80px] h-[80px] md:w-[96px] md:h-[96px] lg:w-[116px] lg:h-[116px] hover:scale-110 transition-transform duration-300"
-                  />
+                  />}
                 </div>
                 <div className="flex lg:flex-col  h-full">
                   <h3 className="font-bold mb-2 mt-1 text-[16px] md:text-[18px] lg:text-[22px] px-1">

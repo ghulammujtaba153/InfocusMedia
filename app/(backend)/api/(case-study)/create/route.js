@@ -8,7 +8,9 @@ export async function POST(request) {
   try {
     await connectDB();
 
-    const { title, description, content, image } = await request.json();
+    const { title, description, content, image, video } = await request.json();
+
+    console.log(title, description, content, image, video);
 
     // Basic validation (optional but recommended)
     if (!title || !description || !content) {
@@ -16,7 +18,7 @@ export async function POST(request) {
     }
 
     // Create the case study
-    const caseStudy = await CaseStudy.create({ title, description, content, image });
+    const caseStudy = await CaseStudy.create({ title, description, content, image, video });
 
     return NextResponse.json(
       { message: "Case study stored successfully", caseStudy },

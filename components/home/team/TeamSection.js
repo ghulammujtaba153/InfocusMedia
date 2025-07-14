@@ -72,7 +72,7 @@ const TeamSection = () => {
 
   const getVisibleItems = () => {
     const totalItems = data.length;
-    return [-2, -1, 0, 1, 2].map((offset) => {
+    return [-3, -2, -1, 0, 1, 2, 3].map((offset) => {
       const index = (currentIndex + offset + totalItems) % totalItems;
       return { ...data[index], position: offset, originalIndex: index };
     });

@@ -15,31 +15,27 @@ const InsightGlobe = () => {
     video.pause();
 
     const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const sectionHeight = rect.height;
 
-      const isVisible = rect.top <= windowHeight && rect.bottom >= 0;
+  const sectionBottom = rect.bottom - sectionHeight / 2;
 
-      if (!isVisible) {
-        video.currentTime = 0;
-        setShowStartText(true);
-        return;
-      }
+  // Progress: 0 when section just enters, 1 when centered
+  const scrollProgress = 1 - sectionBottom / windowHeight;
+  const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
 
-      const scrollProgress = 1 - rect.top / windowHeight;
-      const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+  const easedProgress = Math.pow(clampedProgress, 0.6); // easing scroll
 
-      const minTime = 0;
-      const maxTime = 4;
-      video.currentTime = minTime + clampedProgress * (maxTime - minTime);
+  const minTime = 0;
+  const maxTime = 5;
 
-      // Toggle text around halfway point
-      if (clampedProgress < 0.5) {
-        setShowStartText(true);
-      } else {
-        setShowStartText(false);
-      }
-    };
+  // Reverse playback
+  video.currentTime = maxTime - easedProgress * (maxTime - minTime);
+};
+
+
+    
 
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // run on mount

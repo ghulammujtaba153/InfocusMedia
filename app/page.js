@@ -22,6 +22,7 @@ export default function Home() {
     <div className="w-full">
       
       <HeroSection/>
+     
       
       <TopSection/> 
       <WorkSection/>

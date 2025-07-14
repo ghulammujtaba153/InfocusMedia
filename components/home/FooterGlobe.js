@@ -16,30 +16,24 @@ const FooterGlobe = () => {
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-
-      // Calculate progress as section enters viewport
-      const sectionVisible =
-        rect.top <= windowHeight && rect.bottom >= 0;
-
-      if (!sectionVisible) {
-        // If section is completely out of view
-        video.currentTime = 0;
-        return;
-      }
-
       const sectionHeight = rect.height;
-      const scrollProgress = 1 - (rect.top / windowHeight); // progress from 0 to 1 as it scrolls into view
+
+      const sectionBottom = rect.bottom - sectionHeight / 2;
+
+      // Animation progress: 0 when section just enters, 1 when it reaches center
+      const scrollProgress = 1 - sectionBottom / windowHeight;
+
+      console.log("scrollProgress", scrollProgress);
       const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+      const easedProgress = Math.pow(clampedProgress, 0.6);
 
       const minTime = 0;
-      const maxTime = 4;
-      video.currentTime = minTime + clampedProgress * (maxTime - minTime);
+      const maxTime = 5;
+      video.currentTime = minTime + easedProgress * (maxTime - minTime);
     };
 
-    console.log("Video time :", video.currentTime, "Video duration:", video.duration);
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Trigger once on mount
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

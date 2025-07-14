@@ -25,7 +25,7 @@ const MotionGraphics = () => {
   return (
     <div className="flex flex-col w-full px-6 my-8">
       {/* Grid layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-b border-gray-200">
+      <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-b border-gray-200">
         {data.slice(0, visibleCount).map((item, index) => {
           const isEven = index % 2 === 0;
 
