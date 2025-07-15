@@ -15,69 +15,63 @@ const TopSection = () => {
     const section = sectionRef.current;
     const video = videoRef.current;
 
-    if (!section || !video) return;
+    if (!video || !section) return;
 
-    const playVideo = () => {
-      video.currentTime = 0;
-      video.play().catch(error => {
-        console.error("Video play error:", error);
-      });
-    };
+    // Load video metadata before measuring duration
+    const handleLoadedData = () => {
+      setIsVideoLoaded(true);
 
-    const pauseVideo = () => {
-      video.pause();
-    };
+      requestAnimationFrame(() => {
+        const videoDuration = video.duration || 6;
 
-    // Try to play immediately on load (for mobile devices)
-    const tryAutoPlay = () => {
-      video.muted = true;
-      video.play()
-        .then(() => {
-          video.pause();
-          video.currentTime = 0;
-          setIsVideoLoaded(true);
-        })
-        .catch(error => {
-          console.log("Autoplay prevented, will rely on scroll trigger");
-          setIsVideoLoaded(true);
+        video.pause();
+        video.currentTime = 0;
+
+        gsap.set(video, { currentTime: 0 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=3000",
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            id: "top-globe",
+            // markers: true, // uncomment for debugging
+          },
         });
+
+        tl.to(video, {
+          currentTime: videoDuration,
+          ease: "none"
+        });
+      });
     };
 
-    tryAutoPlay();
+    video.addEventListener("loadeddata", handleLoadedData);
 
-    // Only set up ScrollTrigger after video is ready
-    if (isVideoLoaded) {
-      const trigger = ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom", // Triggers when top of section hits bottom of viewport
-        end: "bottom top", // Ends when bottom of section hits top of viewport
-        onEnter: playVideo,
-        onLeave: pauseVideo,
-        onEnterBack: playVideo,
-        onLeaveBack: pauseVideo,
-        markers: false // Add this for debugging, remove in production
-      });
-
-      return () => {
-        trigger.kill();
-      };
-    }
-  }, [isVideoLoaded]);
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData);
+      ScrollTrigger.getById("top-globe")?.kill();
+    };
+  }, []);
 
   return (
-    <div
-      ref={sectionRef}
-      className="relative w-full h-screen overflow-hidden bg-white"
-    >
-      <div className="flex flex-col items-center h-screen overflow-hidden gap-4">
+    <div className="relative w-full">
+      <section
+        ref={sectionRef}
+        className="relative h-screen bg-white overflow-hidden"
+        style={{ zIndex: 1 }}
+      >
+        {/* Scroll-controlled video */}
         <video
           ref={videoRef}
           src="/Final.mp4"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           muted
           playsInline
           preload="auto"
-          onLoadedData={() => setIsVideoLoaded(true)}
         />
 
         {/* Overlay */}
@@ -94,7 +88,9 @@ const TopSection = () => {
             and our vision soars high
           </p>
         </div>
-      </div>
+      </section>
+
+      
     </div>
   );
 };

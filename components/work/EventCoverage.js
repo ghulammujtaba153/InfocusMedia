@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 
 const data = [
   {
-    title: "7X x Sikka Collaboration",
+    title: "EHS",
     image: "/projects/35.png",
   },
   {
-    title: "Marketing Campaign",
+    title: "Dhubai Culture",
     image: "/assets/event2.png",
   },
   {
-    title: "EXPO Event Coverage",
+    title: "EHE",
     image: "/assets/event3.png",
   },
   {
-    title: "Brand Partnership",
+    title: "DPC Emirati Content Creator",
     image: "/assets/event4.png",
   },
 ]

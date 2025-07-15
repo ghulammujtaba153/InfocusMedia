@@ -63,29 +63,37 @@ export const socialMediaData = [
 
 export const animationData = [
   {
-    title: "7X x Sikka Collaboration",
+    title: "7x",
     image: [
-      "/projects/25.png",
-      "/projects/26.png",
-      "/projects/27.png",
+      "/assets/work-animation/animation1.png",
+      "/assets/work-animation/animation2.png",
+      "/assets/work-animation/animation10.png",
       
     ],
   },
   {
-    title: "Marketing Campaign",
+    title: "DMC",
     image: [
-      "/projects/31.png",
-      "/projects/32.png",
-      "/projects/33.png",
+      "/assets/work-animation/animation3.png",
+      "/assets/work-animation/animation4.png",
+      "/assets/work-animation/animation10.png",
       
     ],
   },
   {
-    title: "EXPO Event Coverage",
+    title: "MOF",
     image: [
-      "/projects/34.png",
-      "/projects/34.png",
-      "/projects/34.png",
+      "/assets/work-animation/animation5.png",
+      "/assets/work-animation/animation6.png",
+      "/assets/work-animation/animation10.png",
+    ],
+  },
+  {
+    title: "AlGhadeer",
+    image: [
+      "/assets/work-animation/animation7.png",
+      "/assets/work-animation/animation8.png",
+      "/assets/work-animation/animation9.png",
     ],
   },
   

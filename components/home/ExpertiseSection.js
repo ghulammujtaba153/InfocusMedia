@@ -43,7 +43,7 @@ const ExpertiseSection = () => {
   }, [displayText, isDeleting, currentWord, words]);
 
   return (
-    <section className="absolute top-0 bg-white pt-20">
+    <section className="absolute top-0 w-full bg-white pt-20">
       <div className=" w-full overflow-hidden">
         <div className="text-center mb-16">
           <h2 className="text-[40px] md:text-[64px] font-bold mb-6">
@@ -51,8 +51,8 @@ const ExpertiseSection = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row bg-red-500  items-center justify-center w-full overflow-hidden">
-          <div className="w-full md:w-1/3 h-screen">
+        <div className="flex flex-col lg:flex-row   items-center justify-center w-full overflow-hidden">
+          <div className="w-full lg:w-1/3 h-screen">
             <video
               src="/expertise-animations/Visuals.mp4"
               className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-screen">
+          <div className="w-full lg:w-1/3 h-screen">
             <video
               src="/expertise-animations/Animation2.mp4"
               className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ const ExpertiseSection = () => {
               playsInline
             />
           </div>
-          <div className="w-full md:w-1/3 h-screen">
+          <div className="w-full lg:w-1/3 h-screen">
             <video
               src="/expertise-animations/Production.mp4"
               className="w-full h-full object-cover"
