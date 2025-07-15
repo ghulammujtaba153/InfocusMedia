@@ -11,7 +11,7 @@ const HeroSection = () => {
       {/* Center Content */}
       <div
         data-bg="dark"
-        className="flex flex-col h-[700px] items-center justify-center text-center z-10"
+        className="flex flex-col h-[700px] items-center justify-center text-center z-10 px-2"
       >
         <div
           data-bg="dark"

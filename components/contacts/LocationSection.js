@@ -2,7 +2,7 @@ import React from 'react'
 
 const LocationSection = () => {
   return (
-    <div className="flex-1 w-full h-screen relative overflow-hidden">
+    <div className="flex-1 w-full h-[60%]   relative overflow-hidden">
         {/* If using Google Maps iframe, uncomment this and remove the image */}
         {/* <iframe
           src="https://www.google.com/maps/embed?... your URL ..."
@@ -14,7 +14,7 @@ const LocationSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
 
-        <img src="/assets/contact-image.png" className="w-full h-screen object-cover" alt="map" />
+        <img src="/assets/contact-image.png" className="w-full h-full object-cover" alt="map" />
 
         
       </div>

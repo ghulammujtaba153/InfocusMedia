@@ -97,7 +97,7 @@ const WhatWeDo = () => {
                 key={index}
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={`
-        flex lg:flex-row flex-col gap-8 p-6 items-center lg:items-start transition duration-300 sub-heading
+        flex lg:flex-row flex-col gap-3 lg:gap-8 p-6  items-start transition duration-300 sub-heading
         ${
           hoveredIndex !== null && hoveredIndex !== index
             ? "opacity-30"

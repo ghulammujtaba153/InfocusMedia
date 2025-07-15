@@ -111,19 +111,19 @@ export default function HeroSection() {
       </div>
 
       {/* md Screens */}
-      <div className="hidden md:flex lg:hidden min-h-[120vh] py-10 bg-white flex-col justify-start">
-        <div className="mt-40 flex justify-center">
-          <h1 className="text-[30vw] font-bold text-black rotate-90 leading-none">
+      <div className="hidden md:flex lg:hidden min-h-[220vh] py-10 bg-white flex-col justify-start">
+        <div className="mt-[46vh] flex justify-center">
+          <h1 className="text-[55vw] font-bold text-black rotate-90 leading-none">
             Infocus Media <span className="text-[3vw] align-super">®</span>
           </h1>
         </div>
       </div>
 
       {/* sm Screens */}
-      <div className="md:hidden min-h-[210vh]  bg-white flex flex-col justify-start">
-        <div className="mt-40 flex justify-center">
+      <div className="md:hidden min-h-[340vh]  bg-white flex flex-col justify-start">
+        <div className="mt-[65vh] flex justify-center">
           <div className="transform rotate-90 origin-center -translate-y-[-144vw]">
-            <h1 className="text-[58vw] font-bold text-black whitespace-nowrap">
+            <h1 className="text-[100vw] font-bold text-black whitespace-nowrap">
               Infocus Media <span className="text-[15vw] align-super">®</span>
             </h1>
           </div>

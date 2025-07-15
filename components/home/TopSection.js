@@ -53,7 +53,8 @@ const TopSection = () => {
 
     return () => {
       video.removeEventListener("loadeddata", handleLoadedData);
-      ScrollTrigger.getById("top-globe")?.kill();
+      
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 

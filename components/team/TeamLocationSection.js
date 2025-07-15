@@ -4,7 +4,7 @@ const TeamLocationSection = () => {
   return (
     <div className="flex items-center lg:flex-row flex-col gap-4 px-4 w-full min-h-screen">
       {/* left side */}
-      <div className="flex flex-col justify-between p-10 bg-black text-white h-screen w-full lg:w-1/2">
+      <div className="flex flex-col justify-between p-10 bg-black text-white h-[60%] lg:h-screen w-full lg:w-1/2">
         <div className="flex flex-col gap-2 leading-[.97]">
           <h1 className="font-bold md:text-[80px] text-[54px]">Join</h1>
           <h1 className="font-bold md:text-[80px] text-[54px]">Our Team</h1>
@@ -22,7 +22,7 @@ const TeamLocationSection = () => {
         </div>
       </div>
 
-      <div className=" w-full lg:w-1/2 relative overflow-hidden h-screen ">
+      <div className="w-full h-[60%] lg:h-screen lg:w-1/2 relative overflow-hidden ">
 
         <img src="/image.png" className="w-full h-full object-cover" alt="map" />
 

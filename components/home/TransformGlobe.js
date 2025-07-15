@@ -8,57 +8,42 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TransformGlobe = () => {
   const videoRef = useRef(null);
-  const sectionRef = useRef(null);
-  const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const section = sectionRef.current;
-
-    if (!video || !section) return;
-
-    const handleLoaded = () => {
-      setVideoReady(true);
-
-      requestAnimationFrame(() => {
-        const videoDuration = video.duration || 5;
-
-        video.pause();
-        video.currentTime = 0;
-        gsap.set(video, { currentTime: 0 });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=2000",
-            scrub: 1,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            id: "transform-globe",
-            // markers: true, // enable for debug
-          },
-        });
-
-        tl.to(video, {
-          currentTime: videoDuration,
-          ease: "none",
-        });
-      });
-    };
-
-    video.addEventListener("loadeddata", handleLoaded);
-
-    return () => {
-      video.removeEventListener("loadeddata", handleLoaded);
-      ScrollTrigger.getById("transform-globe")?.kill();
-    };
-  }, []);
+    const sectionRef = useRef(null);
+  
+    useEffect(() => {
+      const video = videoRef.current;
+      const section = sectionRef.current;
+      if (!video || !section) return;
+  
+      video.pause();
+  
+      const handleScroll = () => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionHeight = rect.height;
+  
+        const sectionBottom = rect.bottom - sectionHeight / 2;
+  
+        // Animation progress: 0 when section just enters, 1 when it reaches center
+        const scrollProgress = 1 - sectionBottom / windowHeight;
+  
+        console.log("scrollProgress", scrollProgress);
+        const clampedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+        const easedProgress = Math.pow(clampedProgress, 0.6);
+  
+        const minTime = 0;
+        const maxTime = 5;
+        video.currentTime = minTime + easedProgress * (maxTime - minTime);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+  
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
   return (
-    <div className="relative w-full">
+    
       <section
         ref={sectionRef}
         className="relative h-screen bg-white overflow-hidden"
@@ -96,7 +81,7 @@ const TransformGlobe = () => {
           </p>
         </div>
       </section>
-    </div>
+    
   );
 };
 

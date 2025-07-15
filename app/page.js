@@ -34,9 +34,17 @@ export default function Home() {
         <SheikhCaseStudiesContainer />
       </div>
 
-      <TransformGlobe/>
+
+      <div className="relative">
+        <TransformGlobe/>
+
+      </div>
+
       
-      <InsightGlobe/>
+      <div className="relative">
+        <InsightGlobe/>
+      </div>
+      
       
       <TeamSection/>
       <Location/>

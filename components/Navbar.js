@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-
 const menuItems = [
   { name: "HOME", href: "/" },
   { name: "OUR STORY", href: "/story" },
@@ -22,7 +21,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isDarkBg, setIsDarkBg] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const pathname = usePathname();
 
   const navbarRef = useRef(null);
@@ -44,24 +43,26 @@ const Navbar = () => {
     };
   }, []);
 
-
-
   useEffect(() => {
-    // List of paths where the navbar should be hidden
-    const hiddenPaths = ["/portal", "/users", "/profile", "/cms", "/case-study", "/case-study/[id]"];
+    const hiddenPaths = [
+      "/portal",
+      "/users",
+      "/profile",
+      "/cms",
+      "/case-study",
+      "/case-study/[id]",
+    ];
 
     const shouldHide = hiddenPaths.some((path) => pathname.startsWith(path));
-
     setIsVisible(!shouldHide);
   }, [pathname]);
 
   if (!isVisible) return null;
 
-
-  
-
   const iconColor = menuOpen || isDarkBg ? "white" : "black";
   const bgColor = menuOpen ? "bg-black" : "bg-gray-100";
+  const iconColor1 = menuOpen || isDarkBg ? "black" : "white";
+  const bgColor1 = menuOpen ? "bg-white" : "bg-black";
 
   return (
     <>
@@ -82,7 +83,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`transition-colors duration-200 md:text-[32px] text-[40x] lg:text-[74px] ${
+                className={`transition-colors duration-200 md:text-[32px] text-[40px] lg:text-[74px] ${
                   hoveredIndex !== null && hoveredIndex !== index
                     ? "text-white/30"
                     : "text-white hover:text-gray-300"
@@ -100,7 +101,7 @@ const Navbar = () => {
         ref={navbarRef}
         className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all"
       >
-        
+        {/* Logo */}
         <div className="w-[240px] transition-colors duration-300">
           <Link href={"/"}>
             <img
@@ -114,42 +115,60 @@ const Navbar = () => {
 
         {/* Icons */}
         <div className="flex items-center justify-center gap-4">
-
-          
-          <div className="relative isolate z-10">
-          <h2 className="text-white font-bold text-2xl mix-blend-difference">
-            Test
-          </h2> 
-        </div>
-       
-
-
-
-
-          <button className={`p-2 rounded-sm transition cursor-pointer bg-black text-white`}>
+          {/* Custom Icon Button (example placeholder) */}
+          <button
+            className={`p-2 rounded-sm transition cursor-pointer ${bgColor1} text-white`}
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M21 3H3V16H6.6V21L12.45 16.7368H21V3Z"
-                stroke="white"
+                stroke={iconColor1}
                 strokeWidth="2"
               />
             </svg>
           </button>
 
+          {/* Hamburger / Close Icon */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
             className={`p-2 rounded-sm transition cursor-pointer ${bgColor}`}
           >
             {menuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <line x1="3" y1="3" x2="21" y2="21" stroke={iconColor} strokeWidth="3" />
-                <line x1="3" y1="21" x2="21" y2="3" stroke={iconColor} strokeWidth="3" />
+                <line
+                  x1="3"
+                  y1="3"
+                  x2="21"
+                  y2="21"
+                  stroke={iconColor}
+                  strokeWidth="3"
+                />
+                <line
+                  x1="3"
+                  y1="21"
+                  x2="21"
+                  y2="3"
+                  stroke={iconColor}
+                  strokeWidth="3"
+                />
               </svg>
             ) : (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <line y1="4" x2="24" y2="4" stroke={iconColor} strokeWidth="3" />
-                <line y1="12" x2="24" y2="12" stroke={iconColor} strokeWidth="3" />
-                <line y1="20" x2="24" y2="20" stroke={iconColor} strokeWidth="3" />
+                <line
+                  y1="12"
+                  x2="24"
+                  y2="12"
+                  stroke={iconColor}
+                  strokeWidth="3"
+                />
+                <line
+                  y1="20"
+                  x2="24"
+                  y2="20"
+                  stroke={iconColor}
+                  strokeWidth="3"
+                />
               </svg>
             )}
           </button>

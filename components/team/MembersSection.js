@@ -50,7 +50,7 @@ const data = [
 
 const MembersSection = () => {
   return (
-    <div className="flex flex-col w-full px-6 py-20">
+    <div className="flex flex-col w-full px-2 py-20">
       <div className="flex flex-col items-center justify-center w-full relative">
         {/* Shadow wrapper */}
        <div
