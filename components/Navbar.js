@@ -50,7 +50,6 @@ const Navbar = () => {
     // List of paths where the navbar should be hidden
     const hiddenPaths = ["/portal", "/users", "/profile", "/cms", "/case-study", "/case-study/[id]"];
 
-    // Check if the current pathname matches any of the hidden paths
     const shouldHide = hiddenPaths.some((path) => pathname.startsWith(path));
 
     setIsVisible(!shouldHide);
@@ -117,12 +116,12 @@ const Navbar = () => {
         <div className="flex items-center justify-center gap-4">
 
           
-          {/* <div className="relative isolate z-10">
+          <div className="relative isolate z-10">
           <h2 className="text-white font-bold text-2xl mix-blend-difference">
             Test
           </h2> 
         </div>
-        */}
+       
 
 
 

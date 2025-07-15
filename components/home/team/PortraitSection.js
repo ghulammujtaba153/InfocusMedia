@@ -51,11 +51,11 @@ const SheikhCaseStudiesContainer = () => {
       {/* Sticky Portrait Section */}
       <div className="sticky sm:top-0 sm:min-h-[400vh] lg:min-h-[130vh] w-full -z-10 ">
         <div className="w-full h-full flex flex-col-reverse lg:flex-row lg:items-center  gap-10 bg-white">
-          <div className="w-full md:w-1/2 h-auto md:h-screen flex items-left justify-start">
+          <div className="w-full md:w-1/2 md:h-full h-auto flex items-left justify-start">
             <img
               src="/assets/portrait.png"
               alt="Portrait"
-              className="w-full h-auto object-contain"
+              className="w-full md:h-full h-auto object-contain"
             />
           </div>
 
@@ -79,6 +79,37 @@ const SheikhCaseStudiesContainer = () => {
           </div>
         </div>
       </div>
+
+      {/* <div className=" sm:hidden flex flex-col items-end justify-end  min-h-[240vh] w-full -z-10 ">
+        <div className="w-full h-full flex flex-col-reverse  gap-10 bg-white">
+          <div className="w-full h-auto md:h-screen flex items-left justify-start">
+            <img
+              src="/assets/portrait.png"
+              alt="Portrait"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+          <div className="w-full text-black font-bandeins-strange px-2 text-center lg:text-left text-[40px] md:text-[64px] lg:text-[100px] leading-[.95]">
+            <h1 className="text-green-500 font-bold leading-[.99]">“</h1>
+            <h1 className="font-bold">The future</h1>
+            <h1 className="font-bold">belongs to those</h1>
+            <h1 className="font-bold">
+              who can <span className="text-green-500">{displayText}</span>
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+                className="text-green-500"
+              >
+                |
+              </motion.span>
+            </h1>
+            <p className="font-bold text-[22px] leading-6 uppercase mt-6">
+              H.H. Sheikh Mohammed bin Rashid Al Maktoum
+            </p>
+          </div>
+        </div>
+      </div> */}
 
       {/* Foreground Sections */}
       <div className="relative z-10">

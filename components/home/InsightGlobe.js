@@ -32,7 +32,7 @@ const InsightGlobe = () => {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=3000",
+            end: "+=2000",
             scrub: 1,
             pin: true,
             pinSpacing: true,
