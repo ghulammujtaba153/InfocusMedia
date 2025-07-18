@@ -40,38 +40,30 @@ const Footer = () => {
           </div>
           
 
-          <div className="flex w-full lg:flex-row md:text-right flex-col gap-2 sub-heading">
-            <p className="cursor-pointer text-[14px] md:text-[14px] lg:text-[16px] hover:underline uppercase">Terms & Conditions</p>
-            <p className="cursor-pointer text-[14px] md:text-[14px] lg:text-[16px] hover:underline uppercase">Privacy Policy</p>
-          </div>
+          
 
         </div>
 
         {/* Social Icons */}
         <div className="flex w-full  justify-between md:justify-between lg:justify-end text-right items-center gap-8 text-gray-800">
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
+          <a href="https://www.facebook.com/profile.php?id=100086315396682" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-black">
             <img src="/socialIcons/facebook.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/X.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/linkedin.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/instagram.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/tt.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/vimo.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-          <Link href="#" aria-label="Facebook" className="hover:text-black">
-            <img src="/socialIcons/utube.png" alt="Facebook" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
-          </Link>
-
-          
+          </a>
+          <a href="https://x.com/InfocusSocial" target="_blank" rel="noopener noreferrer" aria-label="X" className="hover:text-black">
+            <img src="/socialIcons/X.png" alt="X" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
+          </a>
+          <a href="https://www.linkedin.com/company/infocusmediaae/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-black">
+            <img src="/socialIcons/linkedin.png" alt="LinkedIn" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
+          </a>
+          <a href="https://www.instagram.com/infocusmedia.ae/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-black">
+            <img src="/socialIcons/instagram.png" alt="Instagram" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
+          </a>
+          <a href="https://vimeo.com/user182454438" target="_blank" rel="noopener noreferrer" aria-label="Vimeo" className="hover:text-black">
+            <img src="/socialIcons/vimo.png" alt="Vimeo" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCdzHgFXTO11YiaU4LuUCplQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-black">
+            <img src="/socialIcons/utube.png" alt="YouTube" className="w-[18px] h-[18px] md:w-[24px] md:h-[24px]" />
+          </a>
         </div>
       </div>
     </section>

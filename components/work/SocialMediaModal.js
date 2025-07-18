@@ -41,7 +41,7 @@ const SocialMediaModal = ({ images, currentIndex, onClose }) => {
             {/* Next Button */}
             <button
               onClick={nextImage}
-              className="text-white cursor-pointer rounded-md px-2 py-2 bg-black hover:scale-110 transition-transform"
+              className="text-white hover:bg-transparent hover:text-black cursor-pointer rounded-md px-2 py-2 bg-black hover:scale-110 transition-transform"
             >
               <FaChevronRight className="text-white text-xl" />
             </button>

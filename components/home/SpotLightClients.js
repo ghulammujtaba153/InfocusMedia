@@ -88,7 +88,7 @@ const SpotLightClients = () => {
         <ClientRow clients={row3} reverse={false} duration={8} />
 
         <div className="text-center mt-10">
-          <Link href="/clients" className='bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]'>
+          <Link href="/clients" className='bg-black hover:bg-transparent hover:text-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium text-[16px] md:text-[18px] lg:text-[22px]'>
             See All
           </Link>
         </div>

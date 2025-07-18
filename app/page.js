@@ -41,9 +41,9 @@ export default function Home() {
       </div>
 
       
-      <div className="relative">
+      {/* <div className="relative">
         <InsightGlobe/>
-      </div>
+      </div> */}
       
       
       <TeamSection/>

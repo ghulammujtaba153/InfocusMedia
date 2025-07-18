@@ -14,7 +14,9 @@ const LocationSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe> */}
 
+        <a href="https://maps.app.goo.gl/cWRBwXFomTUYaeYs9" target="_blank" rel="noopener noreferrer">
         <img src="/assets/contact-image.png" className="w-full h-full object-cover" alt="map" />
+        </a>
 
         
       </div>

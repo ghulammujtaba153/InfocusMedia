@@ -70,27 +70,38 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center gap-2 text-2xl sm:text-3xl md:text-5xl font-bold z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-sm text-white flex flex-col items-center justify-center gap-2 text-2xl sm:text-3xl md:text-5xl font-bold z-40"
           >
             {menuItems.map((item, index) => (
-              <Link
+              <motion.div
                 key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className={`transition-colors duration-200 md:text-[32px] text-[40px] lg:text-[74px] ${
-                  hoveredIndex !== null && hoveredIndex !== index
-                    ? "text-white/30"
-                    : "text-white hover:text-gray-300"
-                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: "easeOut",
+                  delay: index * 0.1 
+                }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className={`transition-all duration-300 md:text-[32px] text-[40px] lg:text-[74px] ${
+                    hoveredIndex !== null && hoveredIndex !== index
+                      ? "text-white/30 scale-95"
+                      : "text-white hover:text-gray-300 hover:scale-105"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
           </motion.div>
         )}
@@ -116,7 +127,8 @@ const Navbar = () => {
         {/* Icons */}
         <div className="flex items-center justify-center gap-4">
           {/* Custom Icon Button (example placeholder) */}
-          <button
+          <Link
+            href={"/contacts"}
             className={`p-2 rounded-sm transition cursor-pointer ${bgColor1} text-white`}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -126,7 +138,7 @@ const Navbar = () => {
                 strokeWidth="2"
               />
             </svg>
-          </button>
+          </Link>
 
           {/* Hamburger / Close Icon */}
           <button

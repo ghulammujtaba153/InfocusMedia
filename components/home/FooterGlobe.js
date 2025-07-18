@@ -71,7 +71,7 @@ const FooterGlobe = () => {
         </div>
 
         <div className="text-center mt-4">
-          <button className="bg-black text-[16px] md:text-[18px] lg:text-[22px] text-white px-4 py-2 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
+          <button className="bg-black hover:bg-transparent hover:text-black text-[16px] md:text-[18px] lg:text-[22px] text-white px-4 py-2 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium">
             let's Go
           </button>
         </div>

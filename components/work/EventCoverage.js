@@ -66,7 +66,7 @@ const EventCoverage = () => {
         <div className='flex justify-center items-center mt-10'>
         <button
           onClick={handleToggle}
-          className="bg-black text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
+          className="bg-black hover:bg-transparent hover:text-black  text-white px-6 py-3 cursor-pointer hover:scale-105 transition-transform duration-300 rounded-md font-medium"
         >
           {visibleCount >= data.length ? "See Less" : "See More!"}
         </button>
